@@ -1,0 +1,17 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 1rem;
+  color: #e41a1f;
+  z-index: 101;
+  pointer-events: none;
+}
+.header > button {
+  pointer-events: all;
+}

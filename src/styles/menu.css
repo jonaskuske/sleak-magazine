@@ -1,0 +1,36 @@
+.menu {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #e41a1f;
+  color: #fff;
+  display: none;
+  z-index: 100;
+}
+.menu--open {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu__nav {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Abril Fatface", cursive;
+}
+.menu__list > li {
+  width: 100%;
+  text-align: center;
+  font-size: 90px;
+}
+.menu__image {
+  width: 5rem;
+}

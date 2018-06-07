@@ -1,0 +1,93 @@
+.article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.article::before {
+  content: "";
+  height: 100px;
+  position: absolute;
+  background-color: #e41a1f;
+  transform: translateY(-100%);
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.article::after {
+  content: "";
+  height: 100px;
+}
+.article__text,
+.article__teaser,
+.article__author,
+.article__image {
+  max-width: 37%;
+}
+.article__image--fullwidth {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: cover;
+}
+.article__header {
+  width: 100%;
+  color: #e41a1f;
+  position: sticky;
+  top: 0;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.article:first-of-type .article__header {
+  background-color: transparent;
+}
+.article__number {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  margin: 0;
+  font-family: "Abril Fatface", cursive;
+  font-size: 90px;
+  transform: translateY(7px);
+}
+.article__title {
+  font-family: "Bebas Neue", "Lato", sans-serif;
+  font-weight: normal;
+  font-size: 56px;
+  margin: 0;
+}
+.article__teaser {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.article__teaser-text {
+  font-size: 40px;
+}
+.article__teaser-text::before {
+  content: "»";
+}
+.article__teaser-text::after {
+  content: "«";
+}
+.article__teaser-author {
+  font-size: 16px;
+}
+.article__text,
+.article__subtitle {
+  text-align: left;
+}
+.article__subtitle {
+  font-family: "Abril Fatface", cursive;
+  color: #e41a1f;
+  font-size: 50px;
+  max-width: 54%;
+}
