@@ -1,20 +1,60 @@
 {
   "name": "sleak-magazine",
+  "private": true,
   "version": "1.0.0",
   "description": "Website for German design magazine \"sleak\"",
-  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "parcel src/index.html -p 8080",
+    "dev": "npm run serve",
+    "build": "parcel build src/index.html",
+    "lint": "eslint ./ --fix"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jonaskuske/sleak-magazine.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jonas Kuske",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jonaskuske/sleak-magazine/issues"
   },
-  "homepage": "https://github.com/jonaskuske/sleak-magazine#readme"
+  "homepage": "https://github.com/jonaskuske/sleak-magazine#readme",
+  "devDependencies": {
+    "autoprefixer": "^8.6.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "parcel-bundler": "^1.8.1",
+    "parcel-plugin-clean-dist": "0.0.6",
+    "prettier": "1.13.4"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie > 9",
+    "> 1%"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": true
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018
+    }
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "dist/"
+  ]
 }
