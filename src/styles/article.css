@@ -11,7 +11,7 @@
   height: 100px;
   position: absolute;
   background-color: #e41a1f;
-  transform: translateY(-100%);
+  /* transform: translateY(-100%); */
   top: 0;
   left: 0;
   width: 100%;
@@ -19,6 +19,10 @@
 .article::after {
   content: "";
   height: 100px;
+}
+.article,
+.article__header {
+  mix-blend-mode: hard-light;
 }
 .article__text,
 .article__teaser,
@@ -44,7 +48,7 @@
   padding: 0 1rem;
   box-sizing: border-box;
 }
-.article:first-of-type .article__header {
+.article:first-of-type::before {
   background-color: transparent;
 }
 .article__number {
