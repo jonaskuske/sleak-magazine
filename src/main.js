@@ -1,5 +1,6 @@
 import './styles';
 import smoothscroll from 'smoothscroll-polyfill';
+import './load';
 smoothscroll.polyfill();
 
 // IE workaround
