@@ -5,6 +5,7 @@
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
     "serve": "parcel src/index.html -p 8080",
+    "start": "npm run serve",
     "dev": "npm run serve",
     "build": "parcel build src/index.html",
     "lint": "eslint ./ --fix"
@@ -32,7 +33,8 @@
   },
   "dependencies": {
     "jquery": "^3.3.1",
-    "normalize.css": "^8.0.0"
+    "normalize.css": "^8.0.0",
+    "smoothscroll-polyfill": "^0.4.3"
   },
   "browserslist": [
     "last 2 versions",

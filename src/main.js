@@ -1,4 +1,6 @@
 import './styles';
+import smoothscroll from 'smoothscroll-polyfill';
+smoothscroll.polyfill();
 
 // IE workaround
 if (!NodeList.prototype.forEach)
