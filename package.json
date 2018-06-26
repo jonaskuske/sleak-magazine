@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
-    "serve": "parcel src/index.html -p 8080 && cp -rf ./src/articles ./dist/articles",
+    "copy": "mkdir -p ./dist/articles && cp -rf ./src/articles/* ./dist/articles/",
+    "serve": "npm run copy && parcel src/index.html -p 8080",
     "start": "npm run serve",
     "dev": "npm run serve",
-    "build": "parcel build src/index.html && cp -rf ./src/articles ./dist/articles",
+    "build": "npm run copy && parcel build src/index.html",
     "lint": "eslint ./ --fix"
   },
   "repository": {
