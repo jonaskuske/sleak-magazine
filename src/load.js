@@ -1,6 +1,19 @@
 import $ from 'jquery';
 import 'intersection-observer';
-const articles = [{ name: 'test' }, { name: 'antarktis' }, { name: '' }];
+const articles = [
+  { name: 'seemann' },
+  { name: 'graffiti' },
+  { name: 'apollo' },
+  { name: 'kunst' },
+  { name: 'nachbar' },
+  { name: 'medien' },
+  { name: 'stern' },
+  { name: 'melanka' },
+  { name: 'österreich' },
+  { name: 'antarktis' },
+  { name: 'ki' },
+  { name: 'bertram' },
+];
 
 const insertToDom = article => {
   const { name } = article;
@@ -28,12 +41,21 @@ const callback = function(entries, observer) {
     }
   });
 };
-const observer = new IntersectionObserver(callback);
-// const antarktis = document.querySelector('#antarktis');
-// console.log(antarktis);
-// observer.observe(antarktis);
-
-const articleList = ['seemann', 'graffiti', 'apollo', 'kunst', ''];
-articleList.forEach(article =>
-  observer.observe(document.getElementById(article)),
+const articleObserver = new IntersectionObserver(callback);
+const articleList = [
+  'seemann',
+  'graffiti',
+  'apollo',
+  'kunst',
+  'nachbar',
+  'medien',
+  'stern',
+  'melanka',
+  'österreich',
+  'antarktis',
+  'ki',
+  'bertram',
+];
+articleList.forEach(articleId =>
+  articleObserver.observe(document.getElementById(articleId)),
 );

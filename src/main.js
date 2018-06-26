@@ -1,5 +1,6 @@
 import './styles';
 import smoothscroll from 'smoothscroll-polyfill';
+console.log(smoothscroll);
 import './load';
 smoothscroll.polyfill();
 
