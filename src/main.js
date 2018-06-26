@@ -10,6 +10,17 @@ const hamburger = document.querySelector('.js-hamburger');
 const menu = document.querySelector('.js-menu');
 const menuItems = document.querySelectorAll('.js-menu__item');
 const main = document.querySelector('.js-main');
+const articleNumbers = document.querySelectorAll('.article__number');
+const articleList = document.querySelector('.article-list');
+
+const show = el => (el.style.display = 'block');
+const hide = el => (el.style.display = 'none');
+
+const showArticleList = () => show(articleList);
+
+articleNumbers.forEach(el => el.addEventListener('click', showArticleList));
+
+articleList.addEventListener('click', () => hide(articleList));
 
 // scroll to content when clicking on splashscreen
 splash.addEventListener('click', () => {

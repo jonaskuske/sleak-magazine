@@ -21,16 +21,17 @@
   },
   "homepage": "https://github.com/jonaskuske/sleak-magazine#readme",
   "devDependencies": {
-    "autoprefixer": "^8.6.0",
+    "autoprefixer": "^8.6.3",
     "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "parcel-bundler": "^1.8.1",
+    "parcel-bundler": "^1.9.2",
     "parcel-plugin-clean-dist": "0.0.6",
     "prettier": "1.13.4"
   },
   "dependencies": {
+    "jquery": "^3.3.1",
     "normalize.css": "^8.0.0"
   },
   "browserslist": [
