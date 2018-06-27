@@ -1,8 +1,7 @@
 import './styles';
-import smoothscroll from 'smoothscroll-polyfill';
-console.log(smoothscroll);
-import './load';
-smoothscroll.polyfill();
+import './utils/polyfills';
+import loadArticle from './load-article';
+import './article-selection';
 
 // IE workaround
 if (!NodeList.prototype.forEach)
@@ -46,3 +45,5 @@ function closeMenu() {
   menu.classList.remove('menu--open');
   document.body.classList.remove('no-overflow');
 }
+
+window.loadArticle = loadArticle;
