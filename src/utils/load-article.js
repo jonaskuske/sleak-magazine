@@ -56,7 +56,7 @@ const loadArticle = (article, options = {}) => {
 };
 
 function startScrollObserver() {
-  // Artikel laden, falls Observer eine Veränderung & Artikel sichtbar
+  // Artikel laden, falls Observer eine Veränderung meldet & Artikel sichtbar
   const handleVisibilityChange = entries => {
     entries.forEach(entry => {
       const article = findArticle(entry.target.id);

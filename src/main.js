@@ -22,7 +22,7 @@ splash.addEventListener('click', () => {
 
 // Menü durch Hamburger-Button togglen
 hamburger.addEventListener('click', toggleMenu);
-// Menü nach klick auf beliebiges Menüelement schließen
+// Menü nach Klick auf beliebiges Menüelement schließen
 menuItems.forEach(item => item.addEventListener('click', closeMenu));
 
 function toggleMenu() {
