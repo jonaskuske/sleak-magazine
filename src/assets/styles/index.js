@@ -1,11 +1,12 @@
+/* Externes CSS */
 import 'normalize.css';
 import './hamburgers.css';
 
-/* Own CSS files - add new ones here */
+/* Eigenes CSS - neue Dateien hier hinzufügen */
 import './index.css';
 import './splash.css';
 import './header.css';
 import './menu.css';
-import './articlelist.css';
 import './article.css';
+import './article-selection.css';
 import './utilities.css';

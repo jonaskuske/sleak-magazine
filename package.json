@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
-    "copy": "mkdir -p ./dist/articles && cp -rf ./src/articles/* ./dist/articles/",
-    "serve": "npm run copy && parcel src/index.html -p 8080",
     "start": "npm run serve",
     "dev": "npm run serve",
-    "build": "npm run copy && parcel build src/index.html",
+    "serve": "npm run copy:articles && parcel index.html -p 8080",
+    "build": "npm run copy:articles && parcel build index.html",
+    "copy:articles": "mkdir -p ./dist/articles && cp -rf ./src/articles/* ./dist/articles/",
     "lint": "eslint ./ --fix"
   },
   "repository": {
@@ -33,10 +33,11 @@
     "prettier": "1.13.4"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "intersection-observer": "^0.5.0",
-    "jquery": "^3.3.1",
     "normalize.css": "^8.0.0",
-    "smoothscroll-polyfill": "^0.4.3"
+    "smoothscroll-polyfill": "^0.4.3",
+    "whatwg-fetch": "^2.0.4"
   },
   "browserslist": [
     "last 2 versions",
