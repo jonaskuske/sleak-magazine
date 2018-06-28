@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Abril');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url(../fonts/BebasNeue.otf);
+}
+html, body {
+  font-size: 17px;
+  scroll-behavior: smooth;
+}
+body, input, button, label, p {
+  font-family: Lato, sans-serif;
+}
+a {
+  text-decoration: none;
+  color: currentColor;
+}

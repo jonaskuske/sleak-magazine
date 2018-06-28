@@ -1,37 +1,28 @@
-import './styles';
+import './assets/styles';
 import './utils/polyfills';
-import loadArticle from './load-article';
 import './article-selection';
 
-// IE workaround
-if (!NodeList.prototype.forEach)
-  NodeList.prototype.forEach = Array.prototype.forEach;
+import { $ } from './utils';
+import { startScrollObserver } from './utils/load-article';
 
-// HTML elements
-const splash = document.querySelector('.js-splash');
-const hamburger = document.querySelector('.js-hamburger');
-const menu = document.querySelector('.js-menu');
-const menuItems = document.querySelectorAll('.js-menu__item');
-const main = document.querySelector('.js-main');
-const articleNumbers = document.querySelectorAll('.article__number');
-const articleList = document.querySelector('.article-list');
+// Startet Observer, um Artikel nachzuladen, wenn Ende der Seite erreicht wird
+startScrollObserver();
 
-const show = el => (el.style.display = 'block');
-const hide = el => (el.style.display = 'none');
+// HTML Elemente
+const splash = $('.js-splash')[0];
+const main = $('.js-main')[0];
+const hamburger = $('.js-hamburger')[0];
+const menu = $('.js-menu')[0];
+const menuItems = $('.js-menu__item');
 
-const showArticleList = () => show(articleList);
-
-articleNumbers.forEach(el => el.addEventListener('click', showArticleList));
-
-articleList.addEventListener('click', () => hide(articleList));
-
-// scroll to content when clicking on splashscreen
+// Bei Klick auf Splashscreen zu Content scrollen
 splash.addEventListener('click', () => {
   main.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// handle menu items
+// Menü durch Hamburger-Button togglen
 hamburger.addEventListener('click', toggleMenu);
+// Menü nach klick auf beliebiges Menüelement schließen
 menuItems.forEach(item => item.addEventListener('click', closeMenu));
 
 function toggleMenu() {
@@ -45,5 +36,3 @@ function closeMenu() {
   menu.classList.remove('menu--open');
   document.body.classList.remove('no-overflow');
 }
-
-window.loadArticle = loadArticle;

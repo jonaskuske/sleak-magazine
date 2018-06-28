@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npm run serve",
     "dev": "npm run serve",
-    "serve": "npm run copy:articles && parcel src/index.html -p 8080",
-    "build": "npm run copy:articles && parcel build src/index.html",
+    "serve": "npm run copy:articles && parcel index.html -p 8080",
+    "build": "npm run copy:articles && parcel build index.html",
     "copy:articles": "mkdir -p ./dist/articles && cp -rf ./src/articles/* ./dist/articles/",
     "lint": "eslint ./ --fix"
   },
