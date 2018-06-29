@@ -1,19 +1,26 @@
 .article-selection {
     position: fixed;
     width: 100%;
-    height: 100%;
-    top: 0;
+    height: 100vh;
     left: 0;
+    top: 0;
+    z-index: 110;
+    overflow-y: auto;
     display: none;
+}
+.article-selection--open {
+  display: initial;
+}
+.article-selection__inner {
+    display: flex;
+    height: 230vh;
+    padding-top: 35px;
+    padding-bottom: 100vh;
     flex-direction: column;
     background: #e41a1f;
     box-sizing: border-box;
-    z-index: 110;
     justify-content: space-around;
     align-items: flex-start;
-}
-.article-selection--open {
-  display: flex;
 }
 .article-selection__button {
   position: relative;
@@ -25,6 +32,8 @@
   cursor: pointer;
   flex-grow: 0;
   padding-left: 60px;
+  display: flex;
+  align-items: center;
 }
 .article-selection__button--loading::before {
   content: '';
@@ -36,4 +45,27 @@
   animation: pulse 1s linear infinite;
   border-radius: 50%;
   background: #fff;
+}
+.article-selection__button-text {
+  margin-left: 2rem;
+  opacity: 0;
+}
+.article-selection__button-num {
+  transition: font-size 300ms ease-out;
+}
+.article-selection__button--active .article-selection__button-num {
+  transition: font-size 250ms ease-out;
+  font-size: 4.7rem;
+}
+.article-selection__button--active .article-selection__button-text {
+  transition: opacity 350ms 200ms ease-out;
+  opacity: 1;
+}
+.article-selection__button--active ~ .article-selection__button--active .article-selection__button-num {
+  transition: font-size 300ms 250ms ease-out;
+  font-size: 2.5rem;
+}
+.article-selection__button--active ~ .article-selection__button--active .article-selection__button-text {
+  transition: opacity 300ms ease-out;
+  opacity: 0;
 }
