@@ -2,10 +2,11 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   text-align: center;
   position: relative;
+  align-items: flex-start;
+  justify-content: center;
 }
 .team__name {
   position: absolute;
@@ -16,4 +17,13 @@
   font-size: 90px;
   transform: translateY(3px);
   cursor: pointer;
+}
+.team__text {
+  max-width: 37%;
+  align-self: center;
+  transform: translateY(-150px);
+  font-size: 25px;
+}
+.team__text::before, .team__text::after {
+  content: "";
 }

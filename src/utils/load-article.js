@@ -26,7 +26,7 @@ const insertToDom = async (article, { fromObserver } = {}) => {
   // Warten bis HTML des Artikels abgerufen und ggf. Wartezeit vorbei ist
   const [html] = await Promise.all([
     fetch(path).then(response => response.text()),
-    delay && wait(2000),
+    delay && wait(1200),
   ]);
 
   // Artikel in DOM einfügen und als geladen markieren
