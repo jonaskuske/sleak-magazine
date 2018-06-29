@@ -1,4 +1,5 @@
 import './assets/styles';
+import './utils/polyfills';
 import './team-selection';
 import { $ } from './utils';
 
