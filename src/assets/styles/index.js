@@ -10,3 +10,4 @@ import './menu.css';
 import './article.css';
 import './article-selection.css';
 import './utilities.css';
+import './team.css';
