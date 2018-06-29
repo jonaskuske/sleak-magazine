@@ -1,7 +1,7 @@
 // Promise, die sich nach gegebener Zeit erfüllt
 export const wait = time => new Promise(resolve => setTimeout(resolve, time));
 
-// Liefert NodeList falls Selektor mit "." (Klasse), ansonsten Node
+// Liefert Array falls Selektor mit "." (Klasse), ansonsten Node
 export const $ = selector =>
   selector.startsWith('.')
     ? [...document.querySelectorAll(selector)]
