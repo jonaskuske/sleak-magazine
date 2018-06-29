@@ -34,3 +34,7 @@
 .menu__image {
   width: 5rem;
 }
+.js-menu__item {
+  display: flex;
+  flex-direction: column;
+}
