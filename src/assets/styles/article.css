@@ -42,7 +42,7 @@
 }
 .article__header {
   width: 100%;
-  color: black;
+  color: #e41a1f;
   mix-blend-mode: hard-light;
   position: sticky;
   top: 0;
@@ -78,6 +78,7 @@
   align-items: center;
   width: 100%;
   justify-content: center;
+  color: #e41a1f;
 }
 .article__teaser {
   min-height: 100vh;
