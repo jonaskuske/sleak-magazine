@@ -63,6 +63,7 @@
   font-family: "Abril Fatface", sans-serif;
   font-size: 90px;
   cursor: pointer;
+  transform: translateY(10px);
 }
 .article__title-container {
   height: 100px;

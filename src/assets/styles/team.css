@@ -22,6 +22,7 @@
   font-family: "Abril Fatface", sans-serif;
   font-size: 90px;
   cursor: pointer;
+  transform: translateY(10px);
 }
 .team__text {
   max-width: 37%;
