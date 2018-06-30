@@ -69,3 +69,17 @@
   transition: opacity 300ms ease-out;
   opacity: 0;
 }
+
+/* Responsive */
+@media screen and (max-width: 400px){
+  .article-selection__inner {
+    padding-top: 0;
+  }
+  .article-selection__button, .team-selection__button {
+    padding-left: 20px;
+    font-size: 1.5rem;
+  }
+  .article-selection__button--active .article-selection__button-num, .team-selection__button--active .team-selection__button-num {
+    font-size: 3.5rem;
+  }
+}

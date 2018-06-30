@@ -31,3 +31,14 @@
 .team__text::before, .team__text::after {
   content: "";
 }
+
+/* Responsive */
+@media screen and (max-width: 400px) {
+  .team__name {
+    font-size: 50px;
+  }
+  .team__text {
+    max-width: 75%;
+    font-size: 20px;
+  }
+}
