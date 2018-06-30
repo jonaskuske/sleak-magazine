@@ -33,7 +33,7 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .team__name {
     font-size: 50px;
   }
