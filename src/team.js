@@ -1,8 +1,10 @@
-import './assets/styles';
 import './utils/polyfills';
+import './assets/styles';
 import './team-selection';
+
 import { $ } from './utils';
 
+// HTML Elemente
 const hamburger = $('.js-hamburger')[0];
 const menu = $('.js-menu')[0];
 const menuItems = $('.js-menu__item');

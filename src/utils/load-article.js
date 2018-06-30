@@ -36,7 +36,7 @@ const insertToDom = async (article, { fromObserver } = {}) => {
   return;
 };
 
-const loadArticle = (article, options = {}) => {
+const loadArticleIfNeeded = (article, options = {}) => {
   // Schon geladen: Sofort returnen, nothing to do here...
   const isLoaded = article.element.dataset.loaded === 'true';
   if (isLoaded) return;
@@ -52,6 +52,7 @@ const loadArticle = (article, options = {}) => {
     }));
   }
 
+  // Laden nicht von Observer angefordert: Sofort starten
   return insertToDom(article);
 };
 
@@ -62,29 +63,33 @@ function startScrollObserver() {
       const article = findArticle(entry.target.id);
       article.inViewport = entry.isIntersecting;
 
-      article.inViewport && loadArticle(article, { fromObserver: true });
+      if (article.inViewport) {
+        loadArticleIfNeeded(article, { fromObserver: true });
+      }
     });
   };
 
-  // Beobachtet jeden Artikel im articles array
+  // Beobachtet jeden Artikel im articles array auf Sichtbarkeitsänderungen
   const articleObserver = new IntersectionObserver(handleVisibilityChange);
   articles.forEach(({ element }) => articleObserver.observe(element));
 }
 
-async function goToArticle(target) {
+async function loadArticle(target) {
   const targetArticle = findArticle(target);
 
-  // Artikel + alle Artikel oberhalb laden
+  // Artikel + alle Artikel oberhalb (index kleiner/gleich Zielartikel) laden
   const articlesToLoad = articles
     .filter((article, index) => index <= targetArticle.index)
-    .map(loadArticle);
+    .map(loadArticleIfNeeded);
 
   // warten bis alle geladen sind
   await Promise.all(articlesToLoad);
 
-  // dann zu Zielartikel scrollen
+  // Dann zu Zielartikel scrollen
   targetArticle.element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  return targetArticle;
 }
 
-export { startScrollObserver, goToArticle };
-export default goToArticle;
+export { startScrollObserver, loadArticle };
+export default loadArticle;

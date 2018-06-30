@@ -46,7 +46,6 @@
 .article__header {
   width: 100%;
   color: #e41a1f;
-  mix-blend-mode: hard-light;
   position: sticky;
   top: 0;
   display: flex;
@@ -64,6 +63,7 @@
   font-family: "Abril Fatface", sans-serif;
   font-size: 90px;
   cursor: pointer;
+  transform: translateY(10px);
 }
 .article__title-container {
   height: 100px;
@@ -88,6 +88,7 @@
   transform: translateY(6px);
 }
 .article__teaser {
+  position: absolute;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -105,6 +106,9 @@
 }
 .article__teaser-author {
   font-size: 16px;
+}
+.article__teaser + * {
+  margin-top: 100vh;
 }
 .article__text,
 .article__subtitle {

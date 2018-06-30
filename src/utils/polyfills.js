@@ -5,7 +5,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 
 smoothscroll.polyfill();
 
-// IE workaround
+// IE workarounds
 if (!NodeList.prototype.forEach)
   NodeList.prototype.forEach = Array.prototype.forEach;
 

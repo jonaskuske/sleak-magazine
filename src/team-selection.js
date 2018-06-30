@@ -1,15 +1,14 @@
+// vgl. article-selection.js
+
 import { $ } from './utils';
 
-// HTML Elemente
 const teamSelection = $('.team-selection')[0];
 const teamSelectionButtons = teamSelection.querySelectorAll(
   '.team-selection__button',
 );
 
-// CSS Klassen
 const ACTIVE_CLASS = 'team-selection__button--active';
 
-// Bei Klick
 teamSelectionButtons.forEach(button => {
   button.addEventListener('click', handleButtonClick);
 });
@@ -22,20 +21,19 @@ function handleButtonClick() {
     .querySelector(`#${name}`)
     .scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-  closeArticleSelection();
+  closeTeamSelection();
 }
 
-// Bei Klick auf Artikelnummer die Auswahl öffnen
 window.addEventListener('click', ({ target }) => {
-  if (target.matches('.team__name')) openArticleSelection();
+  if (target.matches('.team__name')) openTeamSelection();
 });
 
-export function openArticleSelection() {
+function openTeamSelection() {
   document.body.classList.add('no-overflow');
   teamSelection.classList.add('team-selection--open');
 }
 
-export function closeArticleSelection() {
+function closeTeamSelection() {
   document.body.classList.remove('no-overflow');
   teamSelection.classList.remove('team-selection--open');
 }
@@ -57,4 +55,6 @@ const SelectionButtonOberserver = new IntersectionObserver(
   handleIntersection,
   observerOptions,
 );
-teamSelectionButtons.forEach(btn => SelectionButtonOberserver.observe(btn));
+teamSelectionButtons.forEach(btn => {
+  SelectionButtonOberserver.observe(btn);
+});

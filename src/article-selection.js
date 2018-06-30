@@ -11,7 +11,7 @@ const articleSelectionButtons = articleSelection.querySelectorAll(
 const ACTIVE_CLASS = 'article-selection__button--active';
 const LOADING_CLASS = 'article-selection__button--loading';
 
-// Bei Klick
+// Bei Klick auf Button Artikel laden/anzeigen
 articleSelectionButtons.forEach(button => {
   button.addEventListener('click', handleButtonClick);
 });
@@ -24,7 +24,7 @@ async function handleButtonClick() {
   if (!target) return;
 
   // Warten bis Artikel geladen
-  await goToArticle(target);
+  const article = await goToArticle(target);
 
   // Dann Ladesymbol verstecken und Auswahl schließen
   this.classList.remove(LOADING_CLASS);
@@ -36,16 +36,21 @@ window.addEventListener('click', ({ target }) => {
   if (target.matches('.article__number')) openArticleSelection();
 });
 
-export function openArticleSelection() {
+function openArticleSelection() {
   document.body.classList.add('no-overflow');
   articleSelection.classList.add('article-selection--open');
 }
 
-export function closeArticleSelection() {
+function closeArticleSelection() {
   document.body.classList.remove('no-overflow');
   articleSelection.classList.remove('article-selection--open');
 }
 
+// Observer, sorgt dafür dass alle sichtbaren Artikelauswahl-Elemente die
+// active Klasse haben. Das jeweils oberste der Elemente mit active Klasse
+// ist per CSS gehighlighted
+
+// TODO: Umschreiben, Elemente müssen oben 'einrasten'
 const handleIntersection = entries => {
   entries.forEach(entry => {
     const { target, isIntersecting } = entry;
@@ -63,4 +68,6 @@ const SelectionButtonOberserver = new IntersectionObserver(
   handleIntersection,
   observerOptions,
 );
-articleSelectionButtons.forEach(btn => SelectionButtonOberserver.observe(btn));
+articleSelectionButtons.forEach(btn => {
+  SelectionButtonOberserver.observe(btn);
+});
