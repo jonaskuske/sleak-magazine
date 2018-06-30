@@ -116,3 +116,31 @@
   font-size: 50px;
   max-width: 54%;
 }
+
+/* Responsive */
+@media screen and (max-width: 400px){
+  body, html {
+    font-size: 15px;
+  }
+  .article__number {
+  font-size: 50px;
+  }
+  .article__title-container {
+  justify-content: center;
+  }
+  .article__title {
+  font-size: 30px;
+  width: 60%
+  }
+  .article__teaser-text {
+  font-size: 30px;
+  }
+  .article__text {
+  max-width: 75%;
+  }
+  .article__subtitle {
+  font-size: 30px;
+  max-width: 75%;
+  margin: 0 0 4% 0;
+  }
+}

@@ -16,3 +16,6 @@ a {
   text-decoration: none;
   color: currentColor;
 }
+p {
+    line-height: 1.5;
+  }
