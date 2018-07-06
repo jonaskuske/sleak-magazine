@@ -31,7 +31,7 @@
   font-size: 2rem;
   cursor: pointer;
   flex-grow: 0;
-  padding-left: 60px;
+  padding-left: 20px;
   display: flex;
   align-items: center;
 }
