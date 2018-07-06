@@ -54,8 +54,9 @@
   padding: 0 1rem;
   box-sizing: border-box;
   z-index: 97;
+  background-color: transparent;
 }
-.article .article__header {
+.article {
   background-color: transparent;
 }
 .article__number {
@@ -97,12 +98,7 @@
 }
 .article__teaser-text {
   font-size: 40px;
-}
-.article__teaser-text::before {
-  content: "»";
-}
-.article__teaser-text::after {
-  content: "«";
+  line-height: 3.5rem;
 }
 .article__teaser-author {
   font-size: 16px;
@@ -118,7 +114,18 @@
   font-family: "Abril Fatface", cursive;
   color: #e41a1f;
   font-size: 50px;
-  max-width: 54%;
+  width: 54%;
+  margin-left: 10%;
+}
+.article__interview {
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  text-align: left;
+  line-height: 2rem;
+  color: #e41a1f;
+  font-size: 20px;
+  width: 54%;
+  margin-left: 10%;
 }
 
 /* Responsive */
@@ -139,13 +146,35 @@
   }
   .article__teaser-text {
   font-size: 30px;
+  line-height: 2.5rem;
   }
   .article__text {
   max-width: 75%;
   }
   .article__subtitle {
   font-size: 30px;
-  max-width: 75%;
-  margin: 0 0 4% 0;
+  width: 80%;
+  margin: 4% 0;
+  }
+  .article__interview {
+  width: 80%;
+  margin: 4% 0;
+  }
+  .article__header {
+  width: 100%;
+  color: #e41a1f;
+  position: sticky;
+  top: 0;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  z-index: 97;
+  /* background-color: #fff; */
+  background-color: rgba(256, 256, 256, 0.9);
+  }
+  .article__title-container {
+    z-index: 100;
   }
 }
