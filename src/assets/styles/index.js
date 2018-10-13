@@ -1,3 +1,5 @@
+import './fonts.css';
+
 /* Externes CSS */
 import 'normalize.css';
 import './hamburgers.css';

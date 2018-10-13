@@ -1,5 +1,6 @@
 module.exports = {
   plugins: {
-    autoprefixer: { grid: true }
+    autoprefixer: { grid: true },
+    'postcss-focus-visible': { preserve: false }
   }
 }

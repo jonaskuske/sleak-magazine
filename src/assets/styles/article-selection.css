@@ -38,13 +38,14 @@
 .article-selection__button--loading::before {
   content: '';
   position: absolute;
-  left: 20px;
+  right: -40px;
   display: block;
   width: 35px;
   height: 35px;
   animation: pulse 1s linear infinite;
   border-radius: 50%;
-  background: #fff;
+  background: #e41a1f;
+  user-select: none;
 }
 .article-selection__button-text {
   margin-left: 2rem;
