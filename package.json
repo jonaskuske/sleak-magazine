@@ -7,7 +7,7 @@
     "start": "npm run serve",
     "dev": "npm run serve",
     "serve": "parcel index.html -p 8080 --no-cache",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --no-cache --public-url /sleak/",
     "lint": "eslint ./ --fix"
   },
   "repository": {
