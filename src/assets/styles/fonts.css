@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url(../fonts/BebasNeue.otf) format("opentype");
+}

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>sleak</title>
-    <script src="./src/main.js" async defer></script>
+    <script src="./src/main.js" defer></script>
   </head>
 
   <body>
@@ -19,18 +19,25 @@
       <nav class="menu__nav">
         <ul class="menu__list">
           <li>
-            <a href="./team.html" class="js-menu__item">Das Team</a>
+            <a href="./index.html" class="js-menu__item">Magazin</a>
           </li>
           <li>
-            <a href="#" class="js-menu__item">Shop</a>
+            <a href="./team.html" class="js-menu__item">Team</a>
           </li>
           <li>
-            <a href="#" class="js-menu__item">Impressum/Datenschutz</a>
+            <a href="#" class="js-menu__item">Kontakt</a>
+          </li>
+          <li>
+            <a href="./impressum.html" class="js-menu__item">Impressum</a>
+          </li>
+          <li>
+            <a href="./datenschutz.html" class="js-menu__item">Datenschutz</a>
           </li>
         </ul>
       </nav>
       <a href="/#" class="js-menu__item">
-        <img class="menu__image" src="./src/assets/images/sleak-logo.svg" alt="Start" role="button">
+        <img class="menu__image" src="./src/assets/images/sleak-logo.svg" alt="Start"
+          role="button">
       </a>
     </div>
 
@@ -38,11 +45,13 @@
       <div class="article-selection__inner">
         <button class="article-selection__button" data-target="1">
           <span class="article-selection__button-num">01</span>
-          <span class="article-selection__button-text">Zwischen Seemannsgarn und Strandgut</span>
+          <span class="article-selection__button-text">Zwischen Seemannsgarn
+            und Strandgut</span>
         </button>
         <button class="article-selection__button" data-target="2">
           <span class="article-selection__button-num">02</span>
-          <span class="article-selection__button-text">Bringt Farbe in die Stadt!</span>
+          <span class="article-selection__button-text">Bringt Farbe in die
+            Stadt!</span>
         </button>
         <button class="article-selection__button" data-target="3">
           <span class="article-selection__button-num">03</span>
@@ -66,7 +75,8 @@
         </button>
         <button class="article-selection__button" data-target="8">
           <span class="article-selection__button-num">08</span>
-          <span class="article-selection__button-text">Österreichs Newcomer Mihael Kobas</span>
+          <span class="article-selection__button-text">Österreichs Newcomer
+            Mihael Kobas</span>
         </button>
         <button class="article-selection__button" data-target="9">
           <span class="article-selection__button-num">09</span>
@@ -74,7 +84,8 @@
         </button>
         <button class="article-selection__button" data-target="10">
           <span class="article-selection__button-num">10</span>
-          <span class="article-selection__button-text">Wie KI die Designwelt ändert</span>
+          <span class="article-selection__button-text">Wie KI die Designwelt
+            ändert</span>
         </button>
         <button class="article-selection__button" data-target="11">
           <span class="article-selection__button-num">11</span>
@@ -85,13 +96,13 @@
     </div>
 
     <header class="header">
-      <button class="header__hamburger hamburger hamburger--spring js-hamburger" type="button">
+      <button class="header__hamburger hamburger hamburger--spring js-hamburger"
+        type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
       </button>
     </header>
-
     <main class="main js-main" id="articles">
 
       <article class="article" data-loaded="false" id="seemann"></article>
