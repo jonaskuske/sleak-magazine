@@ -6,25 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>sleak</title>
-    <script src="./src/main.js" async defer></script>
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="static/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="static/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="static/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="static/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="static/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="static/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="static/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="static/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="static/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="static/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
-    <link rel="manifest" href="static/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="./src/assets/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./src/assets/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./src/assets/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./src/assets/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./src/assets/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./src/assets/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./src/assets/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./src/assets/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./src/assets/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./src/assets/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./src/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./src/assets/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./src/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="./manifest.webmanifest">
     <meta name="msapplication-TileColor" content="#e41a1f">
-    <meta name="msapplication-TileImage" content="static/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="./src/assets/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#e41a1f">
+
+    <script src="./src/main.js" defer></script>
   </head>
 
   <body>
@@ -37,18 +38,25 @@
       <nav class="menu__nav">
         <ul class="menu__list">
           <li>
-            <a href="./team.html" class="js-menu__item">Das Team</a>
+            <a href="./index.html" class="js-menu__item">Magazin</a>
           </li>
           <li>
-            <a href="#" class="js-menu__item">Shop</a>
+            <a href="./team.html" class="js-menu__item">Team</a>
           </li>
           <li>
-            <a href="#" class="js-menu__item">Impressum/Datenschutz</a>
+            <a href="#" class="js-menu__item">Kontakt</a>
+          </li>
+          <li>
+            <a href="./impressum.html" class="js-menu__item">Impressum</a>
+          </li>
+          <li>
+            <a href="./datenschutz.html" class="js-menu__item">Datenschutz</a>
           </li>
         </ul>
       </nav>
       <a href="/#" class="js-menu__item">
-        <img class="menu__image" src="./src/assets/images/sleak-logo.svg" alt="Start" role="button">
+        <img class="menu__image" src="./src/assets/images/sleak-logo.svg" alt="Start"
+          role="button">
       </a>
     </div>
 
@@ -56,11 +64,13 @@
       <div class="article-selection__inner">
         <button class="article-selection__button" data-target="1">
           <span class="article-selection__button-num">01</span>
-          <span class="article-selection__button-text">Zwischen Seemannsgarn und Strandgut</span>
+          <span class="article-selection__button-text">Zwischen Seemannsgarn
+            und Strandgut</span>
         </button>
         <button class="article-selection__button" data-target="2">
           <span class="article-selection__button-num">02</span>
-          <span class="article-selection__button-text">Bringt Farbe in die Stadt!</span>
+          <span class="article-selection__button-text">Bringt Farbe in die
+            Stadt!</span>
         </button>
         <button class="article-selection__button" data-target="3">
           <span class="article-selection__button-num">03</span>
@@ -84,7 +94,8 @@
         </button>
         <button class="article-selection__button" data-target="8">
           <span class="article-selection__button-num">08</span>
-          <span class="article-selection__button-text">Österreichs Newcomer Mihael Kobas</span>
+          <span class="article-selection__button-text">Österreichs Newcomer
+            Mihael Kobas</span>
         </button>
         <button class="article-selection__button" data-target="9">
           <span class="article-selection__button-num">09</span>
@@ -92,7 +103,8 @@
         </button>
         <button class="article-selection__button" data-target="10">
           <span class="article-selection__button-num">10</span>
-          <span class="article-selection__button-text">Wie KI die Designwelt ändert</span>
+          <span class="article-selection__button-text">Wie KI die Designwelt
+            ändert</span>
         </button>
         <button class="article-selection__button" data-target="11">
           <span class="article-selection__button-num">11</span>
@@ -103,13 +115,13 @@
     </div>
 
     <header class="header">
-      <button class="header__hamburger hamburger hamburger--spring js-hamburger" type="button">
+      <button class="header__hamburger hamburger hamburger--spring js-hamburger"
+        type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
       </button>
     </header>
-
     <main class="main js-main" id="articles">
 
       <article class="article" data-loaded="false" id="seemann"></article>

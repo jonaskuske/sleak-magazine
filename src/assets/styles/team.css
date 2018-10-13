@@ -14,6 +14,9 @@
   justify-content: center;
   align-items: center;
 }
+.team-selection__inner {
+  padding-top: 50px;
+}
 .team__name {
   position: absolute;
   left: 1rem;
@@ -30,4 +33,16 @@
 }
 .team__text::before, .team__text::after {
   content: "";
+}
+
+/* Responsive */
+@media screen and (max-width: 500px) {
+  .team__name {
+    font-size: 38px;
+    line-height: 1.2;
+  }
+  .team__text {
+    max-width: 75%;
+    font-size: 20px;
+  }
 }

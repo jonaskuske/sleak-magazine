@@ -17,7 +17,7 @@
     padding-top: 35px;
     padding-bottom: 100vh;
     flex-direction: column;
-    background: #e41a1f;
+    background: #fff;
     box-sizing: border-box;
     justify-content: space-around;
     align-items: flex-start;
@@ -26,29 +26,31 @@
   position: relative;
   background:none;
   border: none;
-  color: #fff;
+  color: #e41a1f;
   font-family: "Abril Fatface", cursive;
   font-size: 2rem;
   cursor: pointer;
   flex-grow: 0;
-  padding-left: 60px;
+  padding-left: 20px;
   display: flex;
   align-items: center;
 }
 .article-selection__button--loading::before {
   content: '';
   position: absolute;
-  left: 20px;
+  right: -40px;
   display: block;
   width: 35px;
   height: 35px;
   animation: pulse 1s linear infinite;
   border-radius: 50%;
-  background: #fff;
+  background: #e41a1f;
+  user-select: none;
 }
 .article-selection__button-text {
   margin-left: 2rem;
-  opacity: 0;
+  opacity: 1;
+  text-align: left;
 }
 .article-selection__button-num, .team-selection__button-num {
   transition: font-size 300ms ease-out;
@@ -59,7 +61,6 @@
 }
 .article-selection__button--active .article-selection__button-text {
   transition: opacity 350ms 200ms ease-out;
-  opacity: 1;
 }
 .article-selection__button--active ~ .article-selection__button--active .article-selection__button-num, .team-selection__button--active ~ .team-selection__button--active .team-selection__button-num {
   transition: font-size 300ms 250ms ease-out;
@@ -67,5 +68,18 @@
 }
 .article-selection__button--active ~ .article-selection__button--active .article-selection__button-text {
   transition: opacity 300ms ease-out;
-  opacity: 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 500px){
+  .article-selection__inner {
+    padding-top: 0;
+  }
+  .article-selection__button, .team-selection__button {
+    padding-left: 20px;
+    font-size: 1.5rem;
+  }
+  .article-selection__button--active .article-selection__button-num, .team-selection__button--active .team-selection__button-num {
+    font-size: 3.5rem;
+  }
 }
