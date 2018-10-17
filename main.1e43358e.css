@@ -866,7 +866,6 @@ input, a, button, label, p, span {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 0 auto;
 }
 .article__teaser-text {
   font-size: 1.25rem;
