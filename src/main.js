@@ -1,9 +1,8 @@
-import './assets/styles';
-import './utils/polyfills';
-import './article-selection';
+import './utils/appshell';
+import './utils/article-selection';
 
 import { $ } from './utils';
-import { startScrollObserver } from './utils/load-article';
+import { startScrollObserver, loadArticle } from './utils/load-article';
 
 // Startet Observer, um Artikel nachzuladen, wenn Ende der Seite erreicht wird
 startScrollObserver();
@@ -11,28 +10,20 @@ startScrollObserver();
 // HTML Elemente
 const splash = $('.js-splash')[0];
 const main = $('.js-main')[0];
-const hamburger = $('.js-hamburger')[0];
-const menu = $('.js-menu')[0];
-const menuItems = $('.js-menu__item');
 
 // Bei Klick auf Splashscreen zu Content scrollen
 splash.addEventListener('click', () => {
   main.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// Menü durch Hamburger-Button togglen
-hamburger.addEventListener('click', toggleMenu);
-// Menü nach Klick auf beliebiges Menüelement schließen
-menuItems.forEach(item => item.addEventListener('click', closeMenu));
+// Hash überprüfen, sodass mit per # in URL zu bestimmten Artikeln springen kann
+const loadArticleFromHash = () => {
+  const { hash } = window.location;
+  if (!hash) return;
 
-function toggleMenu() {
-  hamburger.classList.toggle('is-active');
-  menu.classList.toggle('menu--open');
-  document.body.classList.toggle('no-overflow');
-}
+  const targetArticle = hash.slice(1);
+  loadArticle(targetArticle);
+};
 
-function closeMenu() {
-  hamburger.classList.remove('is-active');
-  menu.classList.remove('menu--open');
-  document.body.classList.remove('no-overflow');
-}
+loadArticleFromHash();
+window.addEventListener('hashchange', loadArticleFromHash, false);

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Impressum | sleak</title>
+    <title>Kontakt | sleak</title>
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="./src/assets/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./src/assets/icons/apple-icon-60x60.png">
@@ -20,52 +20,74 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./src/assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./src/assets/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/assets/icons/favicon-16x16.png">
-    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="manifest" href="./src/assets/manifest.webmanifest">
     <meta name="msapplication-TileColor" content="#e41a1f">
     <meta name="msapplication-TileImage" content="./src/assets/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#e41a1f">
 
-    <script src="./src/nav.js" defer></script>
+    <script src="./src/imprint.js" defer></script>
   </head>
 
   <body>
     <div class="menu js-menu">
+      <header class="menu__header"><button class="header__hamburger hamburger hamburger--spring js-hamburger"
+          type="button"> <span class="hamburger-box"> <span class="hamburger-inner"></span>
+          </span> </button></header>
       <nav class="menu__nav">
         <ul class="menu__list">
-          <li>
-            <a href="./index.html" class="js-menu__item">Magazin</a>
+          <li class="menu__list-item">
+            <a href="./index.html" class="menu__item js-menu__item">Magazin</a>
           </li>
-          <li>
-            <a href="./team.html" class="js-menu__item">Team</a>
+          <li class="menu__list-item">
+            <a href="./team.html" class="menu__item js-menu__item">Team</a>
           </li>
-          <li>
-            <a href="#" class="js-menu__item">Kontakt</a>
+          <li class="menu__list-item">
+            <a href="./kontakt.html" class="menu__item js-menu__item">Kontakt</a>
           </li>
-          <li>
-            <a href="./impressum.html" class="js-menu__item">Impressum</a>
+          <li class="menu__list-item">
+            <a href="./impressum.html" class="menu__item js-menu__item">Impressum</a>
           </li>
-          <li>
-            <a href="./datenschutz.html" class="js-menu__item">Datenschutz</a>
+          <li class="menu__list-item">
+            <a href="./datenschutz.html" class="menu__item js-menu__item">Datenschutz</a>
           </li>
         </ul>
       </nav>
-      <a href="/#" class="js-menu__item">
-        <img class="menu__image" src="./src/assets/images/sleak-logo.svg" alt="Start"
-          role="button">
+      <a href="/#" class="menu__item menu__item--logo js-menu__item">
+        <img class="menu__image" src="./src/assets/images/sleak-logo.svg" alt="Start">
       </a>
     </div>
 
     <header class="header">
-      <button class="header__hamburger hamburger hamburger--spring js-hamburger"
-        type="button">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
+      <div class="header__inner">
+        <button class="header__hamburger hamburger hamburger--spring js-hamburger"
+          type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
     </header>
 
-    <main>
-      <h1>Impressum</h1>
+    <main class="static-main">
+      <div class="article">
+        <header class="article__header">
+          <h1 class="article__title">Impressum</h1>
+        </header>
+        <p class="article__text">
+          <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Corrupti commodi libero, aliquid eaque illum iusto reprehenderit
+            veritatis natus inventore praesentium distinctio molestiae repellat
+            saepe molestias dicta dignissimos aliquam aspernatur laborum?</span>
+          <span>Maxime eveniet iure voluptas ipsum non quibusdam quod inventore
+            quas cumque! Incidunt alias ipsum quae sed, iste sint praesentium
+            eligendi ullam reprehenderit et placeat magnam totam ex nostrum
+            accusamus iure.</span>
+          <span>Incidunt impedit aut nobis neque facilis quia quis rem quasi,
+            eius eligendi dolores quidem doloribus nisi eos repellat maiores,
+            quaerat similique quod dignissimos harum, cupiditate explicabo
+            repellendus assumenda? Officia, voluptas.</span>
+        </p>
+      </div>
     </main>
   </body>
 

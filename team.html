@@ -20,7 +20,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./src/assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./src/assets/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/assets/icons/favicon-16x16.png">
-    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="manifest" href="./src/assets/manifest.webmanifest">
     <meta name="msapplication-TileColor" content="#e41a1f">
     <meta name="msapplication-TileImage" content="./src/assets/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#e41a1f">
@@ -30,26 +30,29 @@
 
   <body>
     <div class="menu js-menu">
+      <header class="menu__header"><button class="header__hamburger hamburger hamburger--spring js-hamburger"
+          type="button"> <span class="hamburger-box"> <span class="hamburger-inner"></span>
+          </span> </button></header>
       <nav class="menu__nav">
         <ul class="menu__list">
-          <li>
-            <a href="./index.html" class="js-menu__item">Magazin</a>
+          <li class="menu__list-item">
+            <a href="./index.html" class="menu__item js-menu__item">Magazin</a>
           </li>
-          <li>
-            <a href="./team.html" class="js-menu__item">Team</a>
+          <li class="menu__list-item">
+            <a href="./team.html" class="menu__item js-menu__item">Team</a>
           </li>
-          <li>
-            <a href="#" class="js-menu__item">Kontakt</a>
+          <li class="menu__list-item">
+            <a href="./kontakt.html" class="menu__item js-menu__item">Kontakt</a>
           </li>
-          <li>
-            <a href="./impressum.html" class="js-menu__item">Impressum</a>
+          <li class="menu__list-item">
+            <a href="./impressum.html" class="menu__item js-menu__item">Impressum</a>
           </li>
-          <li>
-            <a href="./datenschutz.html" class="js-menu__item">Datenschutz</a>
+          <li class="menu__list-item">
+            <a href="./datenschutz.html" class="menu__item js-menu__item">Datenschutz</a>
           </li>
         </ul>
       </nav>
-      <a href="/#" class="js-menu__item">
+      <a href="/#" class="menu__item menu__item--logo js-menu__item">
         <img class="menu__image" src="./src/assets/images/sleak-logo.svg" alt="Start"
           role="button">
       </a>
@@ -113,20 +116,22 @@
     </div>
 
     <header class="header">
-      <button class="header__hamburger hamburger hamburger--spring js-hamburger"
-        type="button">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
+      <div class="header__inner">
+        <button class="header__hamburger hamburger hamburger--spring js-hamburger"
+          type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
     </header>
 
     <main>
-      <article class="team-member" id="felix">
-        <header class="article__header">
-          <p class="team__name">Felix</p>
+      <article class="article article--team" id="felix">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Felix</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">Leidenschaftlicher
             Fotograph, begeisterter Kitesurfer – Felix kommt viel
             herum, insbesonders wenn er mit seinem selbstgebauten VW-Bus auf
@@ -135,11 +140,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="michaela">
-        <header class="article__header">
-          <p class="team__name">Michaela</p>
+      <article class="article article--team" id="michaela">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Michaela</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">Michaela ist unser
             nordischer Ruhepol. Auch wenn die Diskussion mal hitziger
             wird, Michaela behält die Ruhe weg. Sie ist immer freundlich und
@@ -147,33 +152,33 @@
             - auf Michaela kann man zählen.</p>
         </div>
       </article>
-      <article class="team-member" id="viktoria">
-        <header class="article__header">
-          <p class="team__name">Viktoria</p>
+      <article class="article article--team" id="viktoria">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Viktoria</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">Viktoria eine sleeke
             Designerin. Alles muss minimalistisch und Gelb sein.
             FIKA!
           </p>
         </div>
       </article>
-      <article class="team-member" id="max">
-        <header class="article__header">
-          <p class="team__name">Max</p>
+      <article class="article article--team" id="max">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Max</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">Seine Devise: Schlicht und
             viel Weißraum. Designtechnisch minimalistisch
             veranlagt, hat er einen großen Teil zum Grundgerüst des Magazins
             beigetragen.</p>
         </div>
       </article>
-      <article class="team-member" id="jennie">
-        <header class="article__header">
-          <p class="team__name">Jennie</p>
+      <article class="article article--team" id="jennie">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Jennie</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Elegant, trotzdem zeitgemäß und auf jeden Fall schick mag es
             Jennie.
@@ -189,11 +194,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="julien">
-        <header class="article__header">
-          <p class="team__name">Julien</p>
+      <article class="article article--team" id="julien">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Julien</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Julien Schnick ist ein aufstrebender Gestalter aus dem
             Bremerhavener
@@ -202,11 +207,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="jonas">
-        <header class="article__header">
-          <p class="team__name">Jonas</p>
+      <article class="article article--team" id="jonas">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Jonas</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">Ein waschechter
             Interaction
             Designer: Wenn er ein Interface gestaltet, dann
@@ -215,11 +220,11 @@
             entwickelt, dann stimmt‘s auch ästhetisch.</p>
         </div>
       </article>
-      <article class="team-member" id="marvin">
-        <header class="article__header">
-          <p class="team__name">Marvin</p>
+      <article class="article article--team" id="marvin">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Marvin</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Wenn unser Kollege aus Lunestedt nicht gerade am Zocken oder Feiern
             ist, ist er dabei,
@@ -234,11 +239,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="rieke">
-        <header class="article__header">
-          <p class="team__name">Rieke</p>
+      <article class="article article--team" id="rieke">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Rieke</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Etymologisch leitet sich der Name »Rieke« vom altgriechischen
             »rikos«
@@ -249,11 +254,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="lena">
-        <header class="article__header">
-          <p class="team__name">Lena</p>
+      <article class="article article--team" id="lena">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Lena</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Gestatten? Lena. Sie spielt gern Fußball und ist Leadsängerin einer
             Band. Vor dem Studium absolvierte sie bereits eine duale
@@ -261,11 +266,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="sevda">
-        <header class="article__header">
-          <p class="team__name">Sevda</p>
+      <article class="article article--team" id="sevda">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Sevda</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Eine Löwin, eine Künsterlin, eine Leseratte - Das ist Sevda. Ihr
             heiligster, materieller
@@ -279,11 +284,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="judith">
-        <header class="article__header">
-          <p class="team__name">Judith</p>
+      <article class="article article--team" id="judith">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Judith</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Judith Beusing hat vieles zu bieten – Humor, Kreativität, aber vor
             allem: Vielseitigkeit.
@@ -297,11 +302,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="lia">
-        <header class="article__header">
-          <p class="team__name">Lia</p>
+      <article class="article article--team" id="lia">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Lia</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Professionelle Fotografin und Surfergirl in einem, bildet Lia den
             Freigeist des Teams.
@@ -314,11 +319,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="nadine">
-        <header class="article__header">
-          <p class="team__name">Nadine</p>
+      <article class="article article--team" id="nadine">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Nadine</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">Hat Spaß am Schreiben,
             erkundet gerne Lost Places und liebt Abenteuer. Auf
             ihrer To-Do-Liste darf nicht fehlen: Fallschirmspringen und das
@@ -326,21 +331,21 @@
             Man Festival in Nevada. Bad Vibes können ihr gerne fernbleiben.</p>
         </div>
       </article>
-      <article class="team-member" id="janina">
-        <header class="article__header">
-          <p class="team__name">Janina</p>
+      <article class="article article--team" id="janina">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Janina</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">Sie künstlerisch kreativ
             und musikalisch. Das Zeichnen ist ihre Leidenschaft.
             Unser Team bereichert sie mit ihrer Organisationsfähigkeit.</p>
         </div>
       </article>
-      <article class="team-member" id="axel">
-        <header class="article__header">
-          <p class="team__name">Axel</p>
+      <article class="article article--team" id="axel">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Axel</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Als Diplom Grafik Designer und gelernter Drucker zeigte Axel dem
             Team
@@ -353,11 +358,11 @@
           </p>
         </div>
       </article>
-      <article class="team-member" id="andreas">
-        <header class="article__header">
-          <p class="team__name">Andreas</p>
+      <article class="article article--team" id="andreas">
+        <header class="article__number-container article__number-container--team">
+          <h1 class="article__title article__title--team js-article__title--team">Andreas</h1>
         </header>
-        <div class="team-member__inner">
+        <div class="article__teaser article__teaser--team">
           <p class="article__teaser-text team__text">
             Erster Satz über einen kompetenten Professor. Zweiter Satz über
             einen kreativen

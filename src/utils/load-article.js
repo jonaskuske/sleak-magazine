@@ -76,14 +76,18 @@ function startScrollObserver() {
 
 async function loadArticle(target) {
   const targetArticle = findArticle(target);
+  if (!targetArticle) return console.warn(`Artikel nicht gefunden: ${target}`);
 
   // Artikel + alle Artikel oberhalb (index kleiner/gleich Zielartikel) laden
   const articlesToLoad = articles
-    .filter((article, index) => index <= targetArticle.index)
+    .filter((_, index) => index <= targetArticle.index)
     .map(loadArticleIfNeeded);
 
   // warten bis alle geladen sind
   await Promise.all(articlesToLoad);
+
+  // ! Entfernen, sobald Scroll-Navigation richtig funktioniert
+  await wait(1400);
 
   // Dann zu Zielartikel scrollen
   targetArticle.element.scrollIntoView({ behavior: 'smooth', block: 'start' });
