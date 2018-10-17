@@ -7,6 +7,7 @@
   position: relative;
   padding-bottom: 2rem;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* Loading-Bar der Artikel */

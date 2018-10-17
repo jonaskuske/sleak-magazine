@@ -83,8 +83,14 @@ async function loadArticle(target) {
     .filter((_, index) => index <= targetArticle.index)
     .map(loadArticleIfNeeded);
 
-  // warten bis alle geladen sind
-  await Promise.all(articlesToLoad);
+  try {
+    // Warten, bis alle Artikel geladen sind
+    await Promise.all(articlesToLoad);
+  } catch (error) {
+    return console.error(
+      `Fehler beim Laden des Artikels ${targetArticle.name}: ${error}`,
+    );
+  }
 
   // ! Entfernen, sobald Scroll-Navigation richtig funktioniert
   await wait(1400);
