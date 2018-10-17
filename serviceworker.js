@@ -1,6 +1,19 @@
-const CACHE_NAME = 'sleak-v1';
+const CACHE_NAME = 'sleak-v2';
 
-const staticAssets = ['.'];
+const staticAssets = [
+  '.',
+  './articles/antarktis.html',
+  './articles/apollo.html',
+  './articles/bertram.html',
+  './articles/graffiti.html',
+  './articles/ki.html',
+  './articles/kunst.html',
+  './articles/medien.html',
+  './articles/melanka.html',
+  './articles/nachbar.html',
+  './articles/oesterreich.html',
+  './articles/seemann.html',
+];
 
 // get the filenames to cache from the parcel-manifest and add them to cache
 self.addEventListener('install', event => {

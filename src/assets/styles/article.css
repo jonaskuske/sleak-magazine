@@ -7,7 +7,6 @@
   position: relative;
   padding-bottom: 2rem;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 /* Loading-Bar der Artikel */
@@ -26,7 +25,7 @@
   animation: pulse 1250ms linear infinite;
 }
 .article[data-loaded="false"]::after {
-  content: 'Artikel wird geladen...';
+  content: 'Nächster Artikel wird geladen...';
   color: #fff;
   margin-top: 0.5rem;
 }
@@ -81,7 +80,7 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: 0;
   background: none;
   border: none;
   -webkit-tap-highlight-color: transparent;
@@ -104,8 +103,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  left: 50%;
-  transform: translateX(-50%);
 }
 .article__teaser-text {
   font-size: 1.25rem;
