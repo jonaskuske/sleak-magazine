@@ -8,87 +8,94 @@
   padding-bottom: 2rem;
   box-sizing: border-box;
 }
+
+/* Loading-Bar der Artikel */
 .article[data-loaded="false"] {
-  height: 100px;
+  height: 70px;
   background: #e41a1f;
   justify-content: center;
   padding-bottom: 0;
 }
-.article[data-loaded="false"] ~ .article[data-loaded="false"] {
-  display: none;
-  content: none;
-}
 .article[data-loaded="false"]::before {
   content: '';
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
   background: #fff;
   border-radius: 50%;
   animation: pulse 1250ms linear infinite;
 }
 .article[data-loaded="false"]::after {
-  content: 'Artikel wird geladen...';
+  content: 'Nächster Artikel wird geladen...';
   color: #fff;
   margin-top: 0.5rem;
 }
-.article__text,
-.article__teaser,
-.article__author,
-.article__image {
-  max-width: 37%;
+/* Loading-Bar aller nicht geladenen Artikel außer dem ersten verstecken */
+.article[data-loaded="false"] ~ .article[data-loaded="false"] {
+  display: none;
 }
-.article__image--fullwidth {
-  width: 100%;
-  max-width: 100%;
-  max-height: 100vh;
-  object-fit: cover;
-}
+
+/* Header mit zentrierter Artikelüberschrift */
 .article__header {
-  width: 100%;
-  color: #e41a1f;
-  position: sticky;
-  top: 0;
-  display: flex;
-  height: 100px;
-  align-items: center;
-  padding: 0 1rem;
-  box-sizing: border-box;
-  z-index: 97;
-  background-color: transparent;
-}
-.article {
-  background-color: transparent;
-}
-.article__number {
-  margin: 0;
-  font-family: "Abril Fatface", sans-serif;
-  font-size: 90px;
-  cursor: pointer;
-  transform: translateY(10px);
-}
-.article__title-container {
-  pointer-events: none;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-}
-.article__title {
-  font-family: "Bebas Neue", "Lato", sans-serif;
-  font-weight: normal;
-  font-size: 56px;
-  margin: 0;
-  position: absolute;
+  width: 100%;
+  height: 70px;
   display: flex;
   align-items: center;
-  width: 100%;
   justify-content: center;
-  color: #e41a1f;
-  transform: translateY(6px);
+  padding: 0 1rem;
+  box-sizing: border-box;
+  pointer-events: none;
 }
+.article__title {
+  margin: 0 4rem;
+}
+@media screen and (max-width: 350px) {
+  .article__title {
+    padding-top: 0.5rem;
+    align-self: flex-start;
+  }
+}
+
+/* Artikelnummer, "klebt" am oberen Bildschirmrand bis die nächste kommt */
+.article__number-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 70px;
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.article__number {
+  font-family: "Abril Fatface", sans-serif;
+  font-size: 36px;
+  height: 30px;
+  overflow: hidden;
+  color: #e41a1f;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  background: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.article__subtitle,
+.article__teaser,
+.article__author,
+.article__text,
+.article__image {
+  width: 75vw;
+  max-width: 47rem;
+}
+
+/* Teaser + Author, mittig in Bildschirm füllendem Container */
 .article__teaser {
   position: absolute;
   min-height: 100vh;
@@ -98,19 +105,84 @@
   justify-content: center;
 }
 .article__teaser-text {
-  font-size: 40px;
-  line-height: 3.5rem;
+  font-size: 1.25rem;
+  line-height: 2.35rem;
 }
 .article__teaser-author {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .article__teaser + * {
   margin-top: 100vh;
+  margin-top: calc(100vh - 70px);
 }
+
 .article__text,
-.article__subtitle {
+.article__subtitle,
+.article__interview {
   text-align: left;
 }
+
+.article__interview {
+  font-size: 1.2rem;
+  text-align: justify;
+  hyphens: auto;
+  font-weight: normal;
+}
+
+.article__interview,
+.article__subtitle {
+  width: 80vw;
+  max-width: 72rem;
+}
+
+.article__image {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  max-height: 100vh;
+}
+
+@media screen and (min-width: 400px) {
+  .article[data-loaded="false"], .article__header, .article__number-container {
+    height: 80px;
+  }
+  .article__number {
+    font-size: 44px;
+    height: 34px;
+  }
+  .article__teaser + * {
+    margin-top: calc(100vh - 80px);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .article[data-loaded="false"], .article__header, .article__number-container {
+    height: 100px;
+  }
+  .article__number {
+    font-size: 85px;
+    height: 66px;
+  }
+  .article__teaser-text {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+  .article__image {
+    width: 75vw;
+    max-width: 47rem;
+  }
+  .article__teaser + * {
+    margin-top: calc(100vh - 100px);
+  }
+  .article__image--fullwidth {
+  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: cover;
+  }
+}
+
+/*
 .article__subtitle {
   font-family: "Abril Fatface", cursive;
   color: #e41a1f;
@@ -127,66 +199,5 @@
   font-size: 20px;
   width: 54%;
   margin-left: 10%;
-}
+} */
 /* Responsive */
-@media screen and (max-width: 950px){
-  body, html {
-    font-size: 15px;
-  }
-  .article__number {
-  font-size: 38px;
-  transform: translateY(0)
-  }
-  .article__title-container {
-  justify-content: center;
-  }
-  .article__title {
-  font-size: 25px;
-  width: 60%
-  }
-  .article__text,
-  .article__teaser,
-  .article__author,
-  .article__image {
-    max-width: 60%;
-  }
-  .article__teaser-text {
-  font-size: 20px;
-  line-height: 2.5rem;
-  }
-  .article__text {
-  max-width: 75%;
-  }
-  .article__subtitle {
-  font-size: 30px;
-  width: 80%;
-  margin: 4% 0;
-  }
-  .article__interview {
-  width: 80%;
-  margin: 4% 0;
-  }
-  .article__header {
-  width: 100%;
-  color: #e41a1f;
-  position: sticky;
-  top: 0;
-  display: flex;
-  height: 70px;
-  align-items: center;
-  padding: 0 1rem;
-  box-sizing: border-box;
-  z-index: 97;
-  background-color: rgba(256, 256, 256, 0.9);
-  backdrop-filter: blur(2px);
-  }
-  .article__title-container {
-    z-index: 100;
-  }
-  .article__image {
-  width: 100%;
-  max-width: 100%;
-  max-height: 100vh;
-  object-fit: cover;
-  }
-}

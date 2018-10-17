@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow">
     <title>sleak</title>
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="./src/assets/icons/apple-icon-57x57.png">
@@ -20,7 +21,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./src/assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./src/assets/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/assets/icons/favicon-16x16.png">
-    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="manifest" href="./src/assets/manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="msapplication-TileColor" content="#e41a1f">
     <meta name="msapplication-TileImage" content="./src/assets/icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#e41a1f">
@@ -35,28 +37,37 @@
     </div>
 
     <div class="menu js-menu">
+      <header class="menu__header">
+        <button class="header__hamburger hamburger hamburger--spring js-hamburger"
+          type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </header>
+
       <nav class="menu__nav">
         <ul class="menu__list">
-          <li>
-            <a href="./index.html" class="js-menu__item">Magazin</a>
+          <li class="menu__list-item">
+            <a href="./" class="menu__item js-menu__item">Magazin</a>
           </li>
-          <li>
-            <a href="./team.html" class="js-menu__item">Team</a>
+          <li class="menu__list-item">
+            <a href="./team.html" class="menu__item js-menu__item">Team</a>
           </li>
-          <li>
-            <a href="#" class="js-menu__item">Kontakt</a>
+          <li class="menu__list-item">
+            <a href="./kontakt.html" class="menu__item js-menu__item">Kontakt</a>
           </li>
-          <li>
-            <a href="./impressum.html" class="js-menu__item">Impressum</a>
+          <li class="menu__list-item">
+            <a href="./impressum.html" class="menu__item js-menu__item">Impressum</a>
           </li>
-          <li>
-            <a href="./datenschutz.html" class="js-menu__item">Datenschutz</a>
+          <li class="menu__list-item">
+            <a href="./datenschutz.html" class="menu__item js-menu__item">Datenschutz</a>
           </li>
         </ul>
       </nav>
-      <a href="/#" class="js-menu__item">
+      <a href="/#" class="menu__item menu__item--logo js-menu__item">
         <img class="menu__image" src="./src/assets/images/sleak-logo.svg" alt="Start"
-          role="button">
+          role="button" tabindex="1">
       </a>
     </div>
 
@@ -115,13 +126,16 @@
     </div>
 
     <header class="header">
-      <button class="header__hamburger hamburger hamburger--spring js-hamburger"
-        type="button">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
+      <div class="header__inner">
+        <button class="header__hamburger hamburger hamburger--spring js-hamburger"
+          type="button">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
     </header>
+
     <main class="main js-main" id="articles">
 
       <article class="article" data-loaded="false" id="seemann"></article>

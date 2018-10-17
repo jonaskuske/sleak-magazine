@@ -1,19 +1,28 @@
 .menu {
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   background: #e41a1f;
   color: #fff;
+  z-index: 2;
   display: none;
-  z-index: 101;
-}
-.menu--open {
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+.menu-open .menu {
+  display: flex;
+}
+.menu__header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-right: 1rem;
 }
 .menu__nav {
   flex-grow: 1;
@@ -24,28 +33,43 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: "Abril Fatface", cursive;
 }
-.menu__list > li {
+.menu__list-item {
   width: 100%;
   text-align: center;
-  font-size: 90px;
 }
-.menu__image {
-  width: 8rem;
-}
-.js-menu__item {
+.menu__item {
   display: flex;
   flex-direction: column;
+  font-size: 2rem;
+}
+.menu__item--logo {
+  line-height: 0;
+}
+.menu__image {
+  width: 100%;
+  max-width: 5.5rem;
 }
 
-/* Responsive */
-@media screen and (max-width: 500px) {
-  .menu__list > li {
-    font-size: 35px;
-    margin-bottom: 0.5rem;
+@media screen and (min-width: 400px) {
+  .menu__header {
+    height: 80px;
+  }
+  .menu__item {
+    font-size: 2.5rem;
   }
   .menu__image {
-    width: 6rem;
+    max-width: 6.5rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .menu__header {
+    height: 100px;
+  }
+  .menu__item {
+    font-size: 4rem;
+  }
+  .menu__image {
+    max-width: 9rem;
   }
 }

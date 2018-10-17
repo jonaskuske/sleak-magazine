@@ -1,48 +1,22 @@
-.team-member {
-  width: 100%;
+.article--team {
   min-height: 100vh;
-  text-align: center;
-  position: relative;
 }
-.team-member__inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.team-selection__inner {
-  padding-top: 50px;
-}
-.team__name {
-  position: absolute;
-  left: 1rem;
-  top: 0;
+.article__title--team {
   margin: 0;
-  font-family: "Abril Fatface", sans-serif;
-  font-size: 90px;
+  font-family: "Abril Fatface", "Lato", sans-serif;
   cursor: pointer;
-  transform: translateY(10px);
-}
-.team__text {
-  max-width: 37%;
-  font-size: 25px;
-}
-.team__text::before, .team__text::after {
-  content: "";
+  align-self: center;
+  padding: 0;
 }
 
-/* Responsive */
-@media screen and (max-width: 500px) {
-  .team__name {
-    font-size: 38px;
-    line-height: 1.2;
+@media screen and (min-width: 400px) {
+  .article__title--team {
+    font-size: 2.2rem;
   }
-  .team__text {
-    max-width: 75%;
-    font-size: 20px;
+}
+@media screen and (min-width: 1000px) {
+  .article__title--team {
+    font-size: 3.8rem;
+    line-height: inherit;
   }
 }
