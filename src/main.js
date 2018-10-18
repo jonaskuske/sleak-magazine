@@ -1,38 +1,50 @@
-import './assets/styles';
-import './utils/polyfills';
-import './article-selection';
+import './utils/appshell';
+import './utils/article-selection';
 
-import { $ } from './utils';
-import { startScrollObserver } from './utils/load-article';
+import { $, debounce } from './utils';
+import { startScrollObserver, loadArticle } from './utils/load-article';
 
-// Startet Observer, um Artikel nachzuladen, wenn Ende der Seite erreicht wird
-startScrollObserver();
+/* vgl.: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/ */
+const updateWindowHeight = () => {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+};
+updateWindowHeight();
+window.addEventListener('resize', debounce(updateWindowHeight, 500));
+
+// Warten, bis erster Artikel geladen, dann Hinweis auf Splashscreen zeigen
+// und Scroll-Observer starten, um bei Scrollen weitere Artikel lazy nachzuladen
+loadArticle(0, { scroll: false }).then(() => {
+  document.body.classList.remove('empty');
+  startScrollObserver();
+});
+
+// Prüfen, ob Gerät ein Touch-Interface hat
+const deviceSupportsTouch = Boolean(
+  'ontouchstart' in window ||
+    window.navigator.maxTouchPoints > 0 ||
+    window.navigator.msMaxTouchPoints > 0 ||
+    (window.DocumentTouch && document instanceof DocumentTouch),
+);
+if (deviceSupportsTouch) document.body.classList.add('supports-touch');
 
 // HTML Elemente
 const splash = $('.js-splash')[0];
 const main = $('.js-main')[0];
-const hamburger = $('.js-hamburger')[0];
-const menu = $('.js-menu')[0];
-const menuItems = $('.js-menu__item');
 
 // Bei Klick auf Splashscreen zu Content scrollen
 splash.addEventListener('click', () => {
   main.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// Menü durch Hamburger-Button togglen
-hamburger.addEventListener('click', toggleMenu);
-// Menü nach Klick auf beliebiges Menüelement schließen
-menuItems.forEach(item => item.addEventListener('click', closeMenu));
+// Hash überprüfen, sodass mit per # in URL zu bestimmten Artikeln springen kann
+const loadArticleFromHash = () => {
+  const { hash } = window.location;
+  if (!hash) return;
 
-function toggleMenu() {
-  hamburger.classList.toggle('is-active');
-  menu.classList.toggle('menu--open');
-  document.body.classList.toggle('no-overflow');
-}
+  const targetArticle = hash.slice(1);
+  loadArticle(targetArticle);
+};
 
-function closeMenu() {
-  hamburger.classList.remove('is-active');
-  menu.classList.remove('menu--open');
-  document.body.classList.remove('no-overflow');
-}
+loadArticleFromHash();
+window.addEventListener('hashchange', loadArticleFromHash, false);

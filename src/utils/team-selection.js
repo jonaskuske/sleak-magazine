@@ -1,6 +1,6 @@
 // vgl. article-selection.js
 
-import { $ } from './utils';
+import { $ } from '.';
 
 const teamSelection = $('.team-selection')[0];
 const teamSelectionButtons = teamSelection.querySelectorAll(
@@ -25,7 +25,7 @@ function handleButtonClick() {
 }
 
 window.addEventListener('click', ({ target }) => {
-  if (target.matches('.team__name')) openTeamSelection();
+  if (target.matches('.js-article__title--team')) openTeamSelection();
 });
 
 function openTeamSelection() {
@@ -47,14 +47,8 @@ const handleIntersection = entries => {
   });
 };
 
-const observerOptions = {
-  rootMargin: '-70px 0px 0px 0px',
-};
+const options = { rootMargin: '-70px 0px 0px 0px' };
+const ButtonObserver = new IntersectionObserver(handleIntersection, options);
+const observeButton = ButtonObserver.observe.bind(ButtonObserver);
 
-const SelectionButtonOberserver = new IntersectionObserver(
-  handleIntersection,
-  observerOptions,
-);
-teamSelectionButtons.forEach(btn => {
-  SelectionButtonOberserver.observe(btn);
-});
+teamSelectionButtons.forEach(observeButton);

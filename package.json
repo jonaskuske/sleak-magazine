@@ -7,7 +7,7 @@
     "start": "npm run serve",
     "dev": "npm run serve",
     "serve": "parcel index.html -p 8080 --no-cache",
-    "build": "parcel build index.html --no-cache --public-url /sleak/",
+    "build": "parcel build index.html --no-cache",
     "lint": "eslint ./ --fix"
   },
   "repository": {
@@ -22,14 +22,15 @@
   },
   "homepage": "https://github.com/jonaskuske/sleak-magazine#readme",
   "devDependencies": {
-    "autoprefixer": "^8.6.4",
+    "autoprefixer": "^8.6.5",
+    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.1",
-    "parcel-bundler": "^1.9.3",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-prettier": "^2.7.0",
+    "parcel-bundler": "^1.10.3",
+    "parcel-plugin-bundle-manifest": "^0.2.0",
     "parcel-plugin-clean-dist": "0.0.6",
-    "parcel-plugin-compress": "^1.0.3",
     "parcel-plugin-static": "^1.0.0",
     "postcss-focus-visible": "^4.0.0",
     "prettier": "1.13.4"
