@@ -1,5 +1,5 @@
-import { $ } from './utils';
-import goToArticle from './utils/load-article';
+import { $ } from '.';
+import goToArticle from './load-article';
 
 // HTML Elemente
 const articleSelection = $('.article-selection')[0];
@@ -21,10 +21,11 @@ async function handleButtonClick() {
   this.classList.add(LOADING_CLASS);
 
   const target = parseInt(this.dataset.target, 10);
-  if (!target) return;
+  // Laden von Artikel 0 (erster Artikel) erlauben
+  if (!target && target !== 0) return;
 
   // Warten bis Artikel geladen
-  const article = await goToArticle(target);
+  await goToArticle(target);
 
   // Dann Ladesymbol verstecken und Auswahl schließen
   this.classList.remove(LOADING_CLASS);
@@ -60,14 +61,8 @@ const handleIntersection = entries => {
   });
 };
 
-const observerOptions = {
-  rootMargin: '-70px 0px 0px 0px',
-};
+const options = { rootMargin: '-70px 0px 0px 0px' };
+const ButtonObserver = new IntersectionObserver(handleIntersection, options);
+const observeButton = ButtonObserver.observe.bind(ButtonObserver);
 
-const SelectionButtonOberserver = new IntersectionObserver(
-  handleIntersection,
-  observerOptions,
-);
-articleSelectionButtons.forEach(btn => {
-  SelectionButtonOberserver.observe(btn);
-});
+articleSelectionButtons.forEach(observeButton);
