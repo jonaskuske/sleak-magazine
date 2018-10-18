@@ -558,6 +558,8 @@ input, a, button, label, p, span {
   position: relative;
 }
 .splash {
+  -webkit-transition: height 200ms ease-out;
+  transition: height 200ms ease-out;
   height: calc(var(--vh, 1vh) * 100);
 }
 .splash__logo {
