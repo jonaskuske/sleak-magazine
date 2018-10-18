@@ -9837,9 +9837,9 @@ function _handleButtonClick() {
           case 0:
             // Ladesymbol anzeigen
             this.classList.add(LOADING_CLASS);
-            target = parseInt(this.dataset.target, 10);
+            target = parseInt(this.dataset.target, 10); // Laden von Artikel 0 (erster Artikel) erlauben
 
-            if (target) {
+            if (!(!target && target !== 0)) {
               _context.next = 4;
               break;
             }
@@ -9975,7 +9975,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51730" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59738" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
