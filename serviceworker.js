@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sleak-v2';
+const CACHE_NAME = 'sleak-v3';
 
 const staticAssets = [
   '.',
