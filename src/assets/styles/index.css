@@ -66,6 +66,7 @@ input, a, button, label, p, span {
   position: relative;
 }
 .splash {
+  transition: height 200ms ease-out;
   height: calc(var(--vh, 1vh) * 100);
 }
 .splash__logo {
