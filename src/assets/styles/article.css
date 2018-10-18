@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-/* Loading-Bar der Artikel */
+/* Loading-Bar, erscheint am unteren Rand während nächster Artikel lädt */
 .article[data-loaded="false"] {
   height: 70px;
   background: #e41a1f;
@@ -29,7 +29,7 @@
   color: #fff;
   margin-top: 0.5rem;
 }
-/* Loading-Bar aller nicht geladenen Artikel außer dem ersten verstecken */
+/* Loading-Bar aller noch nicht geladenen Artikel außer dem ersten verstecken */
 .article[data-loaded="false"] ~ .article[data-loaded="false"] {
   display: none;
 }
@@ -88,7 +88,6 @@
 
 .article__subtitle,
 .article__teaser,
-.article__author,
 .article__text,
 .article__image {
   width: 75vw;
@@ -111,8 +110,11 @@
 .article__teaser-author {
   font-size: 1rem;
 }
-.article__teaser + * {
-  margin-top: 100vh;
+
+/* Da Teaser absolut positioniert: Folge-Element manuell nach unten schieben */
+.article__teaser + .article__subtitle,
+.article__teaser + .article__text,
+.article__teaser + .article__image {
   margin-top: calc(100vh - 70px);
 }
 
@@ -150,7 +152,9 @@
     font-size: 44px;
     height: 36px;
   }
-  .article__teaser + * {
+  .article__teaser + .article__subtitle,
+  .article__teaser + .article__text,
+  .article__teaser + .article__image {
     margin-top: calc(100vh - 80px);
   }
 }
@@ -171,7 +175,9 @@
     width: 75vw;
     max-width: 47rem;
   }
-  .article__teaser + * {
+  .article__teaser + .article__subtitle,
+  .article__teaser + .article__text,
+  .article__teaser + .article__image {
     margin-top: calc(100vh - 100px);
   }
   .article__image--fullwidth {
