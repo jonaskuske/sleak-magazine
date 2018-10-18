@@ -9480,7 +9480,7 @@ if (!Element.prototype.matches) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.$ = exports.wait = void 0;
+exports.debounce = exports.$ = exports.wait = void 0;
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -9502,9 +9502,33 @@ exports.wait = wait;
 
 var $ = function $(selector) {
   return selector.startsWith('.') ? _toConsumableArray(document.querySelectorAll(selector)) : document.querySelector(selector);
-};
+}; // Debounce: Tool, um eine Funktion erst auszuführen,
+// wenn sie eine Zeit lang nicht ausgeführt wurde
+
 
 exports.$ = $;
+
+var debounce = function debounce(fn) {
+  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var timeout;
+  return function () {
+    var _this = this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var later = function later() {
+      timeout = null;
+      fn.apply(_this, args);
+    };
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+exports.debounce = debounce;
 },{}],"src/utils/menu.js":[function(require,module,exports) {
 "use strict";
 
@@ -9585,10 +9609,10 @@ var articles = (0, _2.$)('.article').map(function (element, index) {
     path: "./articles/".concat(element.id, ".html"),
     inViewport: false
   };
-}); // Liefert Artikel-Objekt anhand von Index (startend bei 1) oder Artikelname
+}); // Liefert Artikel-Objekt anhand von Index oder Artikelname
 
 var findArticle = function findArticle(target) {
-  return typeof target === 'number' ? articles[target - 1] : articles.find(function (_ref) {
+  return typeof target === 'number' ? articles[target] : articles.find(function (_ref) {
     var name = _ref.name;
     return name === target;
   });
@@ -9629,12 +9653,21 @@ function () {
             _ref4 = _context.sent;
             _ref5 = _slicedToArray(_ref4, 1);
             html = _ref5[0];
+
+            if (!(element.dataset.loaded === 'true')) {
+              _context.next = 10;
+              break;
+            }
+
+            return _context.abrupt("return");
+
+          case 10:
             // Artikel in DOM einfügen und als geladen markieren
             element.innerHTML = html;
             element.dataset.loaded = true;
             return _context.abrupt("return");
 
-          case 11:
+          case 13:
           case "end":
             return _context.stop();
         }
@@ -9698,56 +9731,66 @@ function _loadArticle() {
   _loadArticle = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee2(target) {
-    var targetArticle, articlesToLoad;
+    var _ref7,
+        _ref7$scroll,
+        scroll,
+        targetArticle,
+        articlesToLoad,
+        _args2 = arguments;
+
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
+            _ref7 = _args2.length > 1 && _args2[1] !== undefined ? _args2[1] : {}, _ref7$scroll = _ref7.scroll, scroll = _ref7$scroll === void 0 ? true : _ref7$scroll;
             targetArticle = findArticle(target);
 
             if (targetArticle) {
-              _context2.next = 3;
+              _context2.next = 4;
               break;
             }
 
             return _context2.abrupt("return", console.warn("Artikel nicht gefunden: ".concat(target)));
 
-          case 3:
+          case 4:
             // Artikel + alle Artikel oberhalb (index kleiner/gleich Zielartikel) laden
             articlesToLoad = articles.filter(function (_, index) {
               return index <= targetArticle.index;
             }).map(loadArticleIfNeeded);
-            _context2.prev = 4;
-            _context2.next = 7;
+            _context2.prev = 5;
+            _context2.next = 8;
             return Promise.all(articlesToLoad);
 
-          case 7:
-            _context2.next = 12;
+          case 8:
+            _context2.next = 13;
             break;
 
-          case 9:
-            _context2.prev = 9;
-            _context2.t0 = _context2["catch"](4);
+          case 10:
+            _context2.prev = 10;
+            _context2.t0 = _context2["catch"](5);
             return _context2.abrupt("return", console.error("Fehler beim Laden des Artikels ".concat(targetArticle.name, ": ").concat(_context2.t0)));
 
-          case 12:
-            _context2.next = 14;
+          case 13:
+            _context2.next = 15;
             return (0, _2.wait)(1400);
 
-          case 14:
+          case 15:
             // Dann zu Zielartikel scrollen
-            targetArticle.element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
+            if (scroll) {
+              targetArticle.element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+
             return _context2.abrupt("return", targetArticle);
 
-          case 16:
+          case 17:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, this, [[4, 9]]);
+    }, _callee2, this, [[5, 10]]);
   }));
   return _loadArticle.apply(this, arguments);
 }
@@ -9866,8 +9909,25 @@ var _utils = require("./utils");
 
 var _loadArticle = require("./utils/load-article");
 
-// Startet Observer, um Artikel nachzuladen, wenn Ende der Seite erreicht wird
-(0, _loadArticle.startScrollObserver)(); // HTML Elemente
+/* vgl.: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/ */
+var updateWindowHeight = function updateWindowHeight() {
+  var vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
+};
+
+updateWindowHeight();
+window.addEventListener('resize', (0, _utils.debounce)(updateWindowHeight, 500)); // Warten, bis erster Artikel geladen, dann Hinweis auf Splashscreen zeigen
+// und Scroll-Observer starten, um bei Scrollen weitere Artikel lazy nachzuladen
+
+(0, _loadArticle.loadArticle)(0, {
+  scroll: false
+}).then(function () {
+  document.body.classList.remove('empty');
+  (0, _loadArticle.startScrollObserver)();
+}); // Prüfen, ob Gerät ein Touch-Interface hat
+
+var deviceSupportsTouch = Boolean('ontouchstart' in window || window.navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0 || window.DocumentTouch && document instanceof DocumentTouch);
+if (deviceSupportsTouch) document.body.classList.add('supports-touch'); // HTML Elemente
 
 var splash = (0, _utils.$)('.js-splash')[0];
 var main = (0, _utils.$)('.js-main')[0]; // Bei Klick auf Splashscreen zu Content scrollen
@@ -9915,7 +9975,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58446" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51730" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

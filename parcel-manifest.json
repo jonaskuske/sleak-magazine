@@ -20,17 +20,17 @@
   "src/assets/icons/android-icon-96x96.png": "/android-icon-96x96.a11b218b.png",
   "src/assets/icons/android-icon-144x144.png": "/android-icon-144x144.4814b7ab.png",
   "src/assets/icons/ms-icon-144x144.png": "/ms-icon-144x144.b6c72459.png",
-  "src/main.js": "/main.a8670953.js",
-  "src/assets/styles/fonts.css": "/main.a5cb0225.css",
+  "src/main.js": "/main.8bcc4678.js",
+  "src/assets/styles/fonts.css": "/main.02d15379.css",
   "src/assets/fonts/BebasNeue.otf": "/BebasNeue.543f6143.otf",
   "serviceworker.js": "/serviceworker.js",
   "src/assets/images/sleak-logo.svg": "/sleak-logo.7441a400.svg",
   "team.html": "/team.html",
-  "src/team.js": "/team.17ea9755.js",
+  "src/team.js": "/team.42a82fc7.js",
   "kontakt.html": "/kontakt.html",
-  "src/utils/appshell.js": "/appshell.bb863dad.js",
+  "src/utils/appshell.js": "/appshell.b72b5023.js",
   "impressum.html": "/impressum.html",
-  "src/imprint.js": "/imprint.80a3a310.js",
+  "src/imprint.js": "/imprint.f28f18a6.js",
   "datenschutz.html": "/datenschutz.html",
-  "src/privacy.js": "/privacy.f080cc3a.js"
+  "src/privacy.js": "/privacy.ff051a3c.js"
 }

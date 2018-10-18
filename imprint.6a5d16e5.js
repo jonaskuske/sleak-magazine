@@ -9480,7 +9480,7 @@ if (!Element.prototype.matches) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.$ = exports.wait = void 0;
+exports.debounce = exports.$ = exports.wait = void 0;
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -9502,9 +9502,33 @@ exports.wait = wait;
 
 var $ = function $(selector) {
   return selector.startsWith('.') ? _toConsumableArray(document.querySelectorAll(selector)) : document.querySelector(selector);
-};
+}; // Debounce: Tool, um eine Funktion erst auszuführen,
+// wenn sie eine Zeit lang nicht ausgeführt wurde
+
 
 exports.$ = $;
+
+var debounce = function debounce(fn) {
+  var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var timeout;
+  return function () {
+    var _this = this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var later = function later() {
+      timeout = null;
+      fn.apply(_this, args);
+    };
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+exports.debounce = debounce;
 },{}],"src/utils/menu.js":[function(require,module,exports) {
 "use strict";
 
@@ -9582,7 +9606,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58446" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51730" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

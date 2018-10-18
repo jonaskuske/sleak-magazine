@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface|Lato:300,400,700);
 
 @font-face {
   font-family: "Bebas Neue";
@@ -512,8 +511,11 @@ h2 {
 ul {
   font-family: "Abril Fatface", "Lato", sans-serif;
 }
+blockquote {
+  margin: 0;
+  padding: 0;
+}
 a {
-  text-decoration: none;
   color: currentColor;
 }
 input, a, button, label, p, span {
@@ -554,7 +556,9 @@ input, a, button, label, p, span {
   cursor: pointer;
   color: #fff;
   position: relative;
-  -webkit-tap-highlight-color: transparent;
+}
+.splash {
+  height: calc(var(--vh, 1vh) * 100);
 }
 .splash__logo {
   width: 35%;
@@ -562,7 +566,7 @@ input, a, button, label, p, span {
   max-width: 200px;
 }
 .splash::after {
-  content: "Tappen, um zu starten...";
+  content: "Klicken, um zu starten...";
   position: absolute;
   bottom: 2.5rem;
   left: 50%;
@@ -573,16 +577,73 @@ input, a, button, label, p, span {
   -webkit-animation: appear 750ms ease-in;
           animation: appear 750ms ease-in;
 }
-@media screen and (min-width: 1150px) {
-  .splash::after {
-    content: "Klicken, um zu starten...";
-  }
+.supports-touch .splash::after {
+  content: "Tappen, um zu starten...";
+}
+.empty .splash::after {
+  content: "Wird geladen...";
 }
 
-/* Anpassung für Impressum, Kontakt, Kontakt */
+/* Footer mit Logo -> Scroll to Top */
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 3rem;
+}
+.footer__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.footer__logo {
+  width: 100%;
+  max-width: 5.5rem;
+  -webkit-transition: fill 200ms ease-out;
+  transition: fill 200ms ease-out;
+  fill: lightgray;
+}
+.footer__link:hover .footer__logo {
+  fill: #e41a1f;
+}
+/* Footer verstecken, falls noch nicht alle Artikel geladen */
+.article[data-loaded="false"] + .footer {
+  display: none;
+}
+
+/* Nötig für Seiten wie Impressum, Kontakt, Datenschutz */
 .static-main > * {
   padding-top: 20vh;
-}.header {
+}
+
+@media screen and (min-width: 400px) {
+  .footer__logo {
+    max-width: 6.5rem;
+  }
+}
+@media screen and (min-width: 700px) {
+  .footer {
+    height: 5rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .footer {
+    height: 7rem;
+  }
+  .footer__logo {
+    max-width: 9rem;
+  }
+}
+.header {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -619,13 +680,23 @@ input, a, button, label, p, span {
   color: #e41a1f;
 }
 
+/* Header auf Startseite erst anzeigen, wenn erster Artikel geladen */
+.empty .header {
+  display: none;
+}
+
 @media screen and (min-width: 400px) {
   .header::before, .header__inner {
     height: 80px;
   }
 }
 @media screen and (min-width: 1000px) {
-  .header::before, .header__inner {
+  /* Header-Hintegrund am Desktop nicht anzeigen */
+  .header::before {
+    content: none;
+  }
+
+  .header__inner {
     height: 100px;
   }
 }.menu {
@@ -696,6 +767,7 @@ input, a, button, label, p, span {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 2rem;
+  text-decoration: none;
 }
 .menu__item--logo {
   line-height: 0;
@@ -745,7 +817,7 @@ input, a, button, label, p, span {
           box-sizing: border-box;
 }
 
-/* Loading-Bar der Artikel */
+/* Loading-Bar, erscheint am unteren Rand während nächster Artikel lädt */
 .article[data-loaded="false"] {
   height: 70px;
   background: #e41a1f;
@@ -765,10 +837,13 @@ input, a, button, label, p, span {
 }
 .article[data-loaded="false"]::after {
   content: 'Nächster Artikel wird geladen...';
+  font-family: Abril Fatface, Lato, sans-serif;
   color: #fff;
   margin-top: 0.5rem;
 }
-/* Loading-Bar aller nicht geladenen Artikel außer dem ersten verstecken */
+/* Loading-Bar bei allererstem Artikel und bei allen Artikeln, vor denen sich
+   noch ein nicht geladenen Artikel befindet, verstecken */
+.article[data-loaded="false"]:first-child,
 .article[data-loaded="false"] ~ .article[data-loaded="false"] {
   display: none;
 }
@@ -828,7 +903,7 @@ input, a, button, label, p, span {
 .article__number {
   font-family: "Abril Fatface", sans-serif;
   font-size: 36px;
-  height: 30px;
+  height: 32px;
   overflow: hidden;
   color: #e41a1f;
   cursor: pointer;
@@ -837,12 +912,10 @@ input, a, button, label, p, span {
   line-height: 0;
   background: none;
   border: none;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .article__subtitle,
 .article__teaser,
-.article__author,
 .article__text,
 .article__image {
   width: 75vw;
@@ -874,26 +947,38 @@ input, a, button, label, p, span {
 .article__teaser-author {
   font-size: 1rem;
 }
-.article__teaser + * {
-  margin-top: 100vh;
+
+/* Da Teaser absolut positioniert: Folge-Element manuell nach unten schieben */
+.article__teaser + .article__subtitle,
+.article__teaser + .article__text,
+.article__teaser + .article__interview,
+.article__teaser + .article__image {
   margin-top: calc(100vh - 70px);
 }
 
+/* Ab hier: Text Styling */
 .article__text,
 .article__subtitle,
 .article__interview {
   text-align: left;
 }
 
-.article__interview {
-  font-size: 1.2rem;
-  text-align: justify;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
-  font-weight: normal;
+.article__text--highlighted {
+  color: #e41a1f;
+  font-weight: bold;
+}
+.article__text--quote {
+  font-family: Abril Fatface, Lato, sans-serif;
+  font-size: 1.3rem;
+  color: #e41a1f;
 }
 
+.article__interview {
+  font-size: 1.2rem;
+  color: #e41a1f;
+}
+
+.article__text--quote,
 .article__interview,
 .article__subtitle {
   width: 80vw;
@@ -914,9 +999,12 @@ input, a, button, label, p, span {
   }
   .article__number {
     font-size: 44px;
-    height: 34px;
+    height: 36px;
   }
-  .article__teaser + * {
+  .article__teaser + .article__subtitle,
+  .article__teaser + .article__text,
+  .article__teaser + .article__interview,
+  .article__teaser + .article__image {
     margin-top: calc(100vh - 80px);
   }
 }
@@ -927,18 +1015,27 @@ input, a, button, label, p, span {
   }
   .article__number {
     font-size: 85px;
-    height: 66px;
+    height: 70px;
   }
   .article__teaser-text {
     font-size: 2.5rem;
     line-height: 3.5rem;
   }
+  .article__teaser + .article__subtitle,
+  .article__teaser + .article__text,
+  .article__teaser + .article__interview,
+  .article__teaser + .article__image {
+    margin-top: calc(100vh - 100px);
+  }
+  .article__text--quote {
+    font-size: 2rem;
+  }
+  .article__interview {
+    font-size: 1.5rem;
+  }
   .article__image {
     width: 75vw;
     max-width: 47rem;
-  }
-  .article__teaser + * {
-    margin-top: calc(100vh - 100px);
   }
   .article__image--fullwidth {
   width: 100%;
@@ -948,26 +1045,6 @@ input, a, button, label, p, span {
      object-fit: cover;
   }
 }
-
-/*
-.article__subtitle {
-  font-family: "Abril Fatface", cursive;
-  color: #e41a1f;
-  font-size: 50px;
-  width: 54%;
-  margin-left: 10%;
-}
-.article__interview {
-  font-family: "Lato", sans-serif;
-  font-weight: 600;
-  text-align: left;
-  line-height: 2rem;
-  color: #e41a1f;
-  font-size: 20px;
-  width: 54%;
-  margin-left: 10%;
-} */
-/* Responsive */
 .article-selection, .team-selection {
     position: fixed;
     width: 100%;
@@ -1019,7 +1096,6 @@ input, a, button, label, p, span {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-tap-highlight-color: transparent;
 }
 .article-selection__button--loading::before {
   content: '';
@@ -1092,6 +1168,9 @@ input, a, button, label, p, span {
 *:focus:not(.focus-visible)::after {
   outline: none !important;
 }
+*, ::before, ::after {
+  -webkit-tap-highlight-color: transparent;
+}
 
 @-webkit-keyframes appear {
   from {
@@ -1154,6 +1233,7 @@ input, a, button, label, p, span {
       -ms-grid-row-align: center;
       align-self: center;
   padding: 0;
+  pointer-events: all;
 }
 
 @media screen and (min-width: 400px) {
@@ -1161,6 +1241,7 @@ input, a, button, label, p, span {
     font-size: 2.2rem;
   }
 }
+
 @media screen and (min-width: 1000px) {
   .article__title--team {
     font-size: 3.8rem;
