@@ -25,8 +25,11 @@ h2 {
 ul {
   font-family: "Abril Fatface", "Lato", sans-serif;
 }
+blockquote {
+  margin: 0;
+  padding: 0;
+}
 a {
-  text-decoration: none;
   color: currentColor;
 }
 input, a, button, label, p, span {
@@ -61,7 +64,10 @@ input, a, button, label, p, span {
   cursor: pointer;
   color: #fff;
   position: relative;
-  -webkit-tap-highlight-color: transparent;
+}
+.splash {
+  transition: height 200ms ease-out;
+  height: calc(var(--vh, 1vh) * 100);
 }
 .splash__logo {
   width: 35%;
@@ -69,7 +75,7 @@ input, a, button, label, p, span {
   max-width: 200px;
 }
 .splash::after {
-  content: "Tappen, um zu starten...";
+  content: "Klicken, um zu starten...";
   position: absolute;
   bottom: 2.5rem;
   left: 50%;
@@ -78,13 +84,58 @@ input, a, button, label, p, span {
   font-style: italic;
   animation: appear 750ms ease-in;
 }
-@media screen and (min-width: 1150px) {
-  .splash::after {
-    content: "Klicken, um zu starten...";
-  }
+.supports-touch .splash::after {
+  content: "Tappen, um zu starten...";
+}
+.empty .splash::after {
+  content: "Wird geladen...";
 }
 
-/* Anpassung für Impressum, Kontakt, Kontakt */
+/* Footer mit Logo -> Scroll to Top */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 3rem;
+}
+.footer__link {
+  display: flex;
+  align-items: flex-end;
+}
+.footer__logo {
+  width: 100%;
+  max-width: 5.5rem;
+  transition: fill 200ms ease-out;
+  fill: lightgray;
+}
+.footer__link:hover .footer__logo {
+  fill: #e41a1f;
+}
+/* Footer verstecken, falls noch nicht alle Artikel geladen */
+.article[data-loaded="false"] + .footer {
+  display: none;
+}
+
+/* Nötig für Seiten wie Impressum, Kontakt, Datenschutz */
 .static-main > * {
   padding-top: 20vh;
+}
+
+@media screen and (min-width: 400px) {
+  .footer__logo {
+    max-width: 6.5rem;
+  }
+}
+@media screen and (min-width: 700px) {
+  .footer {
+    height: 5rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .footer {
+    height: 7rem;
+  }
+  .footer__logo {
+    max-width: 9rem;
+  }
 }

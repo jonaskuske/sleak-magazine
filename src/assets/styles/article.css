@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-/* Loading-Bar der Artikel */
+/* Loading-Bar, erscheint am unteren Rand während nächster Artikel lädt */
 .article[data-loaded="false"] {
   height: 70px;
   background: #e41a1f;
@@ -26,10 +26,13 @@
 }
 .article[data-loaded="false"]::after {
   content: 'Nächster Artikel wird geladen...';
+  font-family: Abril Fatface, Lato, sans-serif;
   color: #fff;
   margin-top: 0.5rem;
 }
-/* Loading-Bar aller nicht geladenen Artikel außer dem ersten verstecken */
+/* Loading-Bar bei allererstem Artikel und bei allen Artikeln, vor denen sich
+   noch ein nicht geladenen Artikel befindet, verstecken */
+.article[data-loaded="false"]:first-child,
 .article[data-loaded="false"] ~ .article[data-loaded="false"] {
   display: none;
 }
@@ -74,7 +77,7 @@
 .article__number {
   font-family: "Abril Fatface", sans-serif;
   font-size: 36px;
-  height: 30px;
+  height: 32px;
   overflow: hidden;
   color: #e41a1f;
   cursor: pointer;
@@ -83,12 +86,10 @@
   line-height: 0;
   background: none;
   border: none;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .article__subtitle,
 .article__teaser,
-.article__author,
 .article__text,
 .article__image {
   width: 75vw;
@@ -108,27 +109,41 @@
   font-size: 1.25rem;
   line-height: 2.35rem;
 }
-.article__teaser-author {
+.article__teaser-author, .article__teaser-author a {
   font-size: 1rem;
 }
-.article__teaser + * {
-  margin-top: 100vh;
+
+/* Da Teaser absolut positioniert: Folge-Element manuell nach unten schieben */
+.article__teaser + .article__subtitle,
+.article__teaser + .article__text,
+.article__teaser + .article__interview,
+.article__teaser + .article__image {
   margin-top: calc(100vh - 70px);
 }
 
+/* Ab hier: Text Styling */
 .article__text,
 .article__subtitle,
 .article__interview {
   text-align: left;
 }
 
-.article__interview {
-  font-size: 1.2rem;
-  text-align: justify;
-  hyphens: auto;
-  font-weight: normal;
+.article__text--highlighted {
+  color: #e41a1f;
+  font-weight: bold;
+}
+.article__text--quote {
+  font-family: Abril Fatface, Lato, sans-serif;
+  font-size: 1.3rem;
+  color: #e41a1f;
 }
 
+.article__interview {
+  font-size: 1.2rem;
+  color: #e41a1f;
+}
+
+.article__text--quote,
 .article__interview,
 .article__subtitle {
   width: 80vw;
@@ -148,9 +163,12 @@
   }
   .article__number {
     font-size: 44px;
-    height: 34px;
+    height: 36px;
   }
-  .article__teaser + * {
+  .article__teaser + .article__subtitle,
+  .article__teaser + .article__text,
+  .article__teaser + .article__interview,
+  .article__teaser + .article__image {
     margin-top: calc(100vh - 80px);
   }
 }
@@ -161,18 +179,27 @@
   }
   .article__number {
     font-size: 85px;
-    height: 66px;
+    height: 70px;
   }
   .article__teaser-text {
     font-size: 2.5rem;
     line-height: 3.5rem;
   }
+  .article__teaser + .article__subtitle,
+  .article__teaser + .article__text,
+  .article__teaser + .article__interview,
+  .article__teaser + .article__image {
+    margin-top: calc(100vh - 100px);
+  }
+  .article__text--quote {
+    font-size: 2rem;
+  }
+  .article__interview {
+    font-size: 1.5rem;
+  }
   .article__image {
     width: 75vw;
     max-width: 47rem;
-  }
-  .article__teaser + * {
-    margin-top: calc(100vh - 100px);
   }
   .article__image--fullwidth {
   width: 100%;
@@ -181,23 +208,3 @@
   object-fit: cover;
   }
 }
-
-/*
-.article__subtitle {
-  font-family: "Abril Fatface", cursive;
-  color: #e41a1f;
-  font-size: 50px;
-  width: 54%;
-  margin-left: 10%;
-}
-.article__interview {
-  font-family: "Lato", sans-serif;
-  font-weight: 600;
-  text-align: left;
-  line-height: 2rem;
-  color: #e41a1f;
-  font-size: 20px;
-  width: 54%;
-  margin-left: 10%;
-} */
-/* Responsive */

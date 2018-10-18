@@ -13,6 +13,9 @@
 *:focus:not(:focus-visible)::after {
   outline: none !important;
 }
+*, ::before, ::after {
+  -webkit-tap-highlight-color: transparent;
+}
 
 @keyframes appear {
   from {

@@ -26,13 +26,23 @@
   color: #e41a1f;
 }
 
+/* Header auf Startseite erst anzeigen, wenn erster Artikel geladen */
+.empty .header {
+  display: none;
+}
+
 @media screen and (min-width: 400px) {
   .header::before, .header__inner {
     height: 80px;
   }
 }
 @media screen and (min-width: 1000px) {
-  .header::before, .header__inner {
+  /* Header-Hintegrund am Desktop nicht anzeigen */
+  .header::before {
+    content: none;
+  }
+
+  .header__inner {
     height: 100px;
   }
 }
