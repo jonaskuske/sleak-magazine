@@ -21,7 +21,8 @@ async function handleButtonClick() {
   this.classList.add(LOADING_CLASS);
 
   const target = parseInt(this.dataset.target, 10);
-  if (!target) return;
+  // Laden von Artikel 0 (erster Artikel) erlauben
+  if (!target && target !== 0) return;
 
   // Warten bis Artikel geladen
   await goToArticle(target);
