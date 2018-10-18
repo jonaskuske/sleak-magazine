@@ -32,7 +32,12 @@
   }
 }
 @media screen and (min-width: 1000px) {
-  .header::before, .header__inner {
+  /* Header-Hintegrund am Desktop nicht anzeigen */
+  .header::before {
+    content: none;
+  }
+
+  .header__inner {
     height: 100px;
   }
 }
