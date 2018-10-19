@@ -9575,7 +9575,7 @@ if ('serviceWorker' in navigator && "development" === 'production') {
     return console.warn("Fehler beim Registrieren des Service Workers: ".concat(error));
   });
 }
-},{"../assets/styles":"src/assets/styles/index.js","./polyfills":"src/utils/polyfills.js","./menu":"src/utils/menu.js","/Users/Rieke/Documents/CODE/sleak-magazine/serviceworker.js":[["serviceworker.js","serviceworker.js"],"serviceworker.map","serviceworker.js"]}],"src/utils/team-selection.js":[function(require,module,exports) {
+},{"../assets/styles":"src/assets/styles/index.js","./polyfills":"src/utils/polyfills.js","./menu":"src/utils/menu.js","/mnt/c/Users/Jonas Kuske/code/sleak-magazine/serviceworker.js":[["serviceworker.js","serviceworker.js"],"serviceworker.map","serviceworker.js"]}],"src/utils/team-selection.js":[function(require,module,exports) {
 "use strict";
 
 var _ = require(".");
@@ -9660,7 +9660,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65357" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51213" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
