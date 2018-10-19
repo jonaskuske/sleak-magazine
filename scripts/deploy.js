@@ -1,6 +1,6 @@
 const path = require('path');
 const semver = require('semver');
-const simpleGit = require('simple-git')(process.cwd());
+const git = require('simple-git/promise')(process.cwd());
 const pkg = require('../package.json');
 const { version, deployedVersion } = pkg;
 
@@ -54,19 +54,12 @@ const publishToGitHub = () => {
       );
     };
 
-    simpleGit.add(resolve('../package.json'), error => {
-      if (error) handleGitError(error);
-
-      simpleGit.commit(deployedMessage, [resolve('../package.json')], error => {
-        if (error) handleGitError(error);
-
-        simpleGit.push('origin', 'master', error => {
-          if (error) handleGitError(error);
-
-          log(['✔', 'Deploy completed successfully.']);
-        });
-      });
-    });
+    git
+      .add(resolve('../package.json'))
+      .then(() => git.commit(deployMessage, [resolve('../package.json')]))
+      .then(() => git.push('origin', 'master'))
+      .then(() => log(['✔', 'Deploy completed successfully.']))
+      .catch(handleGitError);
   };
 
   ghPages.publish(
@@ -84,47 +77,45 @@ if (!semver.valid(version)) {
   logAndExit(`Field 'version' in package.json is not valid! Aborting.`);
 }
 
-simpleGit.fetch(error => {
-  if (error) logAndExit(error, 1);
+const verifyStatus = status => {
+  const { current: currentBranch, behind } = status;
 
-  simpleGit.status((error, status) => {
-    if (error) logAndExit(error, 1);
-
-    const { current: currentBranch, behind } = status;
-
-    if (currentBranch !== 'master') {
-      logAndExit(
-        `You can only deploy from branch 'master' but currently are on '${currentBranch}'. Aborting.`,
-      );
-    }
-
-    // Abbruch, falls master nicht up-to-date mit origin/master
-    if (!!behind) {
-      logAndExit(
-        `Your local branch is not up-to-date with 'origin/master'.
+  // Abbruch, falls nicht auf branch master
+  if (currentBranch !== 'master') {
+    throw Error(
+      `You can only deploy from branch 'master' but currently are on '${currentBranch}'. Aborting.`,
+    );
+  }
+  // Abbruch, falls master nicht up-to-date mit origin/master
+  if (!!behind) {
+    throw Error(
+      `Your local branch is not up-to-date with 'origin/master'.
         Push or pull all changes before deploying. Aborting.`,
-      );
-    }
+    );
+  }
 
-    if (semver.valid(deployedVersion)) {
-      // 'deployedVersion' angegeben?
-      // Abbruch, falls 'version' nicht aktueller als 'deployedVersion'
-      if (!semver.gt(version, deployedVersion)) {
-        logAndExit([
-          `The current version is already deployed. Aborting.`,
-          `Bump the version number in package.json before deploying.`,
-        ]);
-      }
-
-      publishToGitHub();
-    } else {
-      // 'deployedVersion' nicht angegeben? Deployen, dann neu definieren
-      log([
-        '⚠',
-        `Field 'deployedVersion' in package.json is not a valid version number.`,
-        `It will be set to the current version after this deploy.`,
+  if (semver.valid(deployedVersion)) {
+    // 'deployedVersion' angegeben?
+    // Abbruch, falls 'version' nicht aktueller als 'deployedVersion'
+    if (!semver.gt(version, deployedVersion)) {
+      throw Error([
+        `The current version is already deployed. Aborting.`,
+        `Bump the version number in package.json before deploying.`,
       ]);
-      publishToGitHub();
     }
-  });
-});
+  } else {
+    // 'deployedVersion' nicht angegeben? Warnen, aber fortfahren
+    log([
+      '⚠',
+      `Field 'deployedVersion' in package.json is not a valid version number.`,
+      `It will be set to the current version after this deploy.`,
+    ]);
+  }
+};
+
+git
+  .fetch()
+  .then(() => git.status())
+  .then(verifyStatus)
+  .then(publishToGitHub)
+  .catch(error => logAndExit(error, 1));
