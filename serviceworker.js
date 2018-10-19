@@ -1,6 +1,16 @@
-const CACHE_NAME = 'sleak-v6';
+// Use name & version fields from package.json to manage caches
+const PACKAGE_NAME = process.env.npm_package_name;
+const PACKAGE_VERSION = process.env.npm_package_version;
+const CACHE_NAME = `${PACKAGE_NAME}@${PACKAGE_VERSION}`;
 
-const staticAssets = [
+const ALLOWED_CACHES = [
+  CACHE_NAME,
+  // ! If you want to whitelist any caches, add them here
+  // ! Any caches with a name not found in this array will be deleted
+  // ! from the client's browser once the service worker is activated
+];
+
+const STATIC_ASSETS = [
   '.',
   './articles/antarktis.html',
   './articles/apollo.html',
@@ -33,7 +43,7 @@ self.addEventListener('install', event => {
               )
               .map(([_, hashedURL]) => hashedURL);
 
-            return cache.addAll([...staticAssets, ...hashedAssets]);
+            return cache.addAll([...STATIC_ASSETS, ...hashedAssets]);
           }),
       )
       .then(() => self.skipWaiting()),
@@ -42,11 +52,10 @@ self.addEventListener('install', event => {
 
 /* delete old caches on activation */
 self.addEventListener('activate', event => {
-  const allowedCaches = [CACHE_NAME];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       const cacheDeletePromises = cacheNames.map(cacheName => {
-        if (!allowedCaches.includes(cacheName)) {
+        if (!ALLOWED_CACHES.includes(cacheName)) {
           return caches.delete(cacheName);
         }
       });
