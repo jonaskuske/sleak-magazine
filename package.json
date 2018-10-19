@@ -1,13 +1,14 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
     "start": "npm run serve",
     "dev": "npm run serve",
     "serve": "parcel index.html -p 8080 --no-cache",
     "build": "parcel build index.html --no-cache",
+    "deploy": "npm run build && node scripts/deploy.js",
     "lint": "eslint ./ --fix"
   },
   "repository": {
@@ -28,12 +29,15 @@
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.10.0",
     "eslint-plugin-prettier": "^2.7.0",
+    "gh-pages": "^2.0.1",
     "parcel-bundler": "^1.10.3",
     "parcel-plugin-bundle-manifest": "^0.2.0",
     "parcel-plugin-clean-dist": "0.0.6",
     "parcel-plugin-static": "^1.0.0",
     "postcss-focus-visible": "^4.0.0",
-    "prettier": "1.13.4"
+    "prettier": "1.13.4",
+    "simple-git": "^1.105.0",
+    "write-pkg": "^3.2.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -70,5 +74,6 @@
   "eslintIgnore": [
     ".cache/",
     "dist/"
-  ]
+  ],
+  "deployedVersion": "1.0.2"
 }
