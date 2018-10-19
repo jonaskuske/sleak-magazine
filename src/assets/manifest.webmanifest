@@ -43,13 +43,13 @@
       "src": ".\/icons\/android-icon-512x512.png",
       "sizes": "512x512",
       "type": "image\/png",
-      "density": "4.0"
+      "density": "5.0"
     },
     {
       "src": ".\/icons\/android-icon-1024x1024.png",
       "sizes": "1024x1024",
       "type": "image\/png",
-      "density": "4.0"
+      "density": "6.0"
     }
   ],
   "display": "standalone",
