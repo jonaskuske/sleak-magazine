@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   position: relative;
   padding-bottom: 2rem;
   box-sizing: border-box;
@@ -91,6 +90,8 @@
 .article__subtitle,
 .article__teaser,
 .article__text,
+.article__list,
+.article__h3,
 .article__image {
   width: 75vw;
   max-width: 47rem;
@@ -104,6 +105,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .article__teaser-text {
   font-size: 1.25rem;
@@ -116,18 +118,14 @@
 /* Da Teaser absolut positioniert: Folge-Element manuell nach unten schieben */
 .article__teaser + .article__subtitle,
 .article__teaser + .article__text,
+.article__teaser + .article__list,
+.article__teaser + .article__h3,
 .article__teaser + .article__interview,
 .article__teaser + .article__image {
   margin-top: calc(100vh - 70px);
 }
 
 /* Ab hier: Text Styling */
-.article__text,
-.article__subtitle,
-.article__interview {
-  text-align: left;
-}
-
 .article__text--highlighted {
   color: #e41a1f;
   font-weight: bold;
@@ -167,6 +165,8 @@
   }
   .article__teaser + .article__subtitle,
   .article__teaser + .article__text,
+  .article__teaser + .article__list,
+  .article__teaser + .article__h3,
   .article__teaser + .article__interview,
   .article__teaser + .article__image {
     margin-top: calc(100vh - 80px);
@@ -187,6 +187,8 @@
   }
   .article__teaser + .article__subtitle,
   .article__teaser + .article__text,
+  .article__teaser + .article__list,
+  .article__teaser + .article__h3,
   .article__teaser + .article__interview,
   .article__teaser + .article__image {
     margin-top: calc(100vh - 100px);

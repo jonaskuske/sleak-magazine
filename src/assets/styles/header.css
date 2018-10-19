@@ -39,10 +39,15 @@
 @media screen and (min-width: 1000px) {
   /* Header-Hintegrund am Desktop nicht anzeigen */
   .header::before {
-    content: none;
+    height: 100px;
   }
 
   .header__inner {
     height: 100px;
+  }
+}
+@media screen and (min-width: 1550px) {
+  .header::before {
+    content: none;
   }
 }
