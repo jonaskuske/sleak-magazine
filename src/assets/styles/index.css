@@ -1,15 +1,23 @@
 html, body {
   scroll-behavior: smooth;
 }
-body, input, button, label, p {
+body, input, button, label, p, ul {
   font-family: Lato, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body.empty {
+  min-height: auto;
+}
 header {
   z-index: 1;
 }
-h1, h2 {
+h1, h2, h3 {
   color: #e41a1f;
   font-weight: normal;
 }
@@ -22,8 +30,14 @@ h2 {
   font-family: "Abril Fatface", "Lato", sans-serif;
   line-height: 1.7rem;
 }
-ul {
+h3 {
   font-family: "Abril Fatface", "Lato", sans-serif;
+}
+ul {
+  list-style: square;
+}
+li p {
+  margin: 0.5rem 0;
 }
 blockquote {
   margin: 0;
@@ -32,13 +46,13 @@ blockquote {
 a {
   color: currentColor;
 }
-input, a, button, label, p, span {
+input, button, label, p, a, span {
   font-size: 0.95rem;
   line-height: 1.9;
 }
 
 @media screen and (min-width: 1000px) {
-  input, a, button, label, p, span {
+  input, button, label, p, a, span {
   font-size: 1.1rem;
   line-height: 2;
 }
@@ -50,6 +64,9 @@ input, a, button, label, p, span {
     font-size: 3.2rem;
     line-height: 3.5rem;
     font-weight: bold;
+  }
+  h3 {
+    font-size: 1.7rem;
   }
 }
 
@@ -93,6 +110,7 @@ input, a, button, label, p, span {
 
 /* Footer mit Logo -> Scroll to Top */
 .footer {
+  margin-top: auto;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -114,11 +132,6 @@ input, a, button, label, p, span {
 /* Footer verstecken, falls noch nicht alle Artikel geladen */
 .article[data-loaded="false"] + .footer {
   display: none;
-}
-
-/* Nötig für Seiten wie Impressum, Kontakt, Datenschutz */
-.static-main > * {
-  padding-top: 20vh;
 }
 
 @media screen and (min-width: 400px) {

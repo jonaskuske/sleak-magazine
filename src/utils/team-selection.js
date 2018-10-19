@@ -25,7 +25,7 @@ function handleButtonClick() {
 }
 
 window.addEventListener('click', ({ target }) => {
-  if (target.matches('.js-article__title--team')) openTeamSelection();
+  if (target.matches('.js-article__title--subpage')) openTeamSelection();
 });
 
 function openTeamSelection() {

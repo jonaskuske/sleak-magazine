@@ -1,3 +1,4 @@
+/* Fonts müssen als allererstes eingebunden werden */
 import './fonts.css';
 
 /* Externes CSS */
@@ -11,4 +12,4 @@ import './menu.css';
 import './article.css';
 import './article-selection.css';
 import './utilities.css';
-import './team.css';
+import './subpages.css';
