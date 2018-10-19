@@ -1,8 +1,10 @@
-const simpleGit = require('simple-git')(process.cwd());
+const path = require('path');
 const semver = require('semver');
+const simpleGit = require('simple-git')(process.cwd());
 const pkg = require('../package.json');
 const { version, deployedVersion } = pkg;
 
+const resolve = file => path.resolve(__dirname, file);
 const log = message => {
   console.log(''); // Leere Zeile einfügen
 
@@ -20,34 +22,60 @@ const logAndExit = (message, statusCode = 0) => {
  * und aktualisiert bei Erfolg den Eintrag 'deployedVersion'
  */
 const publishToGitHub = () => {
-  const path = require('path');
   const writePkg = require('write-pkg');
   const ghPages = require('gh-pages');
 
-  const updateDeployedVersion = () => {
-    writePkg(path.resolve(__dirname, '../package.json'), {
+  const deployMessage = `Deploy | ${new Date().toLocaleString('de-DE', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: 'numeric',
+    hour12: false,
+    minute: 'numeric',
+    timeZone: 'Europe/Berlin',
+  })}`;
+
+  const finishDeploy = () => {
+    // Update field 'deployedVersion' in package.json
+    writePkg.sync(resolve('../package.json'), {
       ...pkg,
       deployedVersion: version,
     });
-    console.log(`Successfully deployed version ${version}`);
+
+    const handleGitError = error => {
+      log(error);
+      logAndExit(
+        [
+          `Error while updating and syncing the field 'deployedVersion' in package.json`,
+          `The project was deployed, but please ensure the field 'deployedVersion' matches the field 'version' in package.json, then manually push the change to 'origin/master'.`,
+        ],
+        1,
+      );
+    };
+
+    simpleGit.add(resolve('../package.json'), error => {
+      if (error) handleGitError(error);
+
+      simpleGit.commit(deployedMessage, [resolve('../package.json')], error => {
+        if (error) handleGitError(error);
+
+        simpleGit.push('origin', 'master', error => {
+          if (error) handleGitError(error);
+
+          log(['✔', 'Deploy completed successfully.']);
+        });
+      });
+    });
   };
 
   ghPages.publish(
     'dist',
     {
       tag: version,
-      message: `Deploy | ${new Date().toLocaleString('de-DE', {
-        weekday: 'long',
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-        hour: 'numeric',
-        hour12: false,
-        minute: 'numeric',
-        timeZone: 'Europe/Berlin',
-      })}`,
+      message: deployMessage,
     },
-    updateDeployedVersion,
+    finishDeploy,
   );
 };
 
