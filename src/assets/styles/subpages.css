@@ -1,0 +1,43 @@
+.article--subpage {
+  min-height: 100vh;
+}
+.article--subpage:last-child {
+  /* Footer abziehen */
+  min-height: calc(100vh - 3rem);
+}
+
+.article__title--subpage {
+  margin: 0;
+  font-family: "Abril Fatface", "Lato", sans-serif;
+  cursor: pointer;
+  align-self: center;
+  padding: 0;
+  pointer-events: all;
+}
+
+.article--subpage .article__subtitle {
+  font-weight: normal;
+}
+
+@media screen and (min-width: 400px) {
+  .article__title--subpage {
+    font-size: 2.2rem;
+  }
+}
+@media screen and (min-width: 700px) {
+  .article--subpage:last-child {
+    min-height: calc(100vh - 5rem);
+  }
+}
+@media screen and (min-width: 1000px) {
+  .article__title--subpage {
+    font-size: 3.8rem;
+    height: 4.2rem;
+  }
+  .article--subpage:last-child {
+    min-height: calc(100vh - 7rem);
+  }
+  .article--subpage .article__subtitle {
+    font-size: 2.6rem;
+  }
+}
