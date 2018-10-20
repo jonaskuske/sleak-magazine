@@ -9480,7 +9480,7 @@ if (!Element.prototype.matches) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.debounce = exports.$ = exports.wait = void 0;
+exports.shrug = exports.debounce = exports.$ = exports.wait = void 0;
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -9529,6 +9529,25 @@ var debounce = function debounce(fn) {
 };
 
 exports.debounce = debounce;
+var shrugMappings = {
+  // Artikel:
+  seemann: "\uD83C\uDF7A Kneipentour, for science.",
+  graffiti: "\u26BD Abenteuer in den Graffitiburgen.",
+  apollo: "\uD83D\uDEF0 Doch gab es die Mondlandung wirklich?",
+  nachbar: "\uD83C\uDF6A Aber Print hat keine Cookies.",
+  antarktis: "\uD83D\uDC27 Pengwings.",
+  ki: "\uD83D\uDD34 I'm afraid I can't let you do that, Dave.",
+  // Team:
+  jonas: '✔ Perfekt, trotz Serifen.',
+  max: '✔ Ist Photoshop, nicht Paint.'
+};
+
+var shrug = function shrug(name) {
+  if (!shrugMappings.hasOwnProperty(name)) return;
+  console.log("\n".concat(shrugMappings[name]));
+};
+
+exports.shrug = shrug;
 },{}],"src/utils/menu.js":[function(require,module,exports) {
 "use strict";
 
@@ -9575,6 +9594,8 @@ if ('serviceWorker' in navigator && "development" === 'production') {
     return console.warn("Fehler beim Registrieren des Service Workers: ".concat(error));
   });
 }
+
+console.log('Neugierig, DevTool-Ganove? Source Code hier (sobald veröffentlicht): https://github.com/jonaskuske/sleak-magazine ✨');
 },{"../assets/styles":"src/assets/styles/index.js","./polyfills":"src/utils/polyfills.js","./menu":"src/utils/menu.js","/mnt/c/Users/Jonas Kuske/code/sleak-magazine/serviceworker.js":[["serviceworker.js","serviceworker.js"],"serviceworker.map","serviceworker.js"]}],"src/utils/load-article.js":[function(require,module,exports) {
 "use strict";
 
@@ -9912,7 +9933,11 @@ var _utils = require("./utils");
 
 var _loadArticle = require("./utils/load-article");
 
-/* vgl.: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/ */
+// Prüfen, ob Gerät ein Touch-Interface hat
+var deviceSupportsTouch = Boolean('ontouchstart' in window || window.navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0 || window.DocumentTouch && document instanceof DocumentTouch);
+if (deviceSupportsTouch) document.body.classList.add('supports-touch'); // Mobile Viewport-Größe manuell berechnen, vgl.:
+// https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+
 var updateWindowHeight = function updateWindowHeight() {
   var vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
@@ -9927,10 +9952,7 @@ window.addEventListener('resize', (0, _utils.debounce)(updateWindowHeight, 500))
 }).then(function () {
   document.body.classList.remove('empty');
   (0, _loadArticle.startScrollObserver)();
-}); // Prüfen, ob Gerät ein Touch-Interface hat
-
-var deviceSupportsTouch = Boolean('ontouchstart' in window || window.navigator.maxTouchPoints > 0 || window.navigator.msMaxTouchPoints > 0 || window.DocumentTouch && document instanceof DocumentTouch);
-if (deviceSupportsTouch) document.body.classList.add('supports-touch'); // HTML Elemente
+}); // HTML Elemente
 
 var splash = (0, _utils.$)('.js-splash')[0];
 var main = (0, _utils.$)('.js-main')[0]; // Bei Klick auf Splashscreen zu Content scrollen
@@ -9943,14 +9965,27 @@ splash.addEventListener('click', function () {
 }); // Hash überprüfen, sodass mit per # in URL zu bestimmten Artikeln springen kann
 
 var loadArticleFromHash = function loadArticleFromHash() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      shouldShrug = _ref.shouldShrug;
+
   var hash = window.location.hash;
   if (!hash) return;
   var targetArticle = hash.slice(1);
+  shouldShrug && (0, _utils.shrug)(targetArticle); // 🤷🏻‍
+
   (0, _loadArticle.loadArticle)(targetArticle);
 };
 
-loadArticleFromHash();
+loadArticleFromHash({
+  shouldShrug: true
+});
 window.addEventListener('hashchange', loadArticleFromHash, false);
+
+if (module.hot) {
+  module.hot.dispose(function () {
+    window.removeEventListener('hashchange', loadArticleFromHash, false);
+  });
+}
 },{"./utils/appshell":"src/utils/appshell.js","./utils/article-selection":"src/utils/article-selection.js","./utils":"src/utils/index.js","./utils/load-article":"src/utils/load-article.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -9978,7 +10013,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51213" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49527" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

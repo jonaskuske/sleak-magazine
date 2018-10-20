@@ -9480,7 +9480,7 @@ if (!Element.prototype.matches) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.debounce = exports.$ = exports.wait = void 0;
+exports.shrug = exports.debounce = exports.$ = exports.wait = void 0;
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -9529,6 +9529,25 @@ var debounce = function debounce(fn) {
 };
 
 exports.debounce = debounce;
+var shrugMappings = {
+  // Artikel:
+  seemann: "\uD83C\uDF7A Kneipentour, for science.",
+  graffiti: "\u26BD Abenteuer in den Graffitiburgen.",
+  apollo: "\uD83D\uDEF0 Doch gab es die Mondlandung wirklich?",
+  nachbar: "\uD83C\uDF6A Aber Print hat keine Cookies.",
+  antarktis: "\uD83D\uDC27 Pengwings.",
+  ki: "\uD83D\uDD34 I'm afraid I can't let you do that, Dave.",
+  // Team:
+  jonas: '✔ Perfekt, trotz Serifen.',
+  max: '✔ Ist Photoshop, nicht Paint.'
+};
+
+var shrug = function shrug(name) {
+  if (!shrugMappings.hasOwnProperty(name)) return;
+  console.log("\n".concat(shrugMappings[name]));
+};
+
+exports.shrug = shrug;
 },{}],"src/utils/menu.js":[function(require,module,exports) {
 "use strict";
 
@@ -9575,6 +9594,8 @@ if ('serviceWorker' in navigator && "development" === 'production') {
     return console.warn("Fehler beim Registrieren des Service Workers: ".concat(error));
   });
 }
+
+console.log('Neugierig, DevTool-Ganove? Source Code hier (sobald veröffentlicht): https://github.com/jonaskuske/sleak-magazine ✨');
 },{"../assets/styles":"src/assets/styles/index.js","./polyfills":"src/utils/polyfills.js","./menu":"src/utils/menu.js","/mnt/c/Users/Jonas Kuske/code/sleak-magazine/serviceworker.js":[["serviceworker.js","serviceworker.js"],"serviceworker.map","serviceworker.js"]}],"src/utils/team-selection.js":[function(require,module,exports) {
 "use strict";
 
@@ -9633,7 +9654,12 @@ teamSelectionButtons.forEach(observeButton);
 require("./utils/appshell");
 
 require("./utils/team-selection");
-},{"./utils/appshell":"src/utils/appshell.js","./utils/team-selection":"src/utils/team-selection.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+var _utils = require("./utils");
+
+var hash = window.location.hash;
+if (hash) (0, _utils.shrug)(hash.slice(1)); // 🤷🏻‍
+},{"./utils/appshell":"src/utils/appshell.js","./utils/team-selection":"src/utils/team-selection.js","./utils":"src/utils/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -9660,7 +9686,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51213" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49527" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
