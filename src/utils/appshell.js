@@ -11,3 +11,7 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
       console.warn(`Fehler beim Registrieren des Service Workers: ${error}`),
     );
 }
+
+console.log(
+  'Neugierig, DevTool-Ganove? Source Code hier (sobald veröffentlicht): https://github.com/jonaskuske/sleak-magazine ✨',
+);

@@ -1,10 +1,20 @@
 import './utils/appshell';
 import './utils/article-selection';
 
-import { $, debounce } from './utils';
+import { $, debounce, shrug } from './utils';
 import { startScrollObserver, loadArticle } from './utils/load-article';
 
-/* vgl.: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/ */
+// Prüfen, ob Gerät ein Touch-Interface hat
+const deviceSupportsTouch = Boolean(
+  'ontouchstart' in window ||
+    window.navigator.maxTouchPoints > 0 ||
+    window.navigator.msMaxTouchPoints > 0 ||
+    (window.DocumentTouch && document instanceof DocumentTouch),
+);
+if (deviceSupportsTouch) document.body.classList.add('supports-touch');
+
+// Mobile Viewport-Größe manuell berechnen, vgl.:
+// https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
 const updateWindowHeight = () => {
   const vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -19,15 +29,6 @@ loadArticle(0, { scroll: false }).then(() => {
   startScrollObserver();
 });
 
-// Prüfen, ob Gerät ein Touch-Interface hat
-const deviceSupportsTouch = Boolean(
-  'ontouchstart' in window ||
-    window.navigator.maxTouchPoints > 0 ||
-    window.navigator.msMaxTouchPoints > 0 ||
-    (window.DocumentTouch && document instanceof DocumentTouch),
-);
-if (deviceSupportsTouch) document.body.classList.add('supports-touch');
-
 // HTML Elemente
 const splash = $('.js-splash')[0];
 const main = $('.js-main')[0];
@@ -38,13 +39,20 @@ splash.addEventListener('click', () => {
 });
 
 // Hash überprüfen, sodass mit per # in URL zu bestimmten Artikeln springen kann
-const loadArticleFromHash = () => {
+const loadArticleFromHash = ({ shouldShrug } = {}) => {
   const { hash } = window.location;
   if (!hash) return;
-
   const targetArticle = hash.slice(1);
+
+  shouldShrug && shrug(targetArticle); // 🤷🏻‍
   loadArticle(targetArticle);
 };
 
-loadArticleFromHash();
+loadArticleFromHash({ shouldShrug: true });
 window.addEventListener('hashchange', loadArticleFromHash, false);
+
+if (module.hot) {
+  module.hot.dispose(() => {
+    window.removeEventListener('hashchange', loadArticleFromHash, false);
+  });
+}
