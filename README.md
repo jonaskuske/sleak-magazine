@@ -1,7 +1,7 @@
 # sleak-magazine
 Website for German design magazine »sleak«.
 
-<img alt="sleak logo on red background" src="./src/static/sleak.jpg" width="350">
+<img alt="sleak logo on red background" src="./static/sleak.jpg" width="350">
 
 ## About
 A ~~sleek~~ sleak design magazine, written, designed and developed by students from [University of Applied Sciences Bremerhaven](https://www.hs-bremerhaven.de/start/).  
