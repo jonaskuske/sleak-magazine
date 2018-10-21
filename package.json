@@ -1,7 +1,7 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
     "start": "npm run serve",
