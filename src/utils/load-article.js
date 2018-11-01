@@ -30,7 +30,7 @@ const insertToDom = async (article, { fromObserver } = {}) => {
   ]);
 
   // Artikel inzwischen schon (parallel) fertig geladen? Abbrechen
-  if (element.dataset.loaded === 'true') return;
+  if (element.getAttribute('data-loaded') === 'true') return;
 
   // Artikel in DOM einfügen
   element.innerHTML = html;
@@ -39,14 +39,14 @@ const insertToDom = async (article, { fromObserver } = {}) => {
   Stickyfill.addOne(element.querySelectorAll('.stickyfill'));
 
   // Als geladen markieren
-  element.dataset.loaded = true;
+  element.setAttribute('data-loaded', true);
 
   return;
 };
 
 const loadArticleIfNeeded = (article, options = {}) => {
   // Schon geladen: Sofort returnen, nothing to do here...
-  const isLoaded = article.element.dataset.loaded === 'true';
+  const isLoaded = article.element.getAttribute('data-loaded') === 'true';
   if (isLoaded) return;
 
   // Laden durch Observer: Warten bis Laden früherer Artikel (queue) fertig,
