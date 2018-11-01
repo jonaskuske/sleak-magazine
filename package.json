@@ -76,5 +76,5 @@
     ".cache/",
     "dist/"
   ],
-  "deployedVersion": "1.1.1"
+  "deployedVersion": "1.1.3"
 }
