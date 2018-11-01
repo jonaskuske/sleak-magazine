@@ -9,7 +9,7 @@
     display: none;
 }
 .article-selection--open, .team-selection--open {
-  display: initial;
+  display: block;
 }
 .article-selection__inner, .team-selection__inner {
     display: flex;
