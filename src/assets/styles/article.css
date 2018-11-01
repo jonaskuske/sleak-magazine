@@ -77,7 +77,7 @@
 .article__number {
   font-family: "Abril Fatface", sans-serif;
   font-size: 36px;
-  height: 32px;
+  height: 36px;
   overflow: hidden;
   color: #e41a1f;
   cursor: pointer;
@@ -168,7 +168,7 @@
   }
   .article__number {
     font-size: 44px;
-    height: 36px;
+    height: 44px;
   }
   .article__teaser + .article__subtitle,
   .article__teaser + .article__text,
@@ -186,7 +186,7 @@
   }
   .article__number {
     font-size: 85px;
-    height: 70px;
+    height: 85px;
   }
   .article__teaser-text {
     font-size: 2.5rem;
