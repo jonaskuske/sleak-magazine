@@ -53,7 +53,7 @@
     }
   ],
   "display": "standalone",
-  "theme_color": "#ffffff",
+  "theme_color": "#e41a1f",
   "background_color": "#e41a1f",
   "dir": "ltr"
 }
