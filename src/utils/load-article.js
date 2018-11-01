@@ -96,9 +96,6 @@ async function loadArticle(target, { scroll = true } = {}) {
 
   // Dann zu Zielartikel scrollen
   if (scroll) {
-    // ! Entfernen, sobald Scroll-Navigation richtig funktioniert
-    await wait(1400);
-
     targetArticle.element.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
