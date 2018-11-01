@@ -77,7 +77,7 @@
 .article__number {
   font-family: "Abril Fatface", sans-serif;
   font-size: 36px;
-  height: 32px;
+  height: 36px;
   overflow: hidden;
   color: #e41a1f;
   cursor: pointer;
@@ -101,14 +101,21 @@
 /* Teaser + Author, mittig in Bildschirm füllendem Container */
 .article__teaser {
   position: absolute;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .article__teaser-text {
+  width: 100%;
   font-size: 1.25rem;
   line-height: 2.35rem;
 }
@@ -161,7 +168,7 @@
   }
   .article__number {
     font-size: 44px;
-    height: 36px;
+    height: 44px;
   }
   .article__teaser + .article__subtitle,
   .article__teaser + .article__text,
@@ -179,7 +186,7 @@
   }
   .article__number {
     font-size: 85px;
-    height: 70px;
+    height: 85px;
   }
   .article__teaser-text {
     font-size: 2.5rem;

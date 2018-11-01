@@ -1,5 +1,6 @@
 import './utils/appshell';
 import './utils/article-selection';
+import Stickyfill from 'stickyfilljs';
 
 import { $, debounce, shrug } from './utils';
 import { startScrollObserver, loadArticle } from './utils/load-article';
@@ -27,6 +28,7 @@ window.addEventListener('resize', debounce(updateWindowHeight, 500));
 loadArticle(0, { scroll: false }).then(() => {
   document.body.classList.remove('empty');
   startScrollObserver();
+  Stickyfill.refreshAll();
 });
 
 // HTML Elemente

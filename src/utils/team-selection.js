@@ -14,7 +14,7 @@ teamSelectionButtons.forEach(button => {
 });
 
 function handleButtonClick() {
-  const name = this.dataset.target;
+  const name = this.getAttribute('data-target');
   if (!name) return;
 
   document
