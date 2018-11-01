@@ -1,4 +1,5 @@
 import { $, wait } from './';
+import Stickyfill from 'stickyfilljs';
 let queue = Promise.resolve();
 
 // Array, mit einem Objekt für jeden Artikel
@@ -29,18 +30,23 @@ const insertToDom = async (article, { fromObserver } = {}) => {
   ]);
 
   // Artikel inzwischen schon (parallel) fertig geladen? Abbrechen
-  if (element.dataset.loaded === 'true') return;
+  if (element.getAttribute('data-loaded') === 'true') return;
 
-  // Artikel in DOM einfügen und als geladen markieren
+  // Artikel in DOM einfügen
   element.innerHTML = html;
-  element.dataset.loaded = true;
+
+  // Neu hinzugefügte Artikel-Nummer polyfillen
+  Stickyfill.addOne(element.querySelectorAll('.stickyfill'));
+
+  // Als geladen markieren
+  element.setAttribute('data-loaded', true);
 
   return;
 };
 
 const loadArticleIfNeeded = (article, options = {}) => {
   // Schon geladen: Sofort returnen, nothing to do here...
-  const isLoaded = article.element.dataset.loaded === 'true';
+  const isLoaded = article.element.getAttribute('data-loaded') === 'true';
   if (isLoaded) return;
 
   // Laden durch Observer: Warten bis Laden früherer Artikel (queue) fertig,

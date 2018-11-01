@@ -20,7 +20,7 @@ async function handleButtonClick() {
   // Ladesymbol anzeigen
   this.classList.add(LOADING_CLASS);
 
-  const target = parseInt(this.dataset.target, 10);
+  const target = parseInt(this.getAttribute('data-target'), 10);
   // Laden von Artikel 0 (erster Artikel) erlauben
   if (!target && target !== 0) return;
 
