@@ -2,9 +2,11 @@ parcelRequire=function(e,r,n,t){var i="function"==typeof parcelRequire&&parcelRe
 
 },{"./../fonts/BebasNeue.otf":[["BebasNeue.543f6143.otf","VARV"],"VARV"]}],"9KIJ":[function(require,module,exports) {
 
-},{}],"OBft":[function(require,module,exports) {
+},{}],"+Pam":[function(require,module,exports) {
+
+},{"/mnt/c/Users/Jonas Kuske/Code/sleak-magazine/src/assets/images/image-loading.svg":[["image-loading.91ecacb7.svg","Xk7e"],"Xk7e"]}],"OBft":[function(require,module,exports) {
 "use strict";require("./fonts.css"),require("normalize.css"),require("./hamburgers.css"),require("./index.css"),require("./header.css"),require("./menu.css"),require("./article.css"),require("./article-selection.css"),require("./utilities.css"),require("./subpages.css");
-},{"./fonts.css":"OKGl","normalize.css":"9KIJ","./hamburgers.css":"9KIJ","./index.css":"9KIJ","./header.css":"9KIJ","./menu.css":"9KIJ","./article.css":"9KIJ","./article-selection.css":"9KIJ","./utilities.css":"9KIJ","./subpages.css":"9KIJ"}],"kql1":[function(require,module,exports) {
+},{"./fonts.css":"OKGl","normalize.css":"9KIJ","./hamburgers.css":"9KIJ","./index.css":"+Pam","./header.css":"9KIJ","./menu.css":"9KIJ","./article.css":"9KIJ","./article-selection.css":"9KIJ","./utilities.css":"9KIJ","./subpages.css":"9KIJ"}],"kql1":[function(require,module,exports) {
 
 var e=module.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e);
 },{}],"nW2g":[function(require,module,exports) {
@@ -704,4 +706,4 @@ var e=arguments[3];if(require("core-js/shim"),require("regenerator-runtime/runti
 },{".":"iWjG"}],"EpKj":[function(require,module,exports) {
 "use strict";require("./utils/appshell"),require("./utils/team-selection");var e=require("./utils"),i=window.location.hash;i&&(0,e.shrug)(i.slice(1));
 },{"./utils/appshell":"WFx0","./utils/team-selection":"aEdM","./utils":"iWjG"}]},{},["EpKj"], null)
-//# sourceMappingURL=/team.421c0baf.map
+//# sourceMappingURL=/team.72e801ab.map
