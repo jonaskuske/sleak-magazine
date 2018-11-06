@@ -5,10 +5,15 @@ import { shrug } from './utils';
 const { hash } = window.location;
 if (hash) shrug(hash.slice(1)); // 🤷🏻‍
 
-const options = { threshold: 0.75 };
-const handleIntersection = entries => {
+const options = {
+  rootMargin: `-${Math.floor(window.innerHeight / 2)}px 0px`,
+};
+const handleIntersection = (entries, observer) => {
   entries.forEach(({ target, isIntersecting }) => {
-    if (isIntersecting) target.classList.add('show-image');
+    if (isIntersecting) {
+      target.classList.add('show-image');
+      observer.unobserve(target);
+    }
   });
 };
 
