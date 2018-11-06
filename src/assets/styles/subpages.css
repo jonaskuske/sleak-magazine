@@ -28,6 +28,8 @@
   max-width: 230px;
   position: absolute;
   z-index: -1;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .team__image::before {
   content: '';
