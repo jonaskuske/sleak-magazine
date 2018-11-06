@@ -192,7 +192,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"/mnt/c/Users/Jonas Kuske/code/sleak-magazine/src/assets/images/image-loading.svg":[["image-loading.caaddd90.svg","src/assets/images/image-loading.svg"],"src/assets/images/image-loading.svg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/assets/styles/header.css":[function(require,module,exports) {
+},{"/mnt/c/Users/Jonas Kuske/Code/sleak-magazine/src/assets/images/image-loading.svg":[["image-loading.caaddd90.svg","src/assets/images/image-loading.svg"],"src/assets/images/image-loading.svg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/assets/styles/header.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -10147,7 +10147,7 @@ if ('serviceWorker' in navigator && "development" === 'production') {
 }
 
 console.log('Neugierig, DevTool-Ganove? Source Code hier (sobald veröffentlicht): https://github.com/jonaskuske/sleak-magazine ✨');
-},{"../assets/styles":"src/assets/styles/index.js","./polyfills":"src/utils/polyfills.js","./menu":"src/utils/menu.js","/mnt/c/Users/Jonas Kuske/code/sleak-magazine/serviceworker.js":[["serviceworker.js","serviceworker.js"],"serviceworker.map","serviceworker.js"]}],"src/utils/team-selection.js":[function(require,module,exports) {
+},{"../assets/styles":"src/assets/styles/index.js","./polyfills":"src/utils/polyfills.js","./menu":"src/utils/menu.js","/mnt/c/Users/Jonas Kuske/Code/sleak-magazine/serviceworker.js":[["serviceworker.js","serviceworker.js"],"serviceworker.map","serviceworker.js"]}],"src/utils/team-selection.js":[function(require,module,exports) {
 "use strict";
 
 var _ = require(".");
@@ -10237,7 +10237,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55503" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54633" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
