@@ -28,8 +28,9 @@
   max-width: 230px;
   position: absolute;
   z-index: -1;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 }
 .team__image::before {
   content: '';
@@ -44,6 +45,7 @@
   left: -1px;
   right: -1px;
   bottom: -1px;
+  opacity: 0.95;
   background: linear-gradient(
     to bottom,
     rgba(255,255,255,0) 0%,
@@ -67,11 +69,12 @@
 .team__text {
   font-size: 14px;
   line-height: 20px;
-  transition: transform 350ms 250ms ease-out, opacity 350ms 250ms ease-in-out;
+  transition: transform 300ms 300ms ease-out, opacity 300ms 300ms ease-out;
+  transform: translateY(50%) translateY(5.5rem);
   opacity: 0;
 }
 .show-image .team__image img {
-  transform: translateY(-50%) translateY(-1rem);
+  transform: translateY(-50%) translateY(-1.5rem);
   opacity: 1;
 }
 .show-image .team__text {
