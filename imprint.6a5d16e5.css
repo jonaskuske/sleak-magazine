@@ -1321,11 +1321,6 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   font-weight: normal;
 }
 
-.print__magazine-image {
-  max-height: 100%;
-  max-width: 95%;
-}
-
 @media screen and (min-width: 400px) {
   .article__title--subpage {
     font-size: 2.2rem;
@@ -1334,9 +1329,6 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 @media screen and (min-width: 700px) {
   .article--subpage:last-child {
     min-height: calc(100vh - 5rem);
-  }
-  .print__magazine-image {
-    max-width: 85%;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -1349,13 +1341,5 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   }
   .article--subpage .article__subtitle {
     font-size: 2.6rem;
-  }
-  .print__magazine-image {
-    max-width: 75%;
-  }
-}
-@media screen and (min-width: 1350px) {
-  .print__magazine-image {
-    max-width: 1250px;
   }
 }
