@@ -1,7 +1,7 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "1.1.6",
+  "version": "1.2.0",
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
     "start": "npm run serve",
@@ -76,5 +76,5 @@
     ".cache/",
     "dist/"
   ],
-  "deployedVersion": "1.1.6"
+  "deployedVersion": "1.2.0"
 }
