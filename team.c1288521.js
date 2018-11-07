@@ -192,7 +192,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"/Users/Rieke/Documents/Code/sleak-magazine/src/assets/images/image-loading.svg":[["image-loading.caaddd90.svg","src/assets/images/image-loading.svg"],"src/assets/images/image-loading.svg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/assets/styles/header.css":[function(require,module,exports) {
+},{"/mnt/c/Users/Jonas Kuske/code/sleak-magazine/src/assets/images/image-loading.svg":[["image-loading.caaddd90.svg","src/assets/images/image-loading.svg"],"src/assets/images/image-loading.svg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/assets/styles/header.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -10024,6 +10024,32 @@ if (!NodeList.prototype.forEach) NodeList.prototype.forEach = Array.prototype.fo
 
 if (!Element.prototype.matches) {
   Element.prototype.matches = Element.prototype.msMatchesSelector;
+} //  Kein nativer Smoothscroll: smoothscroll-polyfill auf Links zu # anwenden
+
+
+if (!('scrollBehavior' in document.documentElement.style)) {
+  document.querySelectorAll('a').forEach(function (link) {
+    // Nur per JS handlen, falls Link zu # auf aktueller Seite führt
+    if (link.href.includes('#') && link.hostname === location.hostname && link.pathname === location.pathname) {
+      var isScrollTop = link.href.endsWith('#');
+      link.addEventListener('click', function (event) {
+        var target = document.getElementById(link.hash.slice(1));
+
+        if (isScrollTop || target) {
+          // Default Scroll deaktivieren
+          event.preventDefault(); // Per JavaScript Scrollen starten
+
+          if (isScrollTop) window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });else target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    }
+  });
 }
 },{"babel-polyfill":"node_modules/babel-polyfill/lib/index.js","intersection-observer":"node_modules/intersection-observer/intersection-observer.js","whatwg-fetch":"node_modules/whatwg-fetch/fetch.js","smoothscroll-polyfill":"node_modules/smoothscroll-polyfill/dist/smoothscroll.js","stickyfilljs":"node_modules/stickyfilljs/dist/stickyfill.js"}],"src/utils/index.js":[function(require,module,exports) {
 "use strict";
@@ -10147,7 +10173,7 @@ if ('serviceWorker' in navigator && "development" === 'production') {
 }
 
 console.log('Neugierig, DevTool-Ganove? Source Code hier (sobald veröffentlicht): https://github.com/jonaskuske/sleak-magazine ✨');
-},{"../assets/styles":"src/assets/styles/index.js","./polyfills":"src/utils/polyfills.js","./menu":"src/utils/menu.js","/Users/Rieke/Documents/Code/sleak-magazine/serviceworker.js":[["serviceworker.js","serviceworker.js"],"serviceworker.map","serviceworker.js"]}],"src/utils/team-selection.js":[function(require,module,exports) {
+},{"../assets/styles":"src/assets/styles/index.js","./polyfills":"src/utils/polyfills.js","./menu":"src/utils/menu.js","/mnt/c/Users/Jonas Kuske/code/sleak-magazine/serviceworker.js":[["serviceworker.js","serviceworker.js"],"serviceworker.map","serviceworker.js"]}],"src/utils/team-selection.js":[function(require,module,exports) {
 "use strict";
 
 var _ = require(".");
@@ -10210,6 +10236,26 @@ var _utils = require("./utils");
 
 var hash = window.location.hash;
 if (hash) (0, _utils.shrug)(hash.slice(1)); // 🤷🏻‍
+
+var options = {
+  rootMargin: "-".concat(Math.floor(window.innerHeight / 2), "px 0px")
+};
+
+var handleIntersection = function handleIntersection(entries, observer) {
+  entries.forEach(function (_ref) {
+    var target = _ref.target,
+        isIntersecting = _ref.isIntersecting;
+
+    if (isIntersecting) {
+      target.classList.add('show-image');
+      observer.unobserve(target);
+    }
+  });
+};
+
+var teamObserver = new IntersectionObserver(handleIntersection, options);
+var observeTeamMember = teamObserver.observe.bind(teamObserver);
+document.querySelectorAll('.article__teaser').forEach(observeTeamMember);
 },{"./utils/appshell":"src/utils/appshell.js","./utils/team-selection":"src/utils/team-selection.js","./utils":"src/utils/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -10237,7 +10283,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60845" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65136" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

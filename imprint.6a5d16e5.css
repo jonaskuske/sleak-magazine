@@ -1301,9 +1301,17 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 }.article--subpage {
   min-height: 100vh;
 }
+
+/* Footer abziehen */
 .article--subpage:last-child {
-  /* Footer abziehen */
   min-height: calc(100vh - 3rem);
+}
+/* Klicks auf Footer durchlassen */
+.article--subpage:last-child .article__teaser--subpage {
+  pointer-events: none;
+}
+.article--subpage:last-child .article__teaser--subpage * {
+  pointer-events: all;
 }
 
 .article__title--subpage {
@@ -1317,8 +1325,96 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   pointer-events: all;
 }
 
+.team__image {
+  width: 60%;
+  max-width: 230px;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.team__image::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.team__image::after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  opacity: 0.95;
+  background: -webkit-gradient(
+    linear,
+    left top, left bottom,
+    from(rgba(255,255,255,0)),
+    color-stop(32%, rgba(255,255,255,0)),
+    color-stop(50%, rgba(255,255,255,0.6)),
+    color-stop(88%, rgba(255,255,255,1))
+    );
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 32%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,1) 88%
+    );
+}
+.team__image > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transition: opacity 600ms ease-in-out, -webkit-transform 600ms ease-out;
+  transition: opacity 600ms ease-in-out, -webkit-transform 600ms ease-out;
+  transition: transform 600ms ease-out, opacity 600ms ease-in-out;
+  transition: transform 600ms ease-out, opacity 600ms ease-in-out, -webkit-transform 600ms ease-out;
+}
+
+.team__text {
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-transition: opacity 300ms 300ms ease-out, -webkit-transform 300ms 300ms ease-out;
+  transition: opacity 300ms 300ms ease-out, -webkit-transform 300ms 300ms ease-out;
+  transition: transform 300ms 300ms ease-out, opacity 300ms 300ms ease-out;
+  transition: transform 300ms 300ms ease-out, opacity 300ms 300ms ease-out, -webkit-transform 300ms 300ms ease-out;
+  -webkit-transform: translateY(50%) translateY(5.5rem);
+          transform: translateY(50%) translateY(5.5rem);
+  opacity: 0;
+}
+.show-image .team__image img {
+  -webkit-transform: translateY(-50%) translateY(-1.5rem);
+          transform: translateY(-50%) translateY(-1.5rem);
+  opacity: 1;
+}
+.show-image .team__text {
+  -webkit-transform: translateY(50%) translateY(0.5rem);
+          transform: translateY(50%) translateY(0.5rem);
+  opacity: 1;
+}
+
 .article--subpage .article__subtitle {
   font-weight: normal;
+}
+
+@media screen and (min-width: 370px) {
+  .team__text {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+  }
+}
+.print__magazine-image {
+  max-height: 100%;
+  max-width: 95%;
 }
 
 @media screen and (min-width: 400px) {
@@ -1329,6 +1425,13 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 @media screen and (min-width: 700px) {
   .article--subpage:last-child {
     min-height: calc(100vh - 5rem);
+  }
+  .team__text {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+  .print__magazine-image {
+    max-width: 85%;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -1341,5 +1444,13 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   }
   .article--subpage .article__subtitle {
     font-size: 2.6rem;
+  }
+  .print__magazine-image {
+    max-width: 75%;
+  }
+}
+@media screen and (min-width: 1350px) {
+  .print__magazine-image {
+    max-width: 1250px;
   }
 }
