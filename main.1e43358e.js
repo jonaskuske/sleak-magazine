@@ -7854,7 +7854,7 @@ if ('IntersectionObserver' in window &&
 
 /**
  * An IntersectionObserver registry. This registry exists to hold a strong
- * reference to IntersectionObserver instances currently observering a target
+ * reference to IntersectionObserver instances currently observing a target
  * element. Without this registry, instances without another reference may be
  * garbage collected.
  */
@@ -7883,7 +7883,9 @@ function IntersectionObserverEntry(entry) {
 
   // Sets intersection ratio.
   if (targetArea) {
-    this.intersectionRatio = intersectionArea / targetArea;
+    // Round the intersection ratio to avoid floating point math issues:
+    // https://github.com/w3c/IntersectionObserver/issues/324
+    this.intersectionRatio = Number((intersectionArea / targetArea).toFixed(4));
   } else {
     // If area is zero and is intersecting, sets to 1, otherwise to 0
     this.intersectionRatio = this.isIntersecting ? 1 : 0;
@@ -8071,7 +8073,7 @@ IntersectionObserver.prototype._parseRootMargin = function(opt_rootMargin) {
 
 /**
  * Starts polling for intersection changes if the polling is not already
- * happening, and if the page's visibilty state is visible.
+ * happening, and if the page's visibility state is visible.
  * @private
  */
 IntersectionObserver.prototype._monitorIntersections = function() {
@@ -8373,7 +8375,7 @@ function now() {
 
 
 /**
- * Throttles a function and delays its executiong, so it's only called at most
+ * Throttles a function and delays its execution, so it's only called at most
  * once within a given time period.
  * @param {Function} fn The function to throttle.
  * @param {number} timeout The amount of time that must pass before the
@@ -8504,7 +8506,7 @@ function getEmptyRect() {
 }
 
 /**
- * Checks to see if a parent element contains a child elemnt (including inside
+ * Checks to see if a parent element contains a child element (including inside
  * shadow DOM).
  * @param {Node} parent The parent element.
  * @param {Node} child The child element.
@@ -9453,6 +9455,54 @@ window.IntersectionObserverEntry = IntersectionObserverEntry;
 
 }());
 
+},{}],"node_modules/smoothscroll-anchor-polyfill/dist/index.js":[function(require,module,exports) {
+(function () {
+  var e = typeof window !== "undefined";
+
+  if (!e || window.__forceSmoothScrollAnchorPolyfill__ !== true && "scrollBehavior" in document.documentElement.style) {
+    return;
+  }
+
+  function t(e) {
+    e = e || window.event;
+    return e.target || e.srcElement;
+  }
+
+  function n(e) {
+    var t = location.hostname;
+    var n = location.pathname;
+    return e.tagName && e.tagName.toLowerCase() === "a" && e.href.indexOf("#") > 0 && e.hostname === t && e.pathname === n;
+  }
+
+  function o(e, t) {
+    if (t(e)) return e;
+    if (e.parentNode) return o(e.parentNode, t);
+    return false;
+  }
+
+  function r(e) {
+    var r = t(e);
+    var a = o(r, n);
+    if (!a) return;
+    var i = a.href.match(/#$/);
+    var l = !i && a.hash.slice(1);
+    var c = !i && document.getElementById(l);
+
+    if (i || c) {
+      e.preventDefault();
+      if (i) window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });else c.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }
+
+  document.addEventListener("click", r, false);
+})();
 },{}],"node_modules/stickyfilljs/dist/stickyfill.js":[function(require,module,exports) {
 /*!
   * Stickyfill – `position: sticky` polyfill
@@ -10011,6 +10061,8 @@ require("whatwg-fetch");
 
 var _smoothscrollPolyfill = _interopRequireDefault(require("smoothscroll-polyfill"));
 
+require("smoothscroll-anchor-polyfill");
+
 var _stickyfilljs = _interopRequireDefault(require("stickyfilljs"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -10024,34 +10076,8 @@ if (!NodeList.prototype.forEach) NodeList.prototype.forEach = Array.prototype.fo
 
 if (!Element.prototype.matches) {
   Element.prototype.matches = Element.prototype.msMatchesSelector;
-} //  Kein nativer Smoothscroll: smoothscroll-polyfill auf Links zu # anwenden
-
-
-if (!('scrollBehavior' in document.documentElement.style)) {
-  document.querySelectorAll('a').forEach(function (link) {
-    // Nur per JS handlen, falls Link zu # auf aktueller Seite führt
-    if (link.href.includes('#') && link.hostname === location.hostname && link.pathname === location.pathname) {
-      var isScrollTop = link.href.endsWith('#');
-      link.addEventListener('click', function (event) {
-        var target = document.getElementById(link.hash.slice(1));
-
-        if (isScrollTop || target) {
-          // Default Scroll deaktivieren
-          event.preventDefault(); // Per JavaScript Scrollen starten
-
-          if (isScrollTop) window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });else target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    }
-  });
 }
-},{"babel-polyfill":"node_modules/babel-polyfill/lib/index.js","intersection-observer":"node_modules/intersection-observer/intersection-observer.js","whatwg-fetch":"node_modules/whatwg-fetch/fetch.js","smoothscroll-polyfill":"node_modules/smoothscroll-polyfill/dist/smoothscroll.js","stickyfilljs":"node_modules/stickyfilljs/dist/stickyfill.js"}],"src/utils/index.js":[function(require,module,exports) {
+},{"babel-polyfill":"node_modules/babel-polyfill/lib/index.js","intersection-observer":"node_modules/intersection-observer/intersection-observer.js","whatwg-fetch":"node_modules/whatwg-fetch/fetch.js","smoothscroll-polyfill":"node_modules/smoothscroll-polyfill/dist/smoothscroll.js","smoothscroll-anchor-polyfill":"node_modules/smoothscroll-anchor-polyfill/dist/index.js","stickyfilljs":"node_modules/stickyfilljs/dist/stickyfill.js"}],"src/utils/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10597,7 +10623,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65136" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59562" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
