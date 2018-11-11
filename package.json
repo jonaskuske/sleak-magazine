@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run serve",
     "dev": "npm run serve",
-    "serve": "parcel index.html -p 8080 --no-cache",
+    "serve": "parcel index.html -p 8080 --no-cache --hmr-port 8081",
     "build": "parcel build index.html --no-cache",
     "deploy": "npm run build && node scripts/deploy.js",
     "lint": "eslint ./ --fix"
