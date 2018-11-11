@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+.article p + p {
+  margin-top: 0;
+}
+
 /* Loading-Bar, erscheint am unteren Rand während nächster Artikel lädt */
 .article[data-loaded="false"] {
   height: 70px;
@@ -93,7 +97,8 @@
 .article__text,
 .article__list,
 .article__h3,
-.article__image {
+.article__image,
+.article__interview {
   width: 75vw;
   max-width: 47rem;
 }
@@ -123,6 +128,22 @@
   font-size: 1rem;
 }
 
+/* Markierung nach Artikel-Ende */
+.article > p:last-of-type {
+  position: relative;
+}
+.article > p:last-of-type::after {
+  content: '';
+  margin-left: 0.3rem;
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: #e41a1f;
+}
+.article > p.article__text--no-end-marker:last-of-type::after {
+  content: none;
+}
+
 /* Da Teaser absolut positioniert: Folge-Element manuell nach unten schieben */
 .article__teaser + .article__subtitle,
 .article__teaser + .article__text,
@@ -134,24 +155,23 @@
 }
 
 /* Ab hier: Text Styling */
-.article__text--highlighted {
+.article__text--highlighted, .article__interview {
   color: #e41a1f;
   font-weight: bold;
 }
-.article__text--quote {
+.article__text--highlighted-inline {
+  font-style: italic;
+  color: #e41a1f;
+}
+
+.article__text--quote, .article__subtitle {
   font-family: Abril Fatface, Lato, sans-serif;
   font-size: 1.3rem;
   color: #e41a1f;
+  font-weight: normal;
 }
 
-.article__interview {
-  font-size: 1.2rem;
-  color: #e41a1f;
-}
-
-.article__text--quote,
-.article__interview,
-.article__subtitle {
+.article__text--quote, .article__subtitle {
   width: 80vw;
   max-width: 72rem;
 }
@@ -160,6 +180,7 @@
   width: 100%;
   max-width: 100%;
   max-height: 100vh;
+  margin: 1.5rem 0;
 }
 
 @media screen and (min-width: 400px) {
@@ -189,8 +210,8 @@
     height: 85px;
   }
   .article__teaser-text {
-    font-size: 2.5rem;
-    line-height: 3.5rem;
+    font-size: 1.8rem;
+    line-height: 3rem;
   }
   .article__teaser + .article__subtitle,
   .article__teaser + .article__text,
@@ -200,11 +221,9 @@
   .article__teaser + .article__image {
     margin-top: calc(100vh - 100px);
   }
-  .article__text--quote {
+  .article__text--quote,
+  .article__subtitle {
     font-size: 2rem;
-  }
-  .article__interview {
-    font-size: 1.5rem;
   }
   .article__image {
     width: 75vw;
