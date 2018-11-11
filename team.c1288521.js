@@ -10198,7 +10198,7 @@ if ('serviceWorker' in navigator && "development" === 'production') {
   });
 }
 
-console.log('Neugierig, DevTool-Ganove? Source Code hier (sobald veröffentlicht): https://github.com/jonaskuske/sleak-magazine ✨');
+console.log('Neugierig, DevTool-Ganove? Source Code hier: https://github.com/jonaskuske/sleak-magazine ✨');
 },{"../assets/styles":"src/assets/styles/index.js","./polyfills":"src/utils/polyfills.js","./menu":"src/utils/menu.js","/mnt/c/Users/Jonas Kuske/Code/sleak-magazine/serviceworker.js":[["serviceworker.js","serviceworker.js"],"serviceworker.map","serviceworker.js"]}],"src/utils/team-selection.js":[function(require,module,exports) {
 "use strict";
 
