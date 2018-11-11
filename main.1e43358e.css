@@ -495,11 +495,13 @@ template {
 }html, body {
   scroll-behavior: smooth;
 }
+
 body, input, button, label, p, ul {
   font-family: Lato, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -510,41 +512,52 @@ body {
           flex-direction: column;
   min-height: 100vh;
 }
+
 body.empty {
   min-height: auto;
 }
+
 header {
   z-index: 1;
 }
+
 h1, h2, h3 {
   color: #e41a1f;
   font-weight: normal;
 }
+
 h1 {
   font-family: "Bebas Neue", "Lato", sans-serif;
   font-size: 1.5rem;
   margin: 0;
 }
+
 h2 {
   font-family: "Abril Fatface", "Lato", sans-serif;
   line-height: 1.7rem;
 }
+
 h3 {
   font-family: "Abril Fatface", "Lato", sans-serif;
 }
+
 ul {
   list-style: square;
 }
+
 li p {
   margin: 0.5rem 0;
 }
+
 blockquote {
   margin: 0;
   padding: 0;
 }
+
 a {
   color: currentColor;
 }
+
 input, button, label, p, a, span {
   font-size: 0.95rem;
   line-height: 1.9;
@@ -554,6 +567,7 @@ input, button, label, p, a, span {
 Image-Wrapper, um Bildern feste Höhe/Seitenverhältnis zu geben
 gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 */
+
 .image {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -568,14 +582,15 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   overflow: hidden;
   background: url(image-loading.caaddd90.svg) center / 100px no-repeat
 }
-.image > picture {
+
+.image>picture {
   display: block;
   position: relative;
-
   /*! Definiert Höhe/Seitenverhältnis des Bildes, standardmäßig 56.25% = 16:9 */
   padding-top: 56.25%;
 }
-.image > picture > img {
+
+.image>picture>img {
   position: absolute;
   top: 0;
   left: 0;
@@ -589,6 +604,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
     background-size: 130px;
   }
 }
+
 @media screen and (min-width: 1000px) {
   input, button, label, p, a, span {
     font-size: 1.1rem;
@@ -612,6 +628,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 }
 
 /* Splashscreen */
+
 .splash {
   width: 100%;
   height: 100vh;
@@ -629,19 +646,23 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   color: #fff;
   position: relative;
 }
+
 .empty .splash {
   cursor: default;
 }
+
 .splash {
   -webkit-transition: height 200ms ease-out;
   transition: height 200ms ease-out;
   height: calc(var(--vh, 1vh) * 100);
 }
+
 .splash__logo {
   width: 35%;
   min-width: 80px;
   max-width: 200px;
 }
+
 .splash::after {
   content: "Klicken, um zu starten...";
   position: absolute;
@@ -654,28 +675,42 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   -webkit-animation: appear 750ms ease-in;
           animation: appear 750ms ease-in;
 }
+
 .supports-touch .splash::after {
   content: "Tappen, um zu starten...";
 }
+
 .empty .splash::after {
   content: "Wird geladen...";
 }
 
 /* Footer mit Logo -> Scroll to Top */
+
 .footer {
   margin-top: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 3rem;
 }
+
+.footer>div {
+  text-align: center;
+  margin: 3rem 0;
+}
+
 .footer__link {
+  margin-top: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -683,6 +718,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
       -ms-flex-align: end;
           align-items: flex-end;
 }
+
 .footer__logo {
   width: 100%;
   max-width: 5.5rem;
@@ -690,11 +726,14 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   transition: fill 200ms ease-out;
   fill: lightgray;
 }
+
 .footer__link:hover .footer__logo {
   fill: #e41a1f;
 }
+
 /* Footer verstecken, falls noch nicht alle Artikel geladen */
-.article[data-loaded="false"] + .footer {
+
+.article[data-loaded="false"]+.footer {
   display: none;
 }
 
@@ -703,11 +742,13 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
     max-width: 6.5rem;
   }
 }
+
 @media screen and (min-width: 700px) {
   .footer {
     height: 5rem;
   }
 }
+
 @media screen and (min-width: 1000px) {
   .footer {
     height: 7rem;
@@ -715,8 +756,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   .footer__logo {
     max-width: 9rem;
   }
-}
-.header {
+}.header {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -895,7 +935,12 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
           box-sizing: border-box;
 }
 
+.article p+p {
+  margin-top: 0;
+}
+
 /* Loading-Bar, erscheint am unteren Rand während nächster Artikel lädt */
+
 .article[data-loaded="false"] {
   height: 70px;
   background: #e41a1f;
@@ -904,6 +949,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
           justify-content: center;
   padding-bottom: 0;
 }
+
 .article[data-loaded="false"]::before {
   content: '';
   height: 25px;
@@ -913,20 +959,23 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   -webkit-animation: pulse 1250ms linear infinite;
           animation: pulse 1250ms linear infinite;
 }
+
 .article[data-loaded="false"]::after {
   content: 'Nächster Artikel wird geladen...';
   font-family: Abril Fatface, Lato, sans-serif;
   color: #fff;
   margin-top: 0.5rem;
 }
+
 /* Loading-Bar bei allererstem Artikel und bei allen Artikeln, vor denen sich
    noch ein nicht geladenen Artikel befindet, verstecken */
-.article[data-loaded="false"]:first-child,
-.article[data-loaded="false"] ~ .article[data-loaded="false"] {
+
+.article[data-loaded="false"]:first-child, .article[data-loaded="false"]~.article[data-loaded="false"] {
   display: none;
 }
 
 /* Header mit zentrierter Artikelüberschrift */
+
 .article__header {
   position: absolute;
   top: 0;
@@ -947,10 +996,12 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
           box-sizing: border-box;
   pointer-events: none;
 }
+
 .article__title {
   margin: 0 4rem;
   text-align: center;
 }
+
 @media screen and (max-width: 350px) {
   .article__title {
     padding-top: 0.5rem;
@@ -960,6 +1011,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 }
 
 /* Artikelnummer, "klebt" am oberen Bildschirmrand bis die nächste kommt */
+
 .article__number-container {
   position: -webkit-sticky;
   position: sticky;
@@ -979,6 +1031,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
           box-sizing: border-box;
   z-index: 1;
 }
+
 .article__number {
   font-family: "Abril Fatface", sans-serif;
   font-size: 36px;
@@ -993,17 +1046,13 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   border: none;
 }
 
-.article__subtitle,
-.article__teaser,
-.article__text,
-.article__list,
-.article__h3,
-.article__image {
+.article__subtitle, .article__teaser, .article__text, .article__list, .article__h3, .article__image, .article__interview {
   width: 75vw;
   max-width: 47rem;
 }
 
 /* Teaser + Author, mittig in Bildschirm füllendem Container */
+
 .article__teaser {
   position: absolute;
   height: 100vh;
@@ -1028,44 +1077,65 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   margin-left: auto;
   margin-right: auto;
 }
+
 .article__teaser-text {
   width: 100%;
   font-size: 1.25rem;
   line-height: 2.35rem;
 }
+
 .article__teaser-author, .article__teaser-author a {
   font-size: 1rem;
 }
 
+.article>p:last-of-type {
+  position: relative;
+}
+
+.article>p:last-of-type::after {
+  content: '';
+  margin-left: 0.3rem;
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: #e41a1f;
+}
+
+.article>p.article__text--no-end-marker:last-of-type::after {
+  content: none;
+}
+
 /* Da Teaser absolut positioniert: Folge-Element manuell nach unten schieben */
-.article__teaser + .article__subtitle,
-.article__teaser + .article__text,
-.article__teaser + .article__list,
-.article__teaser + .article__h3,
-.article__teaser + .article__interview,
-.article__teaser + .article__image {
+
+.article__teaser+.article__subtitle, .article__teaser+.article__text, .article__teaser+.article__list, .article__teaser+.article__h3, .article__teaser+.article__interview, .article__teaser+.article__image {
   margin-top: calc(100vh - 70px);
 }
 
 /* Ab hier: Text Styling */
-.article__text--highlighted {
+
+.article__text--highlighted, .article__interview {
   color: #e41a1f;
   font-weight: bold;
 }
-.article__text--quote {
+
+.article__text--highlighted-inline {
+  font-style: italic;
+  color: #e41a1f;
+}
+
+.article__text--quote, .article__subtitle {
   font-family: Abril Fatface, Lato, sans-serif;
   font-size: 1.3rem;
   color: #e41a1f;
+  font-weight: normal;
 }
 
-.article__interview {
+/* .article__interview {
   font-size: 1.2rem;
   color: #e41a1f;
-}
+} */
 
-.article__text--quote,
-.article__interview,
-.article__subtitle {
+.article__text--quote, .article__subtitle {
   width: 80vw;
   max-width: 72rem;
 }
@@ -1074,6 +1144,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   width: 100%;
   max-width: 100%;
   max-height: 100vh;
+  margin: 1.5rem 0;
 }
 
 @media screen and (min-width: 400px) {
@@ -1084,12 +1155,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
     font-size: 44px;
     height: 44px;
   }
-  .article__teaser + .article__subtitle,
-  .article__teaser + .article__text,
-  .article__teaser + .article__list,
-  .article__teaser + .article__h3,
-  .article__teaser + .article__interview,
-  .article__teaser + .article__image {
+  .article__teaser+.article__subtitle, .article__teaser+.article__text, .article__teaser+.article__list, .article__teaser+.article__h3, .article__teaser+.article__interview, .article__teaser+.article__image {
     margin-top: calc(100vh - 80px);
   }
 }
@@ -1103,22 +1169,14 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
     height: 85px;
   }
   .article__teaser-text {
-    font-size: 2.5rem;
-    line-height: 3.5rem;
+    font-size: 1.8rem;
+    line-height: 3rem;
   }
-  .article__teaser + .article__subtitle,
-  .article__teaser + .article__text,
-  .article__teaser + .article__list,
-  .article__teaser + .article__h3,
-  .article__teaser + .article__interview,
-  .article__teaser + .article__image {
+  .article__teaser+.article__subtitle, .article__teaser+.article__text, .article__teaser+.article__list, .article__teaser+.article__h3, .article__teaser+.article__interview, .article__teaser+.article__image {
     margin-top: calc(100vh - 100px);
   }
-  .article__text--quote {
+  .article__text--quote, .article__subtitle {
     font-size: 2rem;
-  }
-  .article__interview {
-    font-size: 1.5rem;
   }
   .article__image {
     width: 75vw;
@@ -1128,8 +1186,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
     width: 100%;
     max-width: 100%;
   }
-}
-.article-selection, .team-selection {
+}.article-selection, .team-selection {
     position: fixed;
     width: 100%;
     height: 100%;

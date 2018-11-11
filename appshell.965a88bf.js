@@ -4,7 +4,7 @@ parcelRequire=function(e,r,n,t){var i="function"==typeof parcelRequire&&parcelRe
 
 },{}],"+Pam":[function(require,module,exports) {
 
-},{"/mnt/c/Users/Jonas Kuske/code/sleak-magazine/src/assets/images/image-loading.svg":[["image-loading.91ecacb7.svg","Xk7e"],"Xk7e"]}],"OBft":[function(require,module,exports) {
+},{"/mnt/c/Users/Jonas Kuske/Code/sleak-magazine/src/assets/images/image-loading.svg":[["image-loading.91ecacb7.svg","Xk7e"],"Xk7e"]}],"OBft":[function(require,module,exports) {
 "use strict";require("./fonts.css"),require("normalize.css"),require("./hamburgers.css"),require("./index.css"),require("./header.css"),require("./menu.css"),require("./article.css"),require("./article-selection.css"),require("./utilities.css"),require("./subpages.css");
 },{"./fonts.css":"OKGl","normalize.css":"9KIJ","./hamburgers.css":"9KIJ","./index.css":"+Pam","./header.css":"9KIJ","./menu.css":"9KIJ","./article.css":"9KIJ","./article-selection.css":"9KIJ","./utilities.css":"9KIJ","./subpages.css":"9KIJ"}],"kql1":[function(require,module,exports) {
 
@@ -705,7 +705,5 @@ var e=arguments[3];if(require("core-js/shim"),require("regenerator-runtime/runti
 "use strict";var e=require("./"),o=(0,e.$)(".js-hamburger"),t=(0,e.$)(".js-menu__item");function n(){document.body.classList.toggle("menu-open"),document.body.classList.toggle("no-overflow"),setTimeout(function(){return document.body.classList.toggle("hamburger-x")},20)}function r(){document.body.classList.remove("no-overflow"),document.body.classList.remove("menu-open"),document.body.classList.remove("hamburger-x")}o.forEach(function(e){return e.addEventListener("click",n)}),t.forEach(function(e){return e.addEventListener("click",r)});
 },{"./":"iWjG"}],"WFx0":[function(require,module,exports) {
 "use strict";require("../assets/styles"),require("./polyfills"),require("./menu"),"serviceWorker"in navigator&&navigator.serviceWorker.register("/serviceworker.js").then(function(){return console.log("Service Worker erfolgreich registriert")}).catch(function(e){return console.warn("Fehler beim Registrieren des Service Workers: ".concat(e))}),console.log("Neugierig, DevTool-Ganove? Source Code hier (sobald veröffentlicht): https://github.com/jonaskuske/sleak-magazine ✨");
-},{"../assets/styles":"OBft","./polyfills":"JEGK","./menu":"ApPe","/mnt/c/Users/Jonas Kuske/code/sleak-magazine/serviceworker.js":[["serviceworker.js","Oehu"],"serviceworker.map","Oehu"]}],"Z6Ta":[function(require,module,exports) {
-"use strict";require("./utils/appshell");
-},{"./utils/appshell":"WFx0"}]},{},["Z6Ta"], null)
-//# sourceMappingURL=/imprint.204a349a.map
+},{"../assets/styles":"OBft","./polyfills":"JEGK","./menu":"ApPe","/mnt/c/Users/Jonas Kuske/Code/sleak-magazine/serviceworker.js":[["serviceworker.js","Oehu"],"serviceworker.map","Oehu"]}]},{},["WFx0"], null)
+//# sourceMappingURL=/appshell.965a88bf.map
