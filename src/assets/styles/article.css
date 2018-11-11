@@ -140,7 +140,7 @@
   height: 0.6rem;
   background: #e41a1f;
 }
-.article > p.article__text--no-end-marker:last-of-type::after {
+.article.article--no-end-marker > p:last-of-type::after {
   content: none;
 }
 
