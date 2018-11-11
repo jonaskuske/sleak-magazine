@@ -150,11 +150,17 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 .footer {
   margin-top: auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 3rem;
 }
+.footer > div {
+  text-align: center;
+  margin: 3rem 0;
+}
 .footer__link {
+  margin-top: auto;
   display: flex;
   align-items: flex-end;
 }
