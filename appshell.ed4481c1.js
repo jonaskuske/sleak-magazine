@@ -714,4 +714,4 @@ var t=document.body,e=document.createElement("div");e.style="width:100px;height:
 },{"./index":"iWjG","./load-article":"3Bcd","./detect-scrollbar":"4PZJ"}],"WFx0":[function(require,module,exports) {
 "use strict";require("../assets/styles"),require("./polyfills"),require("./menu"),require("./selection-menu"),"serviceWorker"in navigator&&navigator.serviceWorker.register("/serviceworker.js").then(function(){return console.log("Service Worker erfolgreich registriert")}).catch(function(e){return console.warn("Fehler beim Registrieren des Service Workers: ".concat(e))}),console.log("Neugierig, DevTool-Ganove? Source Code hier: https://github.com/jonaskuske/sleak-magazine ✨");
 },{"../assets/styles":"OBft","./polyfills":"JEGK","./menu":"ApPe","./selection-menu":"zLY9","/mnt/c/Users/Jonas Kuske/Code/sleak-magazine/serviceworker.js":[["serviceworker.js","Oehu"],"serviceworker.map","Oehu"]}]},{},["WFx0"], null)
-//# sourceMappingURL=/appshell.816c5c81.map
+//# sourceMappingURL=/appshell.ed4481c1.map
