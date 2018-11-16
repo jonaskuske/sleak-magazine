@@ -23,19 +23,19 @@
   },
   "homepage": "https://github.com/jonaskuske/sleak-magazine#readme",
   "devDependencies": {
-    "autoprefixer": "^8.6.5",
+    "autoprefixer": "^9.3.1",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.10.0",
-    "eslint-plugin-prettier": "^2.7.0",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
     "gh-pages": "^2.0.1",
     "parcel-bundler": "^1.10.3",
     "parcel-plugin-bundle-manifest": "^0.2.0",
     "parcel-plugin-clean-dist": "0.0.6",
     "parcel-plugin-static": "^1.0.0",
     "postcss-focus-visible": "^4.0.0",
-    "prettier": "1.13.4",
+    "prettier": "^1.15.2",
     "simple-git": "^1.107.0",
     "write-pkg": "^3.2.0"
   },
@@ -44,10 +44,10 @@
     "focus-visible": "^4.1.5",
     "intersection-observer": "^0.5.1",
     "normalize.css": "^8.0.1",
-    "smoothscroll-anchor-polyfill": "^0.9.4",
+    "smoothscroll-anchor-polyfill": "^0.12.0",
     "smoothscroll-polyfill": "^0.4.3",
     "stickyfilljs": "^2.1.0",
-    "whatwg-fetch": "^2.0.4"
+    "whatwg-fetch": "^3.0.0"
   },
   "browserslist": [
     "last 2 versions",
