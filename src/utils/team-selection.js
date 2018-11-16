@@ -2,7 +2,7 @@
 
 import { $ } from '.';
 
-const teamSelection = $('.team-selection')[0];
+const teamSelection = $('.team-selection');
 const teamSelectionButtons = teamSelection.querySelectorAll(
   '.team-selection__button',
 );

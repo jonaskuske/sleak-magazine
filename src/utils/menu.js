@@ -1,7 +1,7 @@
-import { $ } from './';
+import { $$ } from './';
 
-const hamburgers = $('.js-hamburger');
-const menuItems = $('.js-menu__item');
+const hamburgers = $$('.js-hamburger');
+const menuItems = $$('.js-menu__item');
 
 // Menü durch Hamburger-Button togglen
 hamburgers.forEach(btn => btn.addEventListener('click', toggleMenu));

@@ -12,17 +12,17 @@ const ALLOWED_CACHES = [
 
 const STATIC_ASSETS = [
   '.',
-  './articles/antarktis.html',
-  './articles/apollo.html',
-  './articles/bertram.html',
-  './articles/graffiti.html',
-  './articles/ki.html',
-  './articles/kunst.html',
-  './articles/medien.html',
-  './articles/melanka.html',
-  './articles/nachbar.html',
-  './articles/oesterreich.html',
-  './articles/seemann.html',
+  './articles/projekt-antarktis.html',
+  './articles/film-ab-bheaven.html',
+  './articles/axel-bertram.html',
+  './articles/bringt-farbe-in-die-stadt.html',
+  './articles/wie-ki-die-designwelt-aendert.html',
+  './articles/kunst-design.html',
+  './articles/digitale-medien.html',
+  './articles/moin-melanka.html',
+  './articles/back-to-print.html',
+  './articles/oesterreichs-newcomer-mihael-kobas.html',
+  './articles/zwischen-seemannsgarn-und-strandgut.html',
 ];
 
 const FALLBACK_IMAGE = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style>.text{font-family:Lato,sans-serif;text-align:center}@media screen and (max-width:370px){.text{font-size:12px}}</style></defs><rect width="100%" height="100%" fill="#fff"/><image width="80" height="120" x="50%" y="50%" transform="translate(-40 -60)" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiBmaWxsPSIjRDNEM0QzIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+DQogICAgPHBhdGggZD0iTTg4LjE3LDY5LjMyQTIyLDIyLDAsMCwwLDc3Ljc5LDM3Ljc3YTIyLDIyLDAsMCwwLTIxLjkxLTIwLjIsMjAuMjksMjAuMjksMCwwLDAtMTMuNjcsNC44MWw0LjU3LDUuM2ExMy4zMSwxMy4zMSwwLDAsMSw5LjEtMy4xMSwxNSwxNSwwLDAsMSwxNSwxNWMwLC4wNiwwLC4xMywwLC4xOXMwLC4yNiwwLC4zOWwtLjEsMi43NSwyLjY1Ljc1YTE1LDE1LDAsMCwxLDguNzksMjIuMVoiLz4NCiAgICA8cGF0aCBkPSJNMjguNzYsODBINjAuNDRWNzNIMjguNzZhMTUsMTUsMCwwLDEtMTUtMTVBMTcsMTcsMCwwLDEsMjMuNiw0Mi43bC0yLjc5LTYuNDJBMjMuOTEsMjMuOTEsMCwwLDAsNi43OCw1OCwyMiwyMiwwLDAsMCwyOC43Niw4MFoiLz4NCiAgICA8cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIxMDYuNzUiIHg9IjQ1LjUzIiB5PSItNC41OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwLjE0IDQ4Ljk2KSByb3RhdGUoLTQ1KSIvPg0KPC9zdmc+DQo="/><text x="50%" y="50%" fill="#d3d3d3" class="text" text-anchor="middle" transform="translate(0 60)">Bild noch nicht für Offline-Nutzung gespeichert</text></svg>`;

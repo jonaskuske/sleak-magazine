@@ -2,7 +2,7 @@ import { $ } from '.';
 import goToArticle from './load-article';
 
 // HTML Elemente
-const articleSelection = $('.article-selection')[0];
+const articleSelection = $('.article-selection');
 const articleSelectionButtons = articleSelection.querySelectorAll(
   '.article-selection__button',
 );

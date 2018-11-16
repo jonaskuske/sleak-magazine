@@ -32,8 +32,8 @@ loadArticle(0, { scroll: false }).then(() => {
 });
 
 // HTML Elemente
-const splash = $('.js-splash')[0];
-const main = $('.js-main')[0];
+const splash = $('.js-splash');
+const main = $('.js-main');
 
 // Bei Klick auf Splashscreen zu Content scrollen
 splash.addEventListener('click', () => {

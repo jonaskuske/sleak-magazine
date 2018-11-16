@@ -1,9 +1,9 @@
-import { $, wait } from './';
+import { $$, wait } from './';
 import Stickyfill from 'stickyfilljs';
 let queue = Promise.resolve();
 
 // Array, mit einem Objekt für jeden Artikel
-const articles = $('.article').map((element, index) => ({
+const articles = $$('.article').map((element, index) => ({
   element,
   index,
   name: element.id,
