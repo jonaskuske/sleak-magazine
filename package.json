@@ -88,5 +88,5 @@
     ".cache/",
     "dist/"
   ],
-  "deployedVersion": "1.3.1"
+  "deployedVersion": "2.0.0"
 }
