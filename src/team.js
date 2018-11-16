@@ -1,8 +1,5 @@
 import './utils/appshell';
 
-const { hash } = window.location;
-if (hash) shrug(hash.slice(1)); // 🤷🏻‍
-
 const options = {
   rootMargin: `-${Math.floor(window.innerHeight / 2)}px 0px`,
 };
