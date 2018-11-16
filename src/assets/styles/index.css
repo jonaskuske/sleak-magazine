@@ -1,7 +1,13 @@
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
-body, input, button, label, p, ul {
+body,
+input,
+button,
+label,
+p,
+ul {
   font-family: Lato, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,21 +23,23 @@ body.empty {
 header {
   z-index: 1;
 }
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #e41a1f;
   font-weight: normal;
 }
 h1 {
-  font-family: "Bebas Neue", "Lato", sans-serif;
+  font-family: 'Bebas Neue', 'Lato', sans-serif;
   font-size: 1.5rem;
   margin: 0;
 }
 h2 {
-  font-family: "Abril Fatface", "Lato", sans-serif;
+  font-family: 'Abril Fatface', 'Lato', sans-serif;
   line-height: 1.7rem;
 }
 h3 {
-  font-family: "Abril Fatface", "Lato", sans-serif;
+  font-family: 'Abril Fatface', 'Lato', sans-serif;
 }
 ul {
   list-style: square;
@@ -46,7 +54,11 @@ blockquote {
 a {
   color: currentColor;
 }
-input, button, label, p, a {
+input,
+button,
+label,
+p,
+a {
   font-size: 0.95rem;
   line-height: 1.9;
 }
@@ -60,7 +72,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  background: url(/src/assets/images/image-loading.svg) center / 100px no-repeat
+  background: url(/src/assets/images/image-loading.svg) center / 100px no-repeat;
 }
 .image > picture {
   display: block;
@@ -84,7 +96,11 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   }
 }
 @media screen and (min-width: 1000px) {
-  input, button, label, p, a {
+  input,
+  button,
+  label,
+  p,
+  a {
     font-size: 1.1rem;
     line-height: 2;
   }
@@ -130,7 +146,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   max-width: 200px;
 }
 .splash::after {
-  content: "Klicken, um zu starten...";
+  content: 'Klicken, um zu starten...';
   position: absolute;
   bottom: 2.5rem;
   left: 50%;
@@ -140,10 +156,10 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   animation: appear 750ms ease-in;
 }
 .supports-touch .splash::after {
-  content: "Tappen, um zu starten...";
+  content: 'Tappen, um zu starten...';
 }
 .empty .splash::after {
-  content: "Wird geladen...";
+  content: 'Wird geladen...';
 }
 
 /* Footer mit Logo -> Scroll to Top */
@@ -174,7 +190,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   fill: #e41a1f;
 }
 /* Footer verstecken, falls noch nicht alle Artikel geladen */
-.article[data-loaded="false"] + .footer {
+.article[data-loaded='false'] + .footer {
   display: none;
 }
 
