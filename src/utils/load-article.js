@@ -1,4 +1,4 @@
-import { $$, wait } from './';
+import { $$, wait, shrug } from './';
 import Stickyfill from 'stickyfilljs';
 let queue = Promise.resolve();
 
@@ -19,14 +19,12 @@ const findArticle = target => {
 };
 
 const insertToDom = async (article, { fromObserver } = {}) => {
-  const { name, path, element } = article;
-  // Laden durch Observer: Verzögerung für alle Artikel außer dem ersten aktiv
-  const delay = fromObserver ? name !== articles[0].name : false;
+  const { path, element } = article;
 
   // Warten bis HTML des Artikels abgerufen und ggf. Wartezeit vorbei ist
   const [html] = await Promise.all([
     fetch(path).then(response => response.text()),
-    delay && wait(1200),
+    fromObserver && wait(1200),
   ]);
 
   // Artikel inzwischen schon (parallel) fertig geladen? Abbrechen
@@ -82,9 +80,11 @@ function startScrollObserver() {
   articles.forEach(({ element }) => articleObserver.observe(element));
 }
 
-async function loadArticle(target, { scroll = true } = {}) {
+async function loadArticle(target) {
   const targetArticle = findArticle(target);
-  if (!targetArticle) return console.warn(`Artikel nicht gefunden: ${target}`);
+  if (!targetArticle) return;
+
+  shrug(targetArticle.name);
 
   // Artikel + alle Artikel oberhalb (index kleiner/gleich Zielartikel) laden
   const articlesToLoad = articles
@@ -98,14 +98,6 @@ async function loadArticle(target, { scroll = true } = {}) {
     return console.error(
       `Fehler beim Laden des Artikels ${targetArticle.name}: ${error}`,
     );
-  }
-
-  // Dann zu Zielartikel scrollen
-  if (scroll) {
-    targetArticle.element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
   }
 
   return targetArticle;

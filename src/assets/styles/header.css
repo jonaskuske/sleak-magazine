@@ -31,13 +31,13 @@
   display: none;
 }
 
-@media screen and (min-width: 400px) {
+@media (--viewport-tablet) {
   .header::before,
   .header__inner {
     height: 80px;
   }
 }
-@media screen and (min-width: 1000px) {
+@media (--viewport-desktop) {
   /* Header-Hintergrund am Desktop nicht anzeigen */
   .header::before {
     height: 100px;

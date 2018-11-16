@@ -1,6 +1,7 @@
 import '../assets/styles';
 import './polyfills';
 import './menu';
+import './selection-menu';
 
 // Falls in production: Service Worker registrieren
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {

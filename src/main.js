@@ -1,8 +1,7 @@
 import './utils/appshell';
-import './utils/article-selection';
 import Stickyfill from 'stickyfilljs';
 
-import { $, debounce, shrug } from './utils';
+import { $, debounce } from './utils';
 import { startScrollObserver, loadArticle } from './utils/load-article';
 
 // Prüfen, ob Gerät ein Touch-Interface hat
@@ -23,14 +22,6 @@ const updateWindowHeight = () => {
 updateWindowHeight();
 window.addEventListener('resize', debounce(updateWindowHeight, 500));
 
-// Warten, bis erster Artikel geladen, dann Hinweis auf Splashscreen zeigen
-// und Scroll-Observer starten, um bei Scrollen weitere Artikel lazy nachzuladen
-loadArticle(0, { scroll: false }).then(() => {
-  document.body.classList.remove('empty');
-  startScrollObserver();
-  Stickyfill.refreshAll();
-});
-
 // HTML Elemente
 const splash = $('.js-splash');
 const main = $('.js-main');
@@ -40,21 +31,34 @@ splash.addEventListener('click', () => {
   main.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// Hash überprüfen, sodass mit per # in URL zu bestimmten Artikeln springen kann
-const loadArticleFromHash = ({ shouldShrug } = {}) => {
+async function init() {
   const { hash } = window.location;
-  if (!hash) return;
-  const targetArticle = hash.slice(1);
+  const targetId = hash.slice(1);
+  const targetArticle = await loadArticle(targetId);
+  if (!targetArticle) await loadArticle(0);
 
-  shouldShrug && shrug(targetArticle); // 🤷🏻‍
-  loadArticle(targetArticle);
-};
+  document.body.classList.remove('empty');
+  startScrollObserver();
+  Stickyfill.refreshAll();
 
-loadArticleFromHash({ shouldShrug: true });
-window.addEventListener('hashchange', loadArticleFromHash, false);
+  if (targetArticle) {
+    targetArticle.element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
 
-if (module.hot) {
-  module.hot.dispose(() => {
-    window.removeEventListener('hashchange', loadArticleFromHash, false);
+  window.addEventListener('hashchange', async () => {
+    const { hash } = window.location;
+    const targetId = hash.slice(1);
+    const target = document.getElementById(targetId);
+    if (target && target.getAttribute('data-loaded') === 'false') {
+      const article = await loadArticle(window.location.hash.slice(1));
+      if (!article) return;
+      article.element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 }
+
+// Go!
+init();

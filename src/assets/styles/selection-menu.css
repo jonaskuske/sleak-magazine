@@ -1,0 +1,121 @@
+.selection-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background: #fff;
+  color: #e41a1f;
+  display: none;
+  z-index: 110;
+  padding: 1.5rem 4rem 0 1rem;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.selection-menu--open {
+  display: flex;
+}
+.selection-menu__header-fix {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+.selection-menu ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.selection-menu li {
+  display: inline-block;
+}
+.selection-menu a {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem 0;
+  font-family: 'Abril Fatface', 'Lato', sans-serif;
+  transition: font-size 150ms ease-out;
+  text-decoration: none;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+.selection-menu span {
+  font-size: 1.5rem;
+}
+.selection-menu ul li a > span {
+  transition: transform 300ms 50ms ease-out, padding 300ms 50ms ease-out;
+  transform-origin: left;
+}
+.selection-menu ul li a:hover > span:first-child,
+.selection-menu:not(.hover) ul li > a:focus > span:first-child {
+  transform: scale(1.4);
+}
+.selection-menu ul li a:hover > span:not(:first-child),
+.selection-menu:not(.hover) ul li > a:focus > span:not(:first-child) {
+  padding-left: 0.6rem;
+}
+.selection-menu .selection-menu--loading::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 12px;
+  height: 12px;
+  animation: pulse 0.8s cubic-bezier(0.895, 0.03, 0.685, 0.22) infinite;
+  border-radius: 50%;
+  background: #e41a1f;
+  user-select: none;
+}
+.selection-menu .selection-menu__title {
+  margin-left: 1rem;
+  font-size: 1.1rem;
+}
+
+@media (--viewport-tablet) {
+  .selection-menu span {
+    font-size: 2rem;
+  }
+  .selection-menu .selection-menu__title {
+    font-size: 1.3rem;
+  }
+  .selection-menu ul li a:hover > span:not(:first-child),
+  .selection-menu:not(.hover) ul li > a:focus > span:not(:first-child) {
+    padding-left: 1rem;
+  }
+}
+
+@media (--viewport-tablet-xl) {
+  .selection-menu {
+    padding-left: 1.5rem;
+  }
+}
+
+@media (--viewport-desktop) {
+  .selection-menu {
+    padding-top: 0;
+    padding-left: 1.5rem;
+  }
+  .selection-menu span {
+    font-size: 3.2rem;
+  }
+  .selection-menu .selection-menu__title {
+    font-size: 1.9rem;
+  }
+  .selection-menu ul li a:hover > span:first-child,
+  .selection-menu:not(.hover) ul li > a:focus > span:first-child {
+    transform: scale(1.5);
+  }
+  .selection-menu ul li > a > span:not(:first-child) {
+    padding-left: 0.5rem;
+  }
+  .selection-menu ul li a:hover > span:not(:first-child),
+  .selection-menu:not(.hover) ul li > a:focus > span:not(:first-child) {
+    padding-left: 2.5rem;
+  }
+}

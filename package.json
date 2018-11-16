@@ -1,7 +1,7 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "1.3.1",
+  "version": "2.0.0",
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
     "serve": "parcel index.html -p 8080 --no-cache --hmr-port 8081",
@@ -33,6 +33,7 @@
     "parcel-plugin-bundle-manifest": "^0.2.0",
     "parcel-plugin-clean-dist": "0.0.6",
     "parcel-plugin-static": "^1.0.0",
+    "postcss-custom-media": "^7.0.7",
     "postcss-focus-visible": "^4.0.0",
     "prettier": "^1.15.2",
     "simple-git": "^1.107.0",
@@ -41,6 +42,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "element-closest": "^2.0.2",
     "focus-visible": "^4.1.5",
     "intersection-observer": "^0.5.1",
     "normalize.css": "^8.0.1",
@@ -70,7 +72,8 @@
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all",
-    "semi": true
+    "semi": true,
+    "htmlWhitespaceSensitivity": "strict"
   },
   "eslintConfig": {
     "extends": [

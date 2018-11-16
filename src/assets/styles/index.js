@@ -10,6 +10,6 @@ import './index.css';
 import './header.css';
 import './menu.css';
 import './article.css';
-import './article-selection.css';
+import './selection-menu.css';
 import './utilities.css';
 import './subpages.css';

@@ -70,24 +70,24 @@
   transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
     transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
-.hamburger-x .hamburger--spring .hamburger-inner {
+.hamburger--x .hamburger--spring .hamburger-inner {
   transition-delay: 0.22s;
   background-color: transparent;
 }
-.hamburger-x .hamburger--spring .hamburger-inner::before {
+.hamburger--x .hamburger--spring .hamburger-inner::before {
   top: 0;
   transition: top 0.1s 0.15s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
     transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
   transform: translate3d(0, 10px, 0) rotate(45deg);
 }
-.hamburger-x .hamburger--spring .hamburger-inner::after {
+.hamburger--x .hamburger--spring .hamburger-inner::after {
   top: 0;
   transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
     transform 0.13s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
   transform: translate3d(0, 10px, 0) rotate(-45deg);
 }
 
-@media screen and (min-width: 400px) {
+@media (--viewport-tablet) {
   .hamburger-box {
     width: 36px;
     height: 24px;
@@ -106,7 +106,7 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media (--viewport-desktop) {
   .hamburger-box {
     width: 56px;
     height: 28px;

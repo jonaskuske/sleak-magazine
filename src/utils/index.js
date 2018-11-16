@@ -63,4 +63,5 @@ const shrugMappings = new Map([
 export const shrug = name => {
   if (!shrugMappings.has(name)) return;
   console.log(`\n${shrugMappings.get(name)}`);
+  shrugMappings.delete(name);
 };
