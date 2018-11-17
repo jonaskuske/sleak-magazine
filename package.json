@@ -1,8 +1,8 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "2.3.2",
-  "description": "Website for German design magazine \"sleak\"",
+  "version": "2.3.3",
+  "description": "Website for »sleak« – design magazine",
   "scripts": {
     "serve": "node scripts/serve.js",
     "build": "parcel build index.html --no-cache --public-url https://sleak-mag.design",
