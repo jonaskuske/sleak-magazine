@@ -11,7 +11,7 @@ const ALLOWED_CACHES = [
 ];
 
 const STATIC_ASSETS = [
-  '.',
+  // '.',
   './articles/projekt-antarktis.html',
   './articles/film-ab-bheaven.html',
   './articles/axel-bertram.html',
