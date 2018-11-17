@@ -22,14 +22,14 @@
   "src/assets/icons/android-icon-512x512.png": "https:/sleak-mag.design/android-icon-512x512.b3f27cdc.png",
   "src/assets/icons/android-icon-1024x1024.png": "https:/sleak-mag.design/android-icon-1024x1024.8018bda3.png",
   "src/assets/icons/ms-icon-144x144.png": "https:/sleak-mag.design/ms-icon-144x144.b6c72459.png",
-  "src/main.js": "https:/sleak-mag.design/main.7261bb14.js",
+  "src/main.js": "https:/sleak-mag.design/main.211a750f.js",
   "src/assets/styles/fonts.css": "https:/sleak-mag.design/main.04663e0d.css",
   "src/assets/fonts/BebasNeue.otf": "https:/sleak-mag.design/BebasNeue.543f6143.otf",
   "src/assets/images/image-loading.svg": "https:/sleak-mag.design/image-loading.91ecacb7.svg",
   "serviceworker.js": "https:/sleak-mag.design/serviceworker.js",
   "src/assets/images/sleak-logo.svg": "https:/sleak-mag.design/sleak-logo.7441a400.svg",
   "team.html": "https:/sleak-mag.design/team.html",
-  "src/team.js": "https:/sleak-mag.design/team.40e3dd7d.js",
+  "src/team.js": "https:/sleak-mag.design/team.ec3f70f7.js",
   "src/assets/images/team/felix.jpg": "https:/sleak-mag.design/felix.c18d6a85.jpg",
   "src/assets/images/team/michaela.jpg": "https:/sleak-mag.design/michaela.b3caf84a.jpg",
   "src/assets/images/team/viktoria.jpg": "https:/sleak-mag.design/viktoria.3d42f0f8.jpg",
@@ -48,9 +48,9 @@
   "src/assets/images/team/axel.jpg": "https:/sleak-mag.design/axel.d44cc483.jpg",
   "src/assets/images/team/andreas.jpg": "https:/sleak-mag.design/andreas.5fdf51fe.jpg",
   "print.html": "https:/sleak-mag.design/print.html",
-  "src/utils/appshell.js": "https:/sleak-mag.design/appshell.060fab80.js",
+  "src/utils/appshell.js": "https:/sleak-mag.design/appshell.c348c4b9.js",
   "src/assets/images/sleak-print.jpg": "https:/sleak-mag.design/sleak-print.2b889f06.jpg",
   "src/assets/images/sleak-opened-2200x.jpg": "https:/sleak-mag.design/sleak-opened-2200x.0109bfb5.jpg",
   "rechtliches.html": "https:/sleak-mag.design/rechtliches.html",
-  "src/imprint.js": "https:/sleak-mag.design/imprint.253b4393.js"
+  "src/imprint.js": "https:/sleak-mag.design/imprint.eb6e538f.js"
 }
