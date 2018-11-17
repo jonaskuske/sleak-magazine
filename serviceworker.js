@@ -11,7 +11,10 @@ const ALLOWED_CACHES = [
 ];
 
 const STATIC_ASSETS = [
-  // '.',
+  '.',
+  './team', // TODO: remove in favor of sw rerouting
+  './print', // TODO: remove in favor of sw rerouting
+  './rechtliches', // TODO: remove in favor of sw rerouting
   './articles/projekt-antarktis.html',
   './articles/film-ab-bheaven.html',
   './articles/axel-bertram.html',
@@ -40,13 +43,14 @@ self.addEventListener('install', event => {
               // filter out files that are unnecessary to cache
               .filter(
                 ([sourceURL]) =>
+                  sourceURL.indexOf('icon') < 0 &&
                   !sourceURL.endsWith('.map') &&
                   !sourceURL.endsWith('.webmanifest'),
               )
-              .map(([_, hashedURL]) =>
+              .map(([_, hashedURL]) => {
                 // fix parcel bug where protocol misses a slash (https:/)
-                hashedURL.replace(/https:\/\/?/, 'https://'),
-              );
+                return hashedURL.replace(/https:\/\/?/, 'https://');
+              });
 
             return cache.addAll([...STATIC_ASSETS, ...hashedAssets]);
           }),
@@ -88,6 +92,9 @@ const isResponseCacheable = response => {
 
   return true;
 };
+// const shouldAppendHTML = pathname => {
+//   return /(\/rechtliches|\/team|\/print)$/.test(pathname);
+// };
 
 const requestFailingWith404 = event => {
   return fetch(event.request).catch(() => {
@@ -120,7 +127,7 @@ const requestThenCache = (event, cache) => {
             'Cache-Control': 'no-store',
           },
         });
-      } else return cache.match(event.request);
+      } else return requestFailingWith404(event);
     });
 };
 
@@ -131,17 +138,38 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // ! ignore query strings
-  const requestURL = event.request.url;
-  const request = requestURL.includes('?')
-    ? new Request(requestURL.substring(requestURL.indexOf('?') + 1))
-    : event.request;
+  let request = event.request;
+  let url = new URL(request.url);
+  /*console.log('%c🌐 Pathname: ' + url.pathname, 'color:darkblue', 'color:#000');
+    console.log(url.pathname);
+    // ! Re-route /print to /print.html etc.
+    if (shouldAppendHTML(url.pathname)) {
+      // Update pathname with HTML file extension
+      url.pathname += '.html';
+      // Use new request based on updated URL from now on
+      request = new Request(url);
+
+      console.log(
+        '%c⚠ Redirect mode: %c' + request.redirect,
+        'color: darkslategray;',
+        'color: #000;',
+      );
+      console.log('%c⏳ Updating Request...', 'font-weight:bold;color:red;');
+      console.log(request);
+    }*/
+
+  // ! Ignore query strings
+  if (url.href.includes('?')) {
+    request = new Request(url.href.substring(url.href.indexOf('?') + 1));
+  }
 
   event.respondWith(
     caches
       .match(request)
       .then(checkResponseStatus)
       .then(response => {
+        // console.log('%c🎉 Response found in cache!', 'color: gold;');
+        // console.log(response);
         return caches.open(CACHE_NAME).then(cache => {
           if (navigator.onLine) requestThenCache(event, cache);
           return response;
