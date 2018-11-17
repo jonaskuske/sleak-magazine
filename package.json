@@ -1,11 +1,11 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
     "serve": "parcel index.html -p 8080 --no-cache --hmr-port 8081",
-    "build": "parcel build index.html --no-cache",
+    "build": "parcel build index.html --no-cache --public-url https://sleak-mag.design",
     "deploy": "npm run build && node scripts/deploy.js",
     "lint": "eslint ./ --fix"
   },
@@ -18,6 +18,13 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jonaskuske/sleak-magazine/issues"
+  },
+  "sitemap": {
+    "siteURL": "https://sleak-mag.design/",
+    "exclude": [
+      "articles/*",
+      "google0a94c009db3d9115.html"
+    ]
   },
   "homepage": "https://github.com/jonaskuske/sleak-magazine#readme",
   "devDependencies": {
@@ -32,6 +39,7 @@
     "parcel-bundler": "^1.10.3",
     "parcel-plugin-bundle-manifest": "^0.2.0",
     "parcel-plugin-clean-dist": "0.0.6",
+    "parcel-plugin-sitemap-exclude": "^1.0.0",
     "parcel-plugin-static": "^1.0.0",
     "postcss-custom-media": "^7.0.7",
     "postcss-focus-visible": "^4.0.0",

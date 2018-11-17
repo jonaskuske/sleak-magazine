@@ -2,5 +2,6 @@
 
 @font-face {
   font-family: 'Bebas Neue';
+  font-display: swap;
   src: url('../fonts/BebasNeue.otf') format('opentype');
 }

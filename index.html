@@ -4,8 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="robots" content="noindex, nofollow" />
     <title>sleak</title>
+    <meta
+      name="description"
+      content="Artikel rund um Design in Deutschland – für Design-Interessierte und Alle, die es noch werden wollen. Herausgegeben von Studierenden der HS Bremerhaven."
+    />
     <!-- Favicons -->
     <link
       rel="apple-touch-icon"
@@ -77,6 +80,7 @@
       href="./src/assets/icons/favicon-16x16.png"
     />
     <link rel="manifest" href="./src/assets/manifest.webmanifest" />
+    <link rel="canonical" href="https://sleak-mag.design" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="msapplication-TileColor" content="#e41a1f" />
     <meta
@@ -84,7 +88,23 @@
       content="./src/assets/icons/ms-icon-144x144.png"
     />
     <meta name="theme-color" content="#e41a1f" />
-
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:url" content="https://sleak-mag.design" />
+    <meta property="og:title" content="sleak - design magazine" />
+    <meta
+      property="og:description"
+      content="Artikel rund um Design in Deutschland – für Design-Interessierte und Alle, die es noch werden wollen. Herausgegeben von Studierenden der HS Bremerhaven."
+    />
+    <meta property="og:image" content="https://sleak-mag.design/sleak.jpg" />
+    <script type="application/ld+json">
+      {
+        "@context": "http://www.schema.org",
+        "@type": "WebSite",
+        "name": "sleak",
+        "alternateName": "sleak - design magazine",
+        "url": "https://sleak-mag.design"
+      }
+    </script>
     <script src="./src/main.js" defer></script>
   </head>
 
@@ -102,6 +122,7 @@
         <button
           class="header__hamburger hamburger hamburger--spring js-hamburger"
           type="button"
+          aria-label="Menü schließen"
         >
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
@@ -144,6 +165,7 @@
           <button
             class="header__hamburger hamburger hamburger--spring  js-close-selection-menu"
             type="button"
+            aria-label="Artikelauswahl schließen"
           >
             <span class="hamburger-box">
               <span class="hamburger-inner"></span>
@@ -236,6 +258,7 @@
         <button
           class="header__hamburger hamburger hamburger--spring js-hamburger"
           type="button"
+          aria-label="Menü öffnen"
         >
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
