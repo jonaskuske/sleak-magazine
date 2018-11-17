@@ -1,10 +1,10 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
-    "serve": "parcel index.html -p 8080 --no-cache --hmr-port 8081",
+    "serve": "node scripts/serve.js",
     "build": "parcel build index.html --no-cache --public-url https://sleak-mag.design",
     "deploy": "npm run build && node scripts/deploy.js",
     "lint": "eslint ./ --fix",
@@ -29,12 +29,16 @@
   },
   "homepage": "https://github.com/jonaskuske/sleak-magazine#readme",
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
     "autoprefixer": "^9.3.1",
-    "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "chalk": "^2.4.1",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "express": "^4.16.4",
+    "fast-glob": "^2.2.4",
     "gh-pages": "^2.0.1",
     "lint-staged": "^8.0.4",
     "parcel-bundler": "^1.10.3",
@@ -50,7 +54,7 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
+    "@babel/polyfill": "^7.0.0",
     "element-closest": "^2.0.2",
     "focus-visible": "^4.1.5",
     "intersection-observer": "^0.5.1",

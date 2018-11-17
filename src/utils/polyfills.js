@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 import 'intersection-observer';
 import 'element-closest';
 import 'whatwg-fetch';
@@ -10,6 +10,6 @@ smoothscroll.polyfill();
 
 Stickyfill.add(document.querySelectorAll('.stickyfill'));
 
-// IE workarounds
-if (!NodeList.prototype.forEach)
+if (!NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
+}

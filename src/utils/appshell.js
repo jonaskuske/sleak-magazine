@@ -2,6 +2,7 @@ import '../assets/styles';
 import './polyfills';
 import './menu';
 import './selection-menu';
+import './detect-scrollbar';
 
 // Falls in production: Service Worker registrieren
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {

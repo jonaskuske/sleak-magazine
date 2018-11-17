@@ -96,7 +96,12 @@
   max-height: 100%;
   max-width: 95%;
 }
-
+.print__cover-image picture {
+  padding-top: 66.233%;
+}
+.print__magazine-image picture {
+  padding-top: 80.2727%;
+}
 @media (--viewport-tablet) {
   .article__title--subpage {
     font-size: 2.2rem;

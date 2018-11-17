@@ -5,7 +5,7 @@
 <p align="center"><a href="https://sleak-mag.design"><img alt="sleak logo on red background" src="./static/sleak.jpg" width="550"></a></p>
 
 &nbsp;  
-&nbsp;  
+&nbsp;
 
 ## About
 

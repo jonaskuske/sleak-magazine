@@ -1,6 +1,5 @@
 import { $, wait } from './index';
 import { loadArticle } from './load-article';
-import './detect-scrollbar';
 
 (() => {
   // Container des Auswahl-Menüs
