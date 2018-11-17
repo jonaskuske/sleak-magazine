@@ -64,8 +64,8 @@ import './detect-scrollbar';
     document.documentElement.classList.add('no-overflow');
     setTimeout(() => document.body.classList.add('hamburger--x'), 20);
     container.classList.add('selection-menu--open');
+
     const matchingAnchor = $(`a[href*="${fromId}"]`);
-    console.log(matchingAnchor);
     if (matchingAnchor) matchingAnchor.focus();
   }
 })();

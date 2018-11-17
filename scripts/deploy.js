@@ -67,6 +67,7 @@ const publishToGitHub = () => {
     {
       tag: version,
       message: deployMessage,
+      dotfiles: true,
     },
     finishDeploy,
   );
