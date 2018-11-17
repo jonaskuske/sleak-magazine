@@ -1,8 +1,11 @@
-# sleak-magazine
+<h1 align="center">sleak-magazine</h1>
 
-Website for German design magazine »sleak«.
+<p align="center">Website for German design magazine »sleak«.</p>
 
-<img alt="sleak logo on red background" src="./static/sleak.jpg" width="350">
+<p align="center"><a href="https://sleak-mag.design"><img alt="sleak logo on red background" src="./static/sleak.jpg" width="550"></a></p>
+
+&nbsp;  
+&nbsp;  
 
 ## About
 
