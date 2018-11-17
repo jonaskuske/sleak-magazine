@@ -43,7 +43,10 @@ self.addEventListener('install', event => {
                   !sourceURL.endsWith('.map') &&
                   !sourceURL.endsWith('.webmanifest'),
               )
-              .map(([_, hashedURL]) => hashedURL);
+              .map(([_, hashedURL]) =>
+                // fix parcel bug where protocol misses a slash (https:/)
+                hashedURL.replace(/https:\/\/?/, 'https://'),
+              );
 
             return cache.addAll([...STATIC_ASSETS, ...hashedAssets]);
           }),
