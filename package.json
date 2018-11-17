@@ -1,13 +1,14 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Website for German design magazine \"sleak\"",
   "scripts": {
     "serve": "parcel index.html -p 8080 --no-cache --hmr-port 8081",
     "build": "parcel build index.html --no-cache --public-url https://sleak-mag.design",
     "deploy": "npm run build && node scripts/deploy.js",
-    "lint": "eslint ./ --fix"
+    "lint": "eslint ./ --fix",
+    "prettier": "prettier --write *.{js,json,css,md,html}"
   },
   "repository": {
     "type": "git",
