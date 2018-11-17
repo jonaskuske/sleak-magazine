@@ -48,11 +48,9 @@
   "src/assets/images/team/axel.jpg": "https:/sleak-mag.design/axel.d44cc483.jpg",
   "src/assets/images/team/andreas.jpg": "https:/sleak-mag.design/andreas.5fdf51fe.jpg",
   "print.html": "https:/sleak-mag.design/print.html",
-  "src/print.js": "/print.67dbc577.js",
-  "rechtliches.html": "https:/sleak-mag.design/rechtliches.html",
-  "src/imprint.js": "https:/sleak-mag.design/imprint.de6aa52f.js",
-  "node_modules/parcel-bundler/src/builtins/css-loader.js": "/index.js",
-  "src/assets/images/sleak-opened-2200x.jpg": "https:/sleak-mag.design/sleak-opened-2200x.0109bfb5.jpg",
+  "src/utils/appshell.js": "https:/sleak-mag.design/appshell.25fcdb59.js",
   "src/assets/images/sleak-print.jpg": "https:/sleak-mag.design/sleak-print.2b889f06.jpg",
-  "src/utils/appshell.js": "https:/sleak-mag.design/appshell.25fcdb59.js"
+  "src/assets/images/sleak-opened-2200x.jpg": "https:/sleak-mag.design/sleak-opened-2200x.0109bfb5.jpg",
+  "rechtliches.html": "https:/sleak-mag.design/rechtliches.html",
+  "src/imprint.js": "https:/sleak-mag.design/imprint.de6aa52f.js"
 }
