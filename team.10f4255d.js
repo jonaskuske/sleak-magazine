@@ -4,7 +4,7 @@ parcelRequire=function(e,r,n,t){var i="function"==typeof parcelRequire&&parcelRe
 
 },{}],"+Pam":[function(require,module,exports) {
 
-},{"/mnt/c/Users/Jonas Kuske/code/sleak-magazine/src/assets/images/image-loading.svg":[["image-loading.91ecacb7.svg","Xk7e"],"Xk7e"]}],"OBft":[function(require,module,exports) {
+},{"/mnt/c/Users/Jonas Kuske/Code/sleak-magazine/src/assets/images/image-loading.svg":[["image-loading.91ecacb7.svg","Xk7e"],"Xk7e"]}],"OBft":[function(require,module,exports) {
 "use strict";require("./fonts.css"),require("normalize.css"),require("./hamburgers.css"),require("./index.css"),require("./header.css"),require("./menu.css"),require("./article.css"),require("./selection-menu.css"),require("./utilities.css"),require("./subpages.css");
 },{"./fonts.css":"OKGl","normalize.css":"9KIJ","./hamburgers.css":"9KIJ","./index.css":"+Pam","./header.css":"9KIJ","./menu.css":"9KIJ","./article.css":"9KIJ","./selection-menu.css":"9KIJ","./utilities.css":"9KIJ","./subpages.css":"9KIJ"}],"kql1":[function(require,module,exports) {
 
@@ -539,7 +539,7 @@ var t=arguments[3];!function(t){"use strict";var r,e=Object.prototype,n=e.hasOwn
 var t=document.body,e=document.createElement("div");e.style="width:100px;height:100px;overflow:scroll !important;position:absolute;top:-100vh",t.appendChild(e);var o=e.offsetWidth-e.clientWidth>0;o&&t.classList.add("has-scrollbar"),t.removeChild(e);
 },{}],"WFx0":[function(require,module,exports) {
 "use strict";require("../assets/styles"),require("./polyfills"),require("./menu"),require("./selection-menu"),require("./detect-scrollbar"),"serviceWorker"in navigator&&navigator.serviceWorker.register("https://sleak-mag.design/serviceworker.js").then(function(){return console.log("Service Worker erfolgreich registriert")}).catch(function(e){return console.warn("Fehler beim Registrieren des Service Workers: ".concat(e))}),console.log("Neugierig, DevTool-Ganove? Source Code hier: https://github.com/jonaskuske/sleak-magazine ✨");
-},{"../assets/styles":"OBft","./polyfills":"JEGK","./menu":"ApPe","./selection-menu":"zLY9","./detect-scrollbar":"4PZJ","/mnt/c/Users/Jonas Kuske/code/sleak-magazine/serviceworker.js":[["serviceworker.js","Oehu"],"serviceworker.map","Oehu"]}],"EpKj":[function(require,module,exports) {
+},{"../assets/styles":"OBft","./polyfills":"JEGK","./menu":"ApPe","./selection-menu":"zLY9","./detect-scrollbar":"4PZJ","/mnt/c/Users/Jonas Kuske/Code/sleak-magazine/serviceworker.js":[["serviceworker.js","Oehu"],"serviceworker.map","Oehu"]}],"EpKj":[function(require,module,exports) {
 "use strict";require("./utils/appshell");var e={rootMargin:"-".concat(Math.floor(window.innerHeight/2),"px 0px")},r=function(e,r){e.forEach(function(e){var t=e.target;e.isIntersecting&&(t.classList.add("show-image"),r.unobserve(t))})},t=new IntersectionObserver(r,e),n=t.observe.bind(t);document.querySelectorAll(".article__teaser").forEach(n);
 },{"./utils/appshell":"WFx0"}]},{},["EpKj"], null)
 //# sourceMappingURL=https://sleak-mag.design/team.10f4255d.map
