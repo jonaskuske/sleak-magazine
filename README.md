@@ -2,7 +2,7 @@
 
 <p align="center">Website for German design magazine »sleak«.</p>
 
-<p align="center"><a href="https://sleak-mag.design"><img alt="sleak logo on red background" src="./static/sleak.jpg" width="550"></a></p>
+<p align="center"><a href="https://sleak-mag.design"><img alt="sleak logo on red background" src="https://sleak-mag.design/sleak.jpg" width="550"></a></p>
 
 &nbsp;  
 &nbsp;
