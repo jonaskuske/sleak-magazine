@@ -13,6 +13,8 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
     );
 }
 
+window.__version__ = process.env.npm_package_version;
+
 console.log(
   'Neugierig, DevTool-Ganove? Source Code hier: https://github.com/jonaskuske/sleak-magazine ✨',
 );

@@ -3,9 +3,16 @@ import { $$, debounce, updateHash } from './utils';
 const articles = $$('article');
 let activeObserver;
 
+const getHeight = () => {
+  return Math.max(
+    document.documentElement.clientHeight,
+    window.innerHeight || 0,
+  );
+};
+
 const createObserver = () => {
   const options = {
-    rootMargin: `-${Math.floor(window.innerHeight / 2)}px 0px`,
+    rootMargin: `-${Math.floor(getHeight() / 2)}px 0px`,
   };
   const handleIntersection = entries => {
     entries.forEach(({ target, isIntersecting }) => {
@@ -24,5 +31,5 @@ const createObserver = () => {
   activeObserver = teamObserver;
 };
 
-window.onload = createObserver;
+window.onload = () => setTimeout(createObserver, 0);
 window.addEventListener('resize', debounce(createObserver, 400));
