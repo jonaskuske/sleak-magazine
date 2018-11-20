@@ -1,7 +1,7 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Website for »sleak« – design magazine",
   "scripts": {
     "serve": "node scripts/serve.js",
@@ -25,6 +25,7 @@
     "siteURL": "https://sleak-mag.design/",
     "exclude": [
       "articles/*",
+      "404.html",
       "google0a94c009db3d9115.html"
     ]
   },
