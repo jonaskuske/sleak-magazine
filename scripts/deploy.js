@@ -25,17 +25,7 @@ const publishToGitHub = () => {
   const writePkg = require('write-pkg');
   const ghPages = require('gh-pages');
 
-  const deployMessage = `chore: deploy v${version}
-  \n${new Date().toLocaleString('de-DE', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    hour: 'numeric',
-    hour12: false,
-    minute: 'numeric',
-    timeZone: 'Europe/Berlin',
-  })} (reported by local machine)`;
+  const deployMessage = `chore: deploy v${version}`;
 
   const finishDeploy = () => {
     // Update field 'deployedVersion' in package.json
