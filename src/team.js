@@ -1,6 +1,9 @@
-import { updateHash } from './utils';
+import { $$, debounce, updateHash } from './utils';
 
-const init = () => {
+const articles = $$('article');
+let activeObserver;
+
+const createObserver = () => {
   const options = {
     rootMargin: `-${Math.floor(window.innerHeight / 2)}px 0px`,
   };
@@ -15,7 +18,11 @@ const init = () => {
 
   const teamObserver = new IntersectionObserver(handleIntersection, options);
   const observeTeamMember = teamObserver.observe.bind(teamObserver);
-  document.querySelectorAll('article').forEach(observeTeamMember);
+
+  if (activeObserver) activeObserver.disconnect();
+  articles.forEach(observeTeamMember);
+  activeObserver = teamObserver;
 };
 
-setTimeout(init, 0);
+window.onload = createObserver;
+window.addEventListener('resize', debounce(createObserver, 400));

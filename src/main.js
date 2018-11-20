@@ -60,4 +60,4 @@ async function init() {
 }
 
 // Go!
-setTimeout(init, 0);
+window.onload = init;
