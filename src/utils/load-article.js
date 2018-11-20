@@ -74,10 +74,11 @@ function startScrollObserver() {
         updateHash(article.name);
         loadArticleIfNeeded(article, { fromObserver: true });
       } else {
+        const visibleArticle = articles.find(({ inViewport }) => inViewport);
         // Kein einziger Artikel sichtbar, aber aktuell ein Hash gesetzt? Reset
-        if (!articles.some(({ inViewport }) => inViewport) && location.hash) {
+        if (!visibleArticle && location.hash) {
           updateHash('');
-        }
+        } else updateHash(visibleArticle.name);
       }
     });
   };
