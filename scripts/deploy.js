@@ -25,7 +25,8 @@ const publishToGitHub = () => {
   const writePkg = require('write-pkg');
   const ghPages = require('gh-pages');
 
-  const deployMessage = `Deploy | ${new Date().toLocaleString('de-DE', {
+  const deployMessage = `chore: deploy v${version}
+  \n${new Date().toLocaleString('de-DE', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
@@ -34,7 +35,7 @@ const publishToGitHub = () => {
     hour12: false,
     minute: 'numeric',
     timeZone: 'Europe/Berlin',
-  })}`;
+  })} (reported by local machine)`;
 
   const finishDeploy = () => {
     // Update field 'deployedVersion' in package.json
@@ -83,26 +84,22 @@ const verifyStatus = status => {
 
   // Abbruch, falls nicht auf branch master
   if (currentBranch !== 'master') {
-    throw Error(
-      `You can only deploy from branch 'master' but currently are on '${currentBranch}'. Aborting.`,
-    );
+    throw `You can only deploy from branch 'master' but currently are on '${currentBranch}'. Aborting.`;
   }
   // Abbruch, falls master nicht up-to-date mit origin/master
   if (!!behind) {
-    throw Error(
-      `Your local branch is not up-to-date with 'origin/master'.
-        Push or pull all changes before deploying. Aborting.`,
-    );
+    throw `Your local branch is not up-to-date with 'origin/master'.
+        Push or pull all changes before deploying. Aborting.`;
   }
 
   if (semver.valid(deployedVersion)) {
     // 'deployedVersion' angegeben?
     // Abbruch, falls 'version' nicht aktueller als 'deployedVersion'
     if (!semver.gt(version, deployedVersion)) {
-      throw Error([
+      throw [
         `The current version is already deployed. Aborting.`,
         `Bump the version number in package.json before deploying.`,
-      ]);
+      ];
     }
   } else {
     // 'deployedVersion' nicht angegeben? Warnen, aber fortfahren
