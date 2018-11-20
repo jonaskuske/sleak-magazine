@@ -98,6 +98,7 @@
 .article__list,
 .article__h3,
 .article__image,
+.article__image-caption,
 .article__interview {
   width: 75vw;
   max-width: 47rem;
@@ -187,6 +188,18 @@
   margin: 1.5rem 0;
 }
 
+.article__image-caption {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 1em;
+  line-height: 1.9;
+  margin: -1.5rem 0 1.5rem;
+  color: #999999;
+  text-align: center;
+  font-size: 0.8em;
+}
+
 @media (--viewport-tablet) {
   .article[data-loaded='false'],
   .article__header,
@@ -233,11 +246,13 @@
   .article__subtitle {
     font-size: 2rem;
   }
-  .article__image {
+  .article__image,
+  .article__image-caption {
     width: 75vw;
     max-width: 47rem;
   }
-  .article__image--fullwidth {
+  .article__image--fullwidth,
+  .article__image--fullwidth + .article__image-caption {
     width: 100%;
     max-width: 100%;
   }
