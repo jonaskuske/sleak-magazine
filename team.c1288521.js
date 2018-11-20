@@ -214,7 +214,10 @@ exports.updateHash = updateHash;
 
 var _utils = require("./utils");
 
-var init = function init() {
+var articles = (0, _utils.$$)('article');
+var activeObserver;
+
+var createObserver = function createObserver() {
   var options = {
     rootMargin: "-".concat(Math.floor(window.innerHeight / 2), "px 0px")
   };
@@ -233,10 +236,13 @@ var init = function init() {
 
   var teamObserver = new IntersectionObserver(handleIntersection, options);
   var observeTeamMember = teamObserver.observe.bind(teamObserver);
-  document.querySelectorAll('article').forEach(observeTeamMember);
+  if (activeObserver) activeObserver.disconnect();
+  articles.forEach(observeTeamMember);
+  activeObserver = teamObserver;
 };
 
-setTimeout(init, 0);
+window.onload = createObserver;
+window.addEventListener('resize', (0, _utils.debounce)(createObserver, 400));
 },{"./utils":"src/utils/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

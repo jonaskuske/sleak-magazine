@@ -1112,7 +1112,7 @@ function _init() {
   return _init.apply(this, arguments);
 }
 
-setTimeout(init, 0);
+window.onload = init;
 },{"stickyfilljs":"node_modules/stickyfilljs/dist/stickyfill.js","./utils":"src/utils/index.js","./utils/load-article":"src/utils/load-article.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
