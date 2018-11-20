@@ -1,6 +1,7 @@
 import '@babel/polyfill';
 import 'intersection-observer';
 import 'element-closest';
+import 'focus-visible';
 import 'whatwg-fetch';
 import smoothscroll from 'smoothscroll-polyfill';
 import 'smoothscroll-anchor-polyfill';
