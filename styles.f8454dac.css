@@ -961,6 +961,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 .article__list,
 .article__h3,
 .article__image,
+.article__image-caption,
 .article__interview {
   width: 75vw;
   max-width: 47rem;
@@ -1050,6 +1051,18 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   margin: 1.5rem 0;
 }
 
+.article__image-caption {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 1em;
+  line-height: 1.9;
+  margin: -1.5rem 0 1.5rem;
+  color: #999999;
+  text-align: center;
+  font-size: 0.8em;
+}
+
 @media screen and (min-width: 400px) {
   .article[data-loaded='false'],
   .article__header,
@@ -1096,11 +1109,13 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   .article__subtitle {
     font-size: 2rem;
   }
-  .article__image {
+  .article__image,
+  .article__image-caption {
     width: 75vw;
     max-width: 47rem;
   }
-  .article__image--fullwidth {
+  .article__image--fullwidth,
+  .article__image--fullwidth + .article__image-caption {
     width: 100%;
     max-width: 100%;
   }
