@@ -45,9 +45,11 @@ const publishToGitHub = () => {
       );
     };
 
+    const files = [resolve('../package.json'), resolve('../package-lock.json')];
+
     git
-      .add(resolve('../package.json'))
-      .then(() => git.commit(deployMessage, [resolve('../package.json')]))
+      .add(files)
+      .then(() => git.commit(deployMessage, files))
       .then(() => git.push('origin', 'master'))
       .then(() => log(['✔', 'Deploy completed successfully.']))
       .catch(handleGitError);
