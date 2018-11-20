@@ -1477,3 +1477,37 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   }
 }
 
+@media (max-height: 750px) and (orientation: landscape) {
+  .team__image {
+    max-width: 150px;
+    margin-top: 1rem;
+  }
+  .team__text {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .team__image {
+    max-width: 100px;
+    margin-top: 2rem;
+  }
+  .team__text {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    margin-top: 3rem;
+  }
+}
+
+@media (max-height: 330px) and (orientation: landscape) {
+  .team__image {
+    max-width: 90px;
+    margin-top: 3rem;
+  }
+  .team__text {
+    line-height: 1.2rem;
+    margin-top: 4rem;
+  }
+}
