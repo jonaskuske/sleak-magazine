@@ -1,17 +1,16 @@
 import './utils/appshell';
+import { updateHash } from './utils';
 
-const options = {
-  rootMargin: `-${Math.floor(window.innerHeight / 2)}px 0px`,
-};
-const handleIntersection = (entries, observer) => {
+const options = { rootMargin: `-${Math.floor(window.innerHeight / 2)}px 0px` };
+const handleIntersection = entries => {
   entries.forEach(({ target, isIntersecting }) => {
     if (isIntersecting) {
+      updateHash(target.id);
       target.classList.add('show-image');
-      observer.unobserve(target);
     }
   });
 };
 
 const teamObserver = new IntersectionObserver(handleIntersection, options);
 const observeTeamMember = teamObserver.observe.bind(teamObserver);
-document.querySelectorAll('.article__teaser').forEach(observeTeamMember);
+document.querySelectorAll('article').forEach(observeTeamMember);

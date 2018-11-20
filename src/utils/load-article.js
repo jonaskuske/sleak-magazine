@@ -1,4 +1,4 @@
-import { $$, wait, shrug } from './';
+import { $$, wait, updateHash } from './';
 import Stickyfill from 'stickyfilljs';
 let queue = Promise.resolve();
 
@@ -64,27 +64,33 @@ const loadArticleIfNeeded = (article, options = {}) => {
 
 function startScrollObserver() {
   // Artikel laden, falls Observer eine Veränderung meldet & Artikel sichtbar
-  const handleVisibilityChange = entries => {
+  const handleIntersection = entries => {
     entries.forEach(entry => {
       const article = findArticle(entry.target.id);
       article.inViewport = entry.isIntersecting;
 
       if (article.inViewport) {
+        // Hash updaten, damit URL direkt auf Artikel verweist
+        updateHash(article.name);
         loadArticleIfNeeded(article, { fromObserver: true });
+      } else {
+        // Kein einziger Artikel sichtbar, aber aktuell ein Hash gesetzt? Reset
+        if (!articles.some(({ inViewport }) => inViewport) && location.hash) {
+          updateHash('');
+        }
       }
     });
   };
 
   // Beobachtet jeden Artikel im articles array auf Sichtbarkeitsänderungen
-  const articleObserver = new IntersectionObserver(handleVisibilityChange);
+  const options = { rootMargin: '-1px 0px' };
+  const articleObserver = new IntersectionObserver(handleIntersection, options);
   articles.forEach(({ element }) => articleObserver.observe(element));
 }
 
 async function loadArticle(target) {
   const targetArticle = findArticle(target);
   if (!targetArticle) return;
-
-  shrug(targetArticle.name);
 
   // Artikel + alle Artikel oberhalb (index kleiner/gleich Zielartikel) laden
   const articlesToLoad = articles

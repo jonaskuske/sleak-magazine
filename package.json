@@ -1,7 +1,7 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "2.3.4",
+  "version": "2.5.0",
   "description": "Website for »sleak« – design magazine",
   "scripts": {
     "serve": "node scripts/serve.js",
@@ -33,7 +33,6 @@
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
     "autoprefixer": "^9.3.1",
-    "babel-preset-env": "^1.7.0",
     "chalk": "^2.4.1",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
@@ -68,7 +67,8 @@
   "browserslist": [
     "last 2 versions",
     "ie > 9",
-    "> 1%"
+    "> 1%",
+    "not dead"
   ],
   "parcel-plugin-static": {
     "source": "static",

@@ -66,3 +66,10 @@ export const shrug = name => {
   console.log(`\n${shrugMappings.get(name)}`);
   shrugMappings.delete(name);
 };
+
+export const updateHash = debounce(hash => {
+  if (history.replaceState) {
+    shrug(hash);
+    history.replaceState(null, document.title, `#${hash}`);
+  }
+}, 500);
