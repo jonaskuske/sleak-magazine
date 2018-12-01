@@ -104,5 +104,5 @@
     ".cache/",
     "dist/"
   ],
-  "deployedVersion": "2.6.7"
+  "deployedVersion": "2.6.8"
 }
