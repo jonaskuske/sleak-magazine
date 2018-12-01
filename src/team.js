@@ -3,16 +3,9 @@ import { $$, debounce, updateHash } from './utils';
 const articles = $$('article');
 let activeObserver;
 
-const getHeight = () => {
-  return Math.max(
-    document.documentElement.clientHeight,
-    window.innerHeight || 0,
-  );
-};
-
 const createObserver = () => {
   const options = {
-    rootMargin: `-${Math.floor(getHeight() / 2)}px 0px`,
+    rootMargin: `-${Math.floor(window.innerHeight / 2)}px 0px`,
   };
   const handleIntersection = entries => {
     entries.forEach(({ target, isIntersecting }) => {

@@ -74,11 +74,11 @@
   opacity: 0;
 }
 .show-image .team__image img {
-  transform: translateY(-50%) translateY(-1.5rem);
+  transform: translateY(-50%);
   opacity: 1;
 }
 .show-image .team__text {
-  transform: translateY(50%) translateY(0.5rem);
+  transform: translateY(50%) translateY(1.5rem);
   opacity: 1;
 }
 
@@ -132,6 +132,13 @@
   }
   .print__magazine-image {
     max-width: 75%;
+  }
+  .show-image .team__image img {
+    transform: translateY(-50%) translateY(-1.5rem);
+  }
+  .show-image .team__text {
+    transform: translateY(50%) translateY(0);
+    opacity: 1;
   }
 }
 @media screen and (min-width: 1350px) {

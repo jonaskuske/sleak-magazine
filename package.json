@@ -1,7 +1,7 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "2.6.7",
+  "version": "2.6.8",
   "description": "Website for »sleak« – design magazine",
   "scripts": {
     "serve": "node scripts/serve.js",
@@ -49,6 +49,7 @@
     "parcel-plugin-static": "^1.0.0",
     "postcss-custom-media": "^7.0.7",
     "postcss-focus-visible": "^4.0.0",
+    "posthtml-expressions": "^1.1.0",
     "prettier": "^1.15.2",
     "simple-git": "^1.107.0",
     "write-pkg": "^3.2.0",
