@@ -1,17 +1,15 @@
-import { $$, debounce, updateHash } from './utils';
+import { $$, updateHash } from './utils';
 
-const articles = $$('article');
-let activeObserver;
+const startObserver = () => {
+  const teamMemberImages = $$('article .team__image');
 
-const createObserver = () => {
-  const options = {
-    rootMargin: `-${Math.floor(window.innerHeight / 2)}px 0px`,
-  };
+  const options = { rootMargin: `-1px 0px` };
   const handleIntersection = entries => {
     entries.forEach(({ target, isIntersecting }) => {
       if (isIntersecting) {
-        updateHash(target.id);
-        target.classList.add('show-image');
+        const article = target.closest('article');
+        updateHash(article.id);
+        article.classList.add('show-image');
       }
     });
   };
@@ -19,10 +17,7 @@ const createObserver = () => {
   const teamObserver = new IntersectionObserver(handleIntersection, options);
   const observeTeamMember = teamObserver.observe.bind(teamObserver);
 
-  if (activeObserver) activeObserver.disconnect();
-  articles.forEach(observeTeamMember);
-  activeObserver = teamObserver;
+  teamMemberImages.forEach(observeTeamMember);
 };
 
-window.onload = () => setTimeout(createObserver, 0);
-window.addEventListener('resize', debounce(createObserver, 400));
+window.onload = () => setTimeout(startObserver, 0);
