@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://sleak-mag.design/sitemap.xml
