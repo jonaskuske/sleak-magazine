@@ -1,5 +1,3 @@
-import Stickyfill from 'stickyfilljs';
-
 import { $, debounce } from './utils';
 import { startScrollObserver, loadArticle } from './utils/load-article';
 
@@ -38,7 +36,10 @@ async function init() {
 
   document.body.classList.remove('empty');
   startScrollObserver();
-  Stickyfill.refreshAll();
+
+  // Update sticky header, which has to be repositioned now that an article
+  // has been loaded and the window is scrollable
+  window.refreshStickyfill(); // ! see utils/polyfills.js
 
   if (targetArticle) {
     targetArticle.element.scrollIntoView({

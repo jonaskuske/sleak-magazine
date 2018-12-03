@@ -20,4 +20,4 @@ const startObserver = () => {
   teamMemberImages.forEach(observeTeamMember);
 };
 
-window.onload = () => setTimeout(startObserver, 0);
+window.onload = startObserver;
