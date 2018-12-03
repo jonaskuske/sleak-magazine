@@ -54,13 +54,13 @@ async function init() {
     });
   }
 
-  // Listen to further hash changes
+  // Listen for further hash changes
   window.addEventListener('hashchange', async () => {
     const { hash } = window.location;
     const targetId = hash.slice(1);
     const target = document.getElementById(targetId);
     if (target && target.getAttribute('data-loaded') === 'false') {
-      const article = await loadArticle(window.location.hash.slice(1));
+      const article = await loadArticle(targetId);
       if (!article) return;
       article.element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
