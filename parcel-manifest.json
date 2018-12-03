@@ -26,12 +26,12 @@
   "src/assets/styles/fonts.css": "https:/sleak-mag.design/styles.c7d56184.map",
   "src/assets/fonts/BebasNeue.otf": "https:/sleak-mag.design/BebasNeue.543f6143.otf",
   "src/assets/images/image-loading.svg": "https:/sleak-mag.design/image-loading.91ecacb7.svg",
-  "src/utils/appshell.js": "https:/sleak-mag.design/appshell.e967502e.js",
+  "src/utils/appshell.js": "https:/sleak-mag.design/appshell.7aa2f552.js",
   "serviceworker.js": "https:/sleak-mag.design/serviceworker.js",
   "src/main.js": "https:/sleak-mag.design/main.bae27392.js",
   "src/assets/images/sleak-logo.svg": "https:/sleak-mag.design/sleak-logo.7441a400.svg",
   "team.html": "https:/sleak-mag.design/team.html",
-  "src/team.js": "https:/sleak-mag.design/team.63f67fb6.js",
+  "src/team.js": "https:/sleak-mag.design/team.acd2c0c3.js",
   "src/assets/images/team/felix.jpg": "https:/sleak-mag.design/felix.c18d6a85.jpg",
   "src/assets/images/team/michaela.jpg": "https:/sleak-mag.design/michaela.b3caf84a.jpg",
   "src/assets/images/team/viktoria.jpg": "https:/sleak-mag.design/viktoria.3d42f0f8.jpg",
@@ -54,5 +54,6 @@
   "src/assets/images/sleak-opened-2200x.jpg": "https:/sleak-mag.design/sleak-opened-2200x.0109bfb5.jpg",
   "rechtliches.html": "https:/sleak-mag.design/rechtliches.html",
   "404.html": "https:/sleak-mag.design/404.html",
-  "src/assets/styles/404.css": "https:/sleak-mag.design/404.e8b858d3.css"
+  "src/assets/styles/404.css": "https:/sleak-mag.design/404.e8b858d3.css",
+  "node_modules/parcel-bundler/src/builtins/css-loader.js": "/styles.f8454dac.map"
 }
