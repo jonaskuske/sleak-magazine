@@ -1,11 +1,11 @@
 /**
- * Returned eine Promise, die sich nach gegebener Zeit selbst erfüllt
- * @param {number} time Zeit, bis Promise resolved
+ * Returns a Promise which resolves after a given time
+ * @param {number} time Time until Promise resolves
  */
 export const wait = time => new Promise(resolve => setTimeout(resolve, time));
 
 /**
- * Nimmt Error Message und wirft einen Fehler
+ * Throws an error with a given error message
  * @param {string} err Fehlermeldung
  */
 export const throwError = err => {
@@ -13,21 +13,21 @@ export const throwError = err => {
 };
 
 /**
- * Alias zu querySelector(), nimmt CSS Selektor, liefert HTML Element oder null
+ * Alias for querySelector(), takes CSS selctor and returns HTML element or null
  * @type {Function}
  * @param {string} selector CSS3 Selektor
  * @returns {HTMLElement|null} Element oder Array aus Elementen
  */
 export const $ = document.querySelector.bind(document);
 /**
- * Wrapper um querySelectorAll(), liefert Array statt NodeList
+ * Wrapper for querySelectorAll(), returns Array instead of NodeList
  * @param {string} selector CSS3 Selektor
  * @returns {Array<HTMLElement>} Array aus gefundenen Elementen
  */
 export const $$ = selector => [...document.querySelectorAll(selector)];
 
 /**
- * Führt eine Funktion erst aus, wenn sie eine Zeit lang nicht ausgeführt wurde
+ * Executes a given function only after it wasn't called again for some time
  * @param {Function} fn Funktion, die debounced werden soll
  * @param {number} wait Zeit, die vergangen sein muss bevor fn ausgeführt wird
  */
@@ -44,7 +44,8 @@ export const debounce = (fn, wait = 0) => {
   };
 };
 
-const shrugMappings = new Map([
+/* --- Easteregg-ish stuff --- */
+const specialMessages = new Map([
   // Artikel:
   ['zwischen-seemannsgarn-und-strandgut', `🍺 Kneipentour, for science.`],
   ['bringt-farbe-in-die-stadt', `⚽ Abenteuer in den Graffitiburgen.`],
@@ -60,16 +61,20 @@ const shrugMappings = new Map([
   ['max', '✔ Ist Photoshop, nicht Paint.'],
 ]);
 
-export const shrug = name => {
-  if (!shrugMappings.has(name)) return;
+const logSpecialMessage = name => {
+  if (!specialMessages.has(name)) return;
 
-  console.log(`\n${shrugMappings.get(name)}`);
-  shrugMappings.delete(name);
+  console.log(`\n${specialMessages.get(name)}`);
+  // Delete, so messages are only logged once
+  specialMessages.delete(name);
 };
+/* --- --- */
 
+// Updates URL hash without triggering hashchange by using history.replaceState
+// Debounced, so updates can only happen every 500ms
 export const updateHash = debounce(hash => {
   if (history.replaceState) {
-    shrug(hash);
+    logSpecialMessage(hash);
     history.replaceState(null, document.title, `#${hash}`);
   }
 }, 500);

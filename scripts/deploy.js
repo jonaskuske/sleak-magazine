@@ -6,7 +6,7 @@ const { version, deployedVersion } = pkg;
 
 const resolve = file => path.resolve(__dirname, file);
 const log = message => {
-  console.log(''); // Leere Zeile einfügen
+  console.log(''); // Add empty line in beginning
 
   if (Array.isArray(message)) message.forEach(msg => console.log(msg));
   else console.log(message);
@@ -18,8 +18,8 @@ const logAndExit = (message, statusCode = 0) => {
 };
 
 /**
- * Veröffentlicht Inhalt von 'dist' zu GitHub Pages
- * und aktualisiert bei Erfolg den Eintrag 'deployedVersion'
+ * Publishes contents of 'dist' to GitHub Pages
+ * and updates entry 'deployedVersion' on success
  */
 const publishToGitHub = () => {
   const writePkg = require('write-pkg');
@@ -66,7 +66,7 @@ const publishToGitHub = () => {
   );
 };
 
-// Abbruch, falls keine gültige Versionsnummer in package.json
+// Abort, if there's no valid version number in package.json
 if (!semver.valid(version)) {
   logAndExit(`Field 'version' in package.json is not valid! Aborting.`);
 }
@@ -74,19 +74,19 @@ if (!semver.valid(version)) {
 const verifyStatus = status => {
   const { current: currentBranch, behind } = status;
 
-  // Abbruch, falls nicht auf branch master
+  // Abort, if not on branch 'master'
   if (currentBranch !== 'master') {
     throw `You can only deploy from branch 'master' but currently are on '${currentBranch}'. Aborting.`;
   }
-  // Abbruch, falls master nicht up-to-date mit origin/master
+  // Abort, if master is not up-to-date with origin/master
   if (!!behind) {
     throw `Your local branch is not up-to-date with 'origin/master'.
         Push or pull all changes before deploying. Aborting.`;
   }
 
   if (semver.valid(deployedVersion)) {
-    // 'deployedVersion' angegeben?
-    // Abbruch, falls 'version' nicht aktueller als 'deployedVersion'
+    // 'deployedVersion' specified?
+    // Abort, if 'version' is not newer than 'deployedVersion'
     if (!semver.gt(version, deployedVersion)) {
       throw [
         `The current version is already deployed. Aborting.`,
@@ -94,7 +94,7 @@ const verifyStatus = status => {
       ];
     }
   } else {
-    // 'deployedVersion' nicht angegeben? Warnen, aber fortfahren
+    // 'deployedVersion' not specified? Issue warning, but continue
     log([
       '⚠',
       `Field 'deployedVersion' in package.json is not a valid version number.`,

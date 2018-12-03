@@ -3,7 +3,7 @@ import './menu';
 import './selection-menu';
 import './detect-scrollbar';
 
-// Falls in production: Service Worker registrieren
+// If in production: register service worker
 if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   navigator.serviceWorker
     .register('/serviceworker.js')
@@ -13,6 +13,7 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
     );
 }
 
+// Make current version available on window, useful for debugging
 window.__version__ = process.env.npm_package_version;
 
 console.log(

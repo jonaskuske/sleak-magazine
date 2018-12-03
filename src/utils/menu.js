@@ -3,9 +3,9 @@ import { $$ } from './';
 const hamburgers = $$('.js-hamburger');
 const menuItems = $$('.js-menu__item');
 
-// Menü durch Hamburger-Button togglen
+// Toggle menu when clicking on hamburger buttons
 hamburgers.forEach(btn => btn.addEventListener('click', toggleMenu));
-// Menü nach Klick auf beliebiges Menüelement schließen
+// Close menus after clicking a menu item
 menuItems.forEach(item => item.addEventListener('click', closeMenu));
 
 function toggleMenu() {

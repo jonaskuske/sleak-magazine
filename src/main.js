@@ -2,7 +2,8 @@ import { $, debounce } from './utils';
 import { startScrollObserver, loadArticle } from './utils/load-article';
 
 async function init() {
-  // Prüfen, ob Gerät ein Touch-Interface hat
+  // Check if device has a touch interface to adjust hint on splash screen
+  // ('click to continue' / 'tap screen to continue')
   const deviceSupportsTouch = Boolean(
     'ontouchstart' in window ||
       window.navigator.maxTouchPoints > 0 ||
@@ -11,7 +12,7 @@ async function init() {
   );
   if (deviceSupportsTouch) document.body.classList.add('supports-touch');
 
-  // Mobile Viewport-Größe manuell berechnen, vgl.:
+  // Manually calculate mobile viewport size, see:
   // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
   const updateWindowHeight = () => {
     const vh = window.innerHeight * 0.01;
@@ -20,27 +21,32 @@ async function init() {
   updateWindowHeight();
   window.addEventListener('resize', debounce(updateWindowHeight, 500));
 
-  // HTML Elemente
+  // HTML elements
   const splash = $('.js-splash');
   const main = $('.js-main');
 
-  // Bei Klick auf Splashscreen zu Content scrollen
+  // Scroll down to first article when clicking/tapping the splash screen
   splash.addEventListener('click', () => {
     main.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   const { hash } = window.location;
   const targetId = hash.slice(1);
+  // Try loading the article specified in the hash
   const targetArticle = await loadArticle(targetId);
+  // No (valid) article? Just load the first one
   if (!targetArticle) await loadArticle(0);
 
+  // Update page to allow scrolling and adjust styling
   document.body.classList.remove('empty');
+  // Start observer, so further articles are loaded upon reaching the end
   startScrollObserver();
 
   // Update sticky header, which has to be repositioned now that an article
   // has been loaded and the window is scrollable
   window.refreshStickyfill(); // ! see utils/polyfills.js
 
+  // If there was a specific article targeted in the URL hash: scroll to it
   if (targetArticle) {
     targetArticle.element.scrollIntoView({
       behavior: 'smooth',
@@ -48,6 +54,7 @@ async function init() {
     });
   }
 
+  // Listen to further hash changes
   window.addEventListener('hashchange', async () => {
     const { hash } = window.location;
     const targetId = hash.slice(1);

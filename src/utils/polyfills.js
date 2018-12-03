@@ -14,6 +14,7 @@ Stickyfill.add(document.querySelectorAll('.stickyfill'));
 // and doesn't have to import its own Stickyfill module instance
 window.refreshStickyfill = Stickyfill.refreshAll;
 
+// Pretty cheap workaround for NodeList.forEach() 🔮
 if (!NodeList.prototype.forEach) {
   NodeList.prototype.forEach = Array.prototype.forEach;
 }
