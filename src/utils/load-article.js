@@ -1,5 +1,4 @@
 import { $$, wait, updateHash } from './';
-import Stickyfill from 'stickyfilljs';
 let queue = Promise.resolve();
 
 // Array, containing an Object with the HTML node and metadata for every article
@@ -40,7 +39,8 @@ const insertToDom = async (article, { fromObserver } = {}) => {
   element.innerHTML = html;
 
   // Add newly added article number to position-sticky polyfill
-  Stickyfill.addOne(element.querySelectorAll('.stickyfill'));
+  // ! method on window supplied by utils/polyfills.js
+  window.addOneStickyfill(element.querySelectorAll('.stickyfill'));
 
   // Mark article as loaded
   element.setAttribute('data-loaded', true);

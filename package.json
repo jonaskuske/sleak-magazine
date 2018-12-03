@@ -1,13 +1,13 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "2.6.10",
+  "version": "2.6.11",
   "description": "Website for »sleak« – design magazine",
   "scripts": {
     "serve": "node scripts/serve.js",
     "build": "parcel build index.html --no-cache --public-url https://sleak-mag.design",
     "build:local": "parcel build index.html --no-cache",
-    "deploy": "npm run build && node scripts/deploy.js",
+    "deploy": "rimraf dist && npm run build && node scripts/deploy.js",
     "lint": "eslint ./ --fix",
     "prettier": "prettier --write *.{js,json,css,md,html}"
   },
@@ -51,6 +51,7 @@
     "postcss-focus-visible": "^4.0.0",
     "posthtml-expressions": "^1.1.0",
     "prettier": "^1.15.2",
+    "rimraf": "^2.6.2",
     "simple-git": "^1.107.0",
     "write-pkg": "^3.2.0",
     "yorkie": "^2.0.0"
