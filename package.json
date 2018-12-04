@@ -16,8 +16,17 @@
     "url": "git+https://github.com/jonaskuske/sleak-magazine.git"
   },
   "keywords": [],
-  "author": "Jonas Kuske",
-  "license": "ISC",
+  "authors": [
+    {
+      "name": "Jonas Kuske",
+      "url": "https://github.com/jonaskuske"
+    },
+    {
+      "name": "Rieke Helmers",
+      "url": "https://github.com/riekehieke"
+    }
+  ],
+  "license": "",
   "bugs": {
     "url": "https://github.com/jonaskuske/sleak-magazine/issues"
   },
