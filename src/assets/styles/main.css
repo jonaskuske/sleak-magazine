@@ -64,8 +64,8 @@ a {
 }
 
 /*
-Image-Wrapper, um Bildern feste Höhe/Seitenverhältnis zu geben
-gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
+Image wrapper, gives images a predictable height/aspect ratio. Prevents
+Content-Jump, see https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 */
 .image {
   display: flex;
@@ -79,7 +79,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   display: block;
   position: relative;
 
-  /*! Definiert Höhe/Seitenverhältnis des Bildes, standardmäßig 56.25% = 16:9 */
+  /*! Defines height/aspect ratio for image, default is 56.25% = 16:9 */
   padding-top: 56.25%;
 }
 .image > picture > img {
@@ -163,7 +163,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
   content: 'Wird geladen...';
 }
 
-/* Footer mit Logo -> Scroll to Top */
+/* Footer with logo -> scroll to top */
 .footer {
   margin-top: auto;
   display: flex;
@@ -190,7 +190,7 @@ gegen Content-Jump, vgl. https://www.voorhoede.nl/en/blog/say-no-to-image-reflow
 .footer__link:hover .footer__logo {
   fill: #e41a1f;
 }
-/* Footer verstecken, falls noch nicht alle Artikel geladen */
+/* Hide footer, if not all articles are loaded yet */
 .article[data-loaded='false'] + .footer {
   display: none;
 }

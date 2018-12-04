@@ -26,7 +26,7 @@
   color: #e41a1f;
 }
 
-/* Header auf Startseite erst anzeigen, wenn erster Artikel geladen */
+/* Show header on landing page only once first article is loaded */
 .empty .header {
   display: none;
 }
@@ -38,7 +38,7 @@
   }
 }
 @media (--viewport-desktop) {
-  /* Header-Hintergrund am Desktop nicht anzeigen */
+  /* No header background on desktop as there's no overlap */
   .header::before {
     height: 100px;
   }

@@ -2,11 +2,11 @@
   min-height: 100vh;
 }
 
-/* Footer abziehen */
+/* Subtract footer */
 .article--subpage:last-child {
   min-height: calc(100vh - 3rem);
 }
-/* Klicks auf Footer durchlassen */
+/* Allow clicks on footer */
 .article--subpage:last-child .article__teaser--subpage {
   pointer-events: none;
 }

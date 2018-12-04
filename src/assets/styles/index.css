@@ -1,8 +1,11 @@
+/* Fonts, have to be imported first for @import to work */
 @import url('./fonts.css');
 
+/* 3rd party CSS */
 @import url('normalize.css');
 @import url('./hamburgers.css');
 
+/* Custom stylesheets, add new ones here */
 @import url('./main.css');
 @import url('./header.css');
 @import url('./menu.css');

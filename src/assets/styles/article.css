@@ -12,7 +12,7 @@
   margin-top: 0;
 }
 
-/* Loading-Bar, erscheint am unteren Rand während nächster Artikel lädt */
+/* Loading-Bar, visible at bottom edge while next article is loading */
 .article[data-loaded='false'] {
   height: 70px;
   background: #e41a1f;
@@ -33,14 +33,14 @@
   color: #fff;
   margin-top: 0.5rem;
 }
-/* Loading-Bar bei allererstem Artikel und bei allen Artikeln, vor denen sich
-   noch ein nicht geladenen Artikel befindet, verstecken */
+/* Hide Loading-Bar for first article and for all articles that are
+  preceded by another article that is not loaded yet (so only one is visible) */
 .article[data-loaded='false']:first-child,
 .article[data-loaded='false'] ~ .article[data-loaded='false'] {
   display: none;
 }
 
-/* Header mit zentrierter Artikelüberschrift */
+/* Header with centred article heading */
 .article__header {
   position: absolute;
   top: 0;
@@ -65,7 +65,7 @@
   }
 }
 
-/* Artikelnummer, "klebt" am oberen Bildschirmrand bis die nächste kommt */
+/* article number, stickied to top edge until next article scrolls into view */
 .article__number-container {
   position: sticky;
   top: 0;
@@ -104,7 +104,7 @@
   max-width: 47rem;
 }
 
-/* Teaser + Author, mittig in Bildschirm füllendem Container */
+/* teaser + author, centred in fullscreen-container */
 .article__teaser {
   position: absolute;
   height: 100vh;
@@ -130,7 +130,7 @@
   font-size: 1rem;
 }
 
-/* Markierung nach Artikel-Ende */
+/* Marker marking the end of an article (little red square) */
 .article > p:last-of-type {
   position: relative;
 }
@@ -150,7 +150,7 @@
   margin-bottom: 1em;
 }
 
-/* Da Teaser absolut positioniert: Folge-Element manuell nach unten schieben */
+/* As teaser container is position absolute: push down next element manually */
 .article__teaser + .article__subtitle,
 .article__teaser + .article__text,
 .article__teaser + .article__list,
@@ -160,7 +160,7 @@
   margin-top: calc(100vh - 70px);
 }
 
-/* Ab hier: Text Styling */
+/* From this point: Styling for text */
 .article__text--highlighted,
 .article__interview {
   color: #e41a1f;

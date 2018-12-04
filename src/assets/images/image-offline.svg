@@ -1,4 +1,4 @@
-<!--Antwort vom Service Worker für Bilder, falls offline & nicht im Cache-->
+<!--Response from Service Worker for images, if offline & not cached yet-->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <style>

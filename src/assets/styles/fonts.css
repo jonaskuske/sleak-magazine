@@ -2,6 +2,6 @@
 
 @font-face {
   font-family: 'Bebas Neue';
-  font-display: swap;
+  font-display: swap; /* TODO: Keep swap or force font & sacrifice perf? */
   src: url('../fonts/BebasNeue.otf') format('opentype');
 }
