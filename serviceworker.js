@@ -20,7 +20,7 @@ const STATIC_ASSETS = [
   './articles/axel-bertram.html',
   './articles/bringt-farbe-in-die-stadt.html',
   './articles/wie-ki-die-designwelt-aendert.html',
-  './articles/kunst-design.html',
+  './articles/design-kunst.html',
   './articles/digitale-medien.html',
   './articles/moin-melanka.html',
   './articles/back-to-print.html',
