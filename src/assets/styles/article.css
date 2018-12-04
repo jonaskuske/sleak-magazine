@@ -146,6 +146,10 @@
   content: none;
 }
 
+.article__text:last-child {
+  margin-bottom: 1em;
+}
+
 /* Da Teaser absolut positioniert: Folge-Element manuell nach unten schieben */
 .article__teaser + .article__subtitle,
 .article__teaser + .article__text,
