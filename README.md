@@ -34,3 +34,9 @@ There also is a print version, which you can buy [here](https://sleak-mag.design
 1. Make sure you're on the master branch and that all is up-to-date.
 2. Ensure the version number in package.json is higher than that of [the last release](https://github.com/jonaskuske/sleak-magazine/releases)
 3. Run `npm run deploy`
+
+## License
+
+The code implementation of this product is MIT licensed, as found in the LICENSE file.
+Assets not concerned with the logic and implementation (like photographs or the written articles themselves) are NOT included under this license.  
+You may read/inspect them, but they are owned by their respective authors/creators and subject to, among others, German copyright law.
