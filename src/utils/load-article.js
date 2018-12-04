@@ -6,6 +6,7 @@ const articles = $$('.article').map((element, index) => ({
   element,
   index,
   name: element.id,
+  title: false, // Set once article is scrolled into view
   path: `./articles/${element.id}.html`,
   inViewport: false,
 }));
@@ -61,7 +62,7 @@ const insertToDom = async (article, { fromObserver } = {}) => {
 const loadArticleIfNeeded = (article, options = {}) => {
   // Already loaded: Return immediately, nothing to do here...
   const isLoaded = article.element.getAttribute('data-loaded') === 'true';
-  if (isLoaded) return;
+  if (isLoaded) return Promise.resolve();
 
   // Loading from observer: Wait until previous articles (queue) are loaded,
   // then load, if article is still in viewport
@@ -70,7 +71,8 @@ const loadArticleIfNeeded = (article, options = {}) => {
     return (queue = queue.then(() => {
       // will only be run after all other function chained using
       // queue = queue.then() are done
-      article.inViewport && insertToDom(article, options);
+      if (article.inViewport) return insertToDom(article, options);
+      else return Promise.resolve();
     }));
   }
 
@@ -90,16 +92,23 @@ function startScrollObserver() {
       article.inViewport = entry.isIntersecting;
 
       if (article.inViewport) {
-        // Update hash, so URL links directly to current article
-        updateHash(article.name);
         // Load the article
-        loadArticleIfNeeded(article, { fromObserver: true });
+        loadArticleIfNeeded(article, { fromObserver: true }).then(() => {
+          // Try retrieving the article's title if it isn't there already
+          if (!article.title) {
+            const titleEl = article.element.querySelector('h1');
+            const title = titleEl && `${titleEl.textContent} – sleak`;
+            article.title = title;
+          }
+          // Update hash, so URL links directly to current article
+          updateHash(article.name, article.title);
+        });
       } else {
         const visibleArticle = articles.find(({ inViewport }) => inViewport);
-        // No single article visible, but a URL hash is set? Reset
-        if (!visibleArticle) location.hash && updateHash('');
+        // No single article visible? Reset
+        if (!visibleArticle) updateHash('', 'sleak – design magazine');
         // Else: Set hash to (still) visible article
-        else updateHash(visibleArticle.name);
+        else updateHash(visibleArticle.name, visibleArticle.title);
       }
     });
   };
