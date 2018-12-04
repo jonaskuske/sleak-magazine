@@ -238,6 +238,9 @@
     font-size: 1.8rem;
     line-height: 3rem;
   }
+  .article__image-caption {
+    padding: 0.8em 1em 0;
+  }
   .article__teaser + .article__subtitle,
   .article__teaser + .article__text,
   .article__teaser + .article__list,
