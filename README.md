@@ -37,6 +37,6 @@ There also is a print version, which you can buy [here](https://sleak-mag.design
 
 ## License
 
-The code implementation of this product is MIT licensed, as found in the LICENSE file.
-Assets not concerned with the logic and implementation (like photographs or the written articles themselves) are NOT included under this license.  
+The code implementation of this product is MIT licensed, as found in the LICENSE file.  
+Assets not concerned with the logic and implementation are NOT included under this license. (like photographs or the written articles themselves)  
 You may read/inspect them, but they are owned by their respective authors/creators and subject to, among others, German copyright law.
