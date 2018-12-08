@@ -2,6 +2,7 @@ module.exports = {
   plugins: {
     autoprefixer: { grid: true },
     'postcss-focus-visible': { preserve: false },
+    'postcss-smoothscroll-anchor-polyfill': {},
     'postcss-custom-media': {
       preserve: false,
       importFrom: {
