@@ -145,5 +145,5 @@ async function loadArticle(target) {
   return targetArticle;
 }
 
-export { startScrollObserver, loadArticle };
+export { startScrollObserver, loadArticle, articles };
 export default loadArticle;

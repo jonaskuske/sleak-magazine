@@ -1,5 +1,9 @@
-import { $, debounce } from './utils';
-import { startScrollObserver, loadArticle } from './utils/load-article';
+import { $, debounce, isCrawler } from './utils';
+import {
+  startScrollObserver,
+  loadArticle,
+  articles,
+} from './utils/load-article';
 
 async function init() {
   // Check if device has a touch interface to adjust hint on splash screen
@@ -36,6 +40,9 @@ async function init() {
   const targetArticle = await loadArticle(targetId);
   // No (valid) article? Just load the first one
   if (!targetArticle) await loadArticle(0);
+
+  // Crawler? Load all articles, at least those running JS get all markup (SEO)
+  if (isCrawler) await loadArticle(articles.length - 1);
 
   // Update page to allow scrolling and adjust styling
   document.body.classList.remove('empty');

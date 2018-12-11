@@ -44,6 +44,10 @@ export const debounce = (fn, wait = 0) => {
   };
 };
 
+export const isCrawler = /bot|googlebot|crawler|spider|robot|crawling/i.test(
+  navigator.userAgent,
+);
+
 /* --- Easteregg-ish stuff --- */
 const specialMessages = new Map([
   // Articles
