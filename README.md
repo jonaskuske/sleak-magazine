@@ -2,18 +2,16 @@
 
 <p align="center">Website for German design magazine »sleak«.</p>
 
-<p align="center"><a href="https://sleak-mag.design"><img alt="sleak logo on red background" src="./static/sleak.jpg" width="550"></a></p>
+<p align="center"><a href="https://dmp-magazin.de"><img alt="sleak logo on red background" src="./static/sleak.jpg" width="550"></a></p>
 
 &nbsp;  
 &nbsp;
-
-> ⚠ The website under sleak-mag.design is currently offline, you need to build it locally to experience it!
 
 ## About
 
 A ~~sleek~~ sleak design magazine, written (in German), designed and developed by students from [University of Applied Sciences Bremerhaven](https://www.hs-bremerhaven.de/start/).  
 The web version is built as a one-page design, with the next article being loaded automatially upon reaching the end of the current one.  
-There also is a print version, which you can buy [here](https://sleak-mag.design/print).
+There also is a print version, which you can buy [here](https://dmp-magazin.de/print).
 
 ## Instructions
 

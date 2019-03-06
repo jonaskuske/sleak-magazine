@@ -1,11 +1,11 @@
 {
   "name": "sleak-magazine",
   "private": true,
-  "version": "2.9.1",
+  "version": "3.0.0",
   "description": "Website for »sleak« – design magazine",
   "scripts": {
     "serve": "node scripts/serve.js",
-    "build": "parcel build index.html --no-cache --public-url https://sleak-mag.design",
+    "build": "parcel build index.html --no-cache --public-url https://dmp-magazin.de",
     "build:local": "parcel build index.html --no-cache",
     "deploy": "rimraf dist && npm run build && node scripts/deploy.js",
     "lint": "eslint ./ --fix",
@@ -31,7 +31,7 @@
     "url": "https://github.com/jonaskuske/sleak-magazine/issues"
   },
   "sitemap": {
-    "siteURL": "https://sleak-mag.design/",
+    "siteURL": "https://dmp-magazin.de/",
     "exclude": [
       "articles/*",
       "404.html",

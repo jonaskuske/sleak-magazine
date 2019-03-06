@@ -2,8 +2,8 @@
  * Anchors point to /team, /print etc. instead of to /team.html or /print.html
  * Parcel's default devServer doesn't handle this so we need our own middleware
  */
-require('dotenv').config();
 const fs = require('fs');
+const dotenv = require('dotenv');
 const path = require('path');
 const express = require('express');
 const Bundler = require('parcel-bundler');
@@ -11,14 +11,16 @@ const fastGlob = require('fast-glob');
 const chalk = require('chalk');
 const app = express();
 
-const PORT = 8080;
+const fromRoot = file => path.resolve(__dirname, '../', file);
 
+dotenv.config();
+dotenv.config({ path: path.join(process.cwd(), '.env.local') });
+
+const PORT = process.env.PORT || 8080;
 const { HTTPS_CERT, HTTPS_KEY } = process.env;
 const httpsEnabled = Boolean(HTTPS_CERT && HTTPS_KEY);
 const cert = httpsEnabled && path.join(process.cwd(), HTTPS_CERT);
 const key = httpsEnabled && path.join(process.cwd(), HTTPS_KEY);
-
-const fromRoot = file => path.resolve(__dirname, '../', file);
 
 const aliases = new Map();
 fastGlob
