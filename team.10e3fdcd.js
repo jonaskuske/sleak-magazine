@@ -3,4 +3,4 @@ parcelRequire=function(e,r,n,t){var i="function"==typeof parcelRequire&&parcelRe
 },{}],"EpKj":[function(require,module,exports) {
 "use strict";var e=require("./utils"),i=function(){var i=(0,e.$$)("article .team__image"),r=new IntersectionObserver(function(i){i.forEach(function(i){var r=i.target;if(i.isIntersecting){var t=r.closest("article");(0,e.updateHash)(t.id),t.classList.add("show-image")}})},{rootMargin:"-1px 0px"}),t=r.observe.bind(r);i.forEach(t)};window.onload=i;
 },{"./utils":"iWjG"}]},{},["EpKj"], null)
-//# sourceMappingURL=https://sleak-mag.design/team.10e3fdcd.map
+//# sourceMappingURL=https://dmp-magazin.de/team.10e3fdcd.map
