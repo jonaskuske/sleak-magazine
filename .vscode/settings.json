@@ -3,5 +3,11 @@
     "editor.formatOnSave": false,
     "editor.formatOnPaste": false,
     "editor.formatOnType": false
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#e41a1f",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#ad1416",
+    "titleBar.inactiveForeground": "#d1d1d1"
   }
 }
