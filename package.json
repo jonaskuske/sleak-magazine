@@ -5,7 +5,7 @@
   "description": "Website for »sleak« – design magazine",
   "scripts": {
     "serve": "node scripts/serve.js",
-    "build": "parcel build index.html --no-cache --public-url https://dmp-magazin.de",
+    "build": "parcel build index.html --no-cache --public-url ./",
     "build:local": "parcel build index.html --no-cache",
     "deploy": "rimraf dist && npm run build && node scripts/deploy.js",
     "lint": "eslint ./ --fix",

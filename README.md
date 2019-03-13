@@ -4,14 +4,14 @@
 
 <p align="center"><a href="https://dmp-magazin.de"><img alt="sleak logo on red background" src="./static/sleak.jpg" width="550"></a></p>
 
-&nbsp;  
+&nbsp;
 &nbsp;
 
 ## About
 
-A ~~sleek~~ sleak design magazine, written (in German), designed and developed by students from [University of Applied Sciences Bremerhaven](https://www.hs-bremerhaven.de/start/).  
-The web version is built as a one-page design, with the next article being loaded automatially upon reaching the end of the current one.  
-There also is a print version, which you can buy [here](https://dmp-magazin.de/print).
+A ~~sleek~~ sleak design magazine, written (in German), designed and developed by students from [University of Applied Sciences Bremerhaven](https://www.hs-bremerhaven.de/start/).
+The web version is built as a one-page design, with the next article being loaded automatially upon reaching the end of the current one.
+There also is a print version, which you can buy [here](https://dmp-magazin.de/print.html).
 
 ## Instructions
 
@@ -22,8 +22,8 @@ There also is a print version, which you can buy [here](https://dmp-magazin.de/p
 
 ### Build
 
-> Note: This is only neccessary if you want to inspect what the production version looks like on your machine.  
->  When you deploy, this command will run _automatically_ before publishing.
+> Note: This is only neccessary if you want to inspect what the production version looks like on your machine.
+> When you deploy, this command will run _automatically_ before publishing.
 
 - Build a production-ready version with minification etc.: `npm run build`
 
@@ -37,6 +37,6 @@ There also is a print version, which you can buy [here](https://dmp-magazin.de/p
 
 ## License
 
-The code implementation of this product is MIT licensed, as found in the LICENSE file.  
-Assets not concerned with the logic and implementation are NOT included under this license. (like photographs or the written articles themselves)  
+The code implementation of this product is MIT licensed, as found in the LICENSE file.
+Assets not concerned with the logic and implementation are NOT included under this license. (like photographs or the written articles themselves)
 You may read/inspect them, but they are owned by their respective authors/creators and subject to, among others, German copyright law.

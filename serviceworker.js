@@ -12,9 +12,9 @@ const ALLOWED_CACHES = [
 
 const STATIC_ASSETS = [
   '.',
-  './team', // TODO: remove in favor of sw rerouting
-  './print', // TODO: remove in favor of sw rerouting
-  './rechtliches', // TODO: remove in favor of sw rerouting
+  './team.html', // TODO: remove in favor of sw rerouting
+  './print.html', // TODO: remove in favor of sw rerouting
+  './rechtliches.html', // TODO: remove in favor of sw rerouting
   './articles/projekt-antarktis.html',
   './articles/film-ab-bheaven.html',
   './articles/axel-bertram.html',
@@ -93,7 +93,7 @@ const isResponseCacheable = response => {
   return true;
 };
 // const shouldAppendHTML = pathname => {
-//   return /(\/rechtliches|\/team|\/print)$/.test(pathname);
+//   return /(\/rechtliches.html|\/team.html|\/print.html)$/.test(pathname);
 // };
 
 const requestFailingWith404 = event => {
@@ -142,7 +142,7 @@ self.addEventListener('fetch', event => {
   let url = new URL(request.url);
   /*console.log('%c🌐 Pathname: ' + url.pathname, 'color:darkblue', 'color:#000');
     console.log(url.pathname);
-    // ! Re-route /print to /print.html etc.
+    // ! Re-route /print.html to /print.html etc.
     if (shouldAppendHTML(url.pathname)) {
       // Update pathname with HTML file extension
       url.pathname += '.html';

@@ -1,5 +1,5 @@
 /**
- * Anchors point to /team, /print etc. instead of to /team.html or /print.html
+ * Anchors point to /team.html, /print.html etc. instead of to /team.html or /print.html
  * Parcel's default devServer doesn't handle this so we need our own middleware
  */
 const fs = require('fs');
