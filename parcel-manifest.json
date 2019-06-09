@@ -22,16 +22,15 @@
   "src/assets/icons/android-icon-512x512.png": "https:/dmp-magazin.de/android-icon-512x512.b3f27cdc.png",
   "src/assets/icons/android-icon-1024x1024.png": "https:/dmp-magazin.de/android-icon-1024x1024.8018bda3.png",
   "src/assets/icons/ms-icon-144x144.png": "https:/dmp-magazin.de/ms-icon-144x144.b6c72459.png",
-  "src/assets/styles/index.css": "https:/dmp-magazin.de/styles.7fdea66a.css",
-  "src/assets/styles/fonts.css": "https:/dmp-magazin.de/styles.63b51bc8.map",
+  "src/assets/styles/index.css": "https:/dmp-magazin.de/styles.52472b88.css",
   "src/assets/fonts/BebasNeue.otf": "https:/dmp-magazin.de/BebasNeue.543f6143.otf",
   "src/assets/images/image-loading.svg": "https:/dmp-magazin.de/image-loading.91ecacb7.svg",
-  "src/utils/appshell.js": "https:/dmp-magazin.de/appshell.b7e8e802.js",
+  "src/utils/appshell.js": "https:/dmp-magazin.de/appshell.37256db4.js",
   "serviceworker.js": "https:/dmp-magazin.de/serviceworker.js",
-  "src/main.js": "https:/dmp-magazin.de/main.da3e2893.js",
+  "src/main.js": "https:/dmp-magazin.de/main.8358d2cb.js",
   "src/assets/images/sleak-logo.svg": "https:/dmp-magazin.de/sleak-logo.7441a400.svg",
   "team.html": "https:/dmp-magazin.de/team.html",
-  "src/team.js": "https:/dmp-magazin.de/team.10e3fdcd.js",
+  "src/team.js": "https:/dmp-magazin.de/team.5b6c1758.js",
   "src/assets/images/team/felix.jpg": "https:/dmp-magazin.de/felix.c18d6a85.jpg",
   "src/assets/images/team/michaela.jpg": "https:/dmp-magazin.de/michaela.b3caf84a.jpg",
   "src/assets/images/team/viktoria.jpg": "https:/dmp-magazin.de/viktoria.3d42f0f8.jpg",
@@ -54,5 +53,5 @@
   "src/assets/images/sleak-opened-2200x.jpg": "https:/dmp-magazin.de/sleak-opened-2200x.0109bfb5.jpg",
   "rechtliches.html": "https:/dmp-magazin.de/rechtliches.html",
   "404.html": "https:/dmp-magazin.de/404.html",
-  "src/assets/styles/404.css": "https:/dmp-magazin.de/404.e8b858d3.css"
+  "src/assets/styles/404.css": "https:/dmp-magazin.de/404.84480b58.css"
 }
