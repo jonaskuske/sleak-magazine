@@ -41,7 +41,7 @@ const insertToDom = async (article, { fromObserver } = {}) => {
 
   // Add newly added article number to position-sticky polyfill
   // ! method on window supplied by utils/polyfills.js
-  window.addOneStickyfill(element.querySelectorAll('.stickyfill'));
+  window.Stickyfill.addOne(element.querySelectorAll('.stickyfill'));
 
   // Mark article as loaded
   element.setAttribute('data-loaded', true);

@@ -51,7 +51,7 @@ async function init() {
 
   // Update sticky header, which has to be repositioned now that an article
   // has been loaded and the window is scrollable
-  window.refreshStickyfill(); // ! see utils/polyfills.js
+  window.Stickyfill.refreshAll(); // ! see utils/polyfills.js
 
   // If there was a specific article targeted in the URL hash: scroll to it
   if (targetArticle) {
