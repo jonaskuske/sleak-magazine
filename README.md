@@ -1,11 +1,15 @@
+
 <h1 align="center">sleak-magazine</h1>
 
 <p align="center">Website for German design magazine »sleak«.</p>
 
 <p align="center"><a href="https://dmp-magazin.de"><img alt="sleak logo on red background" src="./static/sleak.jpg" width="550"></a></p>
 
-&nbsp;  
-&nbsp;
+<br>
+
+<p align="center">⚠️ Repo now lives at https://gitlab.hs-bremerhaven.de/jkuske/sleak-magazine</p>
+
+<br>
 
 ## About
 
